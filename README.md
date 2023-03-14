@@ -1,2 +1,2 @@
-# SE-Project
+# se_project
 Website for Paktree
