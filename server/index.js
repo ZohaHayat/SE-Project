@@ -1,5 +1,4 @@
 const express = require("express");
-const mysql = require("mysql");
 const cors = require("cors");
 const e = require("express");
 const bcrypt = require("bcrypt");
@@ -18,3 +17,8 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(cors());
 app.use(express.json());
+
+// const port = 8000
+// app.listen(port)
+
+app.listen(process.env.PORT || 3001);
