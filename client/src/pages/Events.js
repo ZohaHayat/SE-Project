@@ -1,4 +1,5 @@
 import React from 'react'
+import Axios from "axios"
 import {EventList} from '../helpers/EventList'
 import EventItem from '../components/eventItem'
 import "../styles/event.css"
