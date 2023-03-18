@@ -22,3 +22,11 @@ app.use(express.json());
 // app.listen(port)
 
 app.listen(process.env.PORT || 3001);
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://<username>:<password>@ngo.a4mmh2z.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  client.close();
+});
