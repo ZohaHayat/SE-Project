@@ -1,17 +1,8 @@
 import React from 'react'
 import Axios from "axios"
 import "../styles/about.css"
-import { useState, useEffect } from "react";
 
 function About() {
-
-    const [abouts, setabout] = useState([]);
-
-    useEffect(() => {
-        Axios.get("http://localhost:3001/aboutus").then((response) => {
-            setabout(response.data);
-        });
-    },[]);
 
     return (
         <div className = "About">
