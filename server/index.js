@@ -25,8 +25,21 @@ app.use(express.json());
 app.listen(process.env.PORT || 3001);
 
 const uri = "mongodb+srv://zoha:fvelarisr@ngo.a4mmh2z.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
+const client = new MongoClient(uri);
+client.connect(success => {
+  const db = client.db("NGOdatabase");
+
+  app.get("/aboutus", (req, res) => {
+    var abt = db.getCollection("About_us")
+    db.About_us.find({"index":{$eq:"1"}}, {"Mission":1, "_id":0}, function(err, result) {
+      if (err) {
+        console.log([{"Mission":"hili"}]);
+      } else {
+        res.send([{"Mission":"hi"}]);
+      }
+    })
+  });
+
+
   client.close();
 });
