@@ -2,13 +2,14 @@
 const { MongoClient } = require('mongodb');
 
 let dbConnection;
+const uri = "mongodb+srv://nida:fkoB2d39k1pMF5Y8@ngo.a4mmh2z.mongodb.net/?retryWrites=true&w=majority";
 
 module.exports = {
     //first function will establish connection to database
     connectToDb: (callbackFunction) => {
-        MongoClient.connect('mongodb://localhost:27017/paktree') //this function is asynchronous and returns a promise
+        MongoClient.connect(uri) //this function is asynchronous and returns a promise
             .then( (client) => {
-                dbConnection = client.db(); //returns database connection i.e. an interface we can use to intrecat with db
+                dbConnection = client.db("NGOdatabase"); //returns database connection i.e. an interface we can use to intrecat with db
                 return callbackFunction();
             })
             .catch( (err)=> {
