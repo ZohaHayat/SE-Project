@@ -9,6 +9,7 @@ import Events from './pages/Events'
 import About from './pages/about'
 import Stories from './pages/stories'
 import Team from './pages/team'
+import News from './pages/news'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route exact path = '/about' element = {<About/>}/>
         <Route exact path = '/stories' element = {<Stories/>}/>
         <Route exact path = '/team' element = {<Team/>}/>
+        <Route exact path = '/news' element = {<News/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
       <Footer/>
