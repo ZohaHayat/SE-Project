@@ -3,9 +3,11 @@ import Logo from '../assets/tree_logo.png' //.. to get out of the components fol
 import {Link} from 'react-router-dom'
 import ReorderIcon from '@mui/icons-material/Reorder';
 import '../styles/Navbar.css'
+import { useNavigate } from 'react-router-dom';
 
 function NavBar() {
     const [openLinks, setOpenLinks] = useState(false)
+    let navigate = useNavigate();
     //whenever we change the value of the state, the website will be re-rendered so that the display is according to the new state
     const toggleNavbar = () => {
         setOpenLinks(!openLinks) //set is to opposite of what it is
@@ -48,6 +50,7 @@ function NavBar() {
                         <Link to ="/news">News</Link>
                     </div>
             </div>
+            <div className="login"><button className ="loginbutton" onClick={()=>navigate("/login")}>Login</button></div>
         </div>
         <div className = "rightSide">
             {/* <Link to ="/">Home</Link>

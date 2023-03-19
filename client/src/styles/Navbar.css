@@ -137,6 +137,23 @@
     text-decoration: none;
     display: block;
   }
+
+  .navbar .login {
+    position: relative;
+    display: inline-block;
+  }
+  .navbar .loginbutton {
+    text-align: center;
+    width: 100px; 
+    height: 30px;
+    /* margin-top: 15px; */
+    margin-left: 650%;
+    align-items: right;
+    border-radius: 100px;
+    font-size: 16px;
+    display: block;
+    background: #92D4D2;
+  }
   
   /* Change color of dropdown links on hover */
   .navbar .dropdown-content a:hover {background-color: #ddd;}
