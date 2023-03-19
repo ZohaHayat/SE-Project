@@ -45,7 +45,7 @@ function NavBar() {
                 <button className ="dropbtn">Updates</button>
                     <div className ="dropdown-content">
                         <Link to ="/donate">Stories</Link>
-                        <Link to ="/sponsor">News</Link>
+                        <Link to ="/news">News</Link>
                     </div>
             </div>
         </div>
