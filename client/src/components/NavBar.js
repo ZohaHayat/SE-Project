@@ -46,8 +46,8 @@ function NavBar() {
             <div className ="dropdown">
                 <button className ="dropbtn">Updates</button>
                     <div className ="dropdown-content">
-                        <Link to ="/donate">Stories</Link>
-                        <Link to ="/sponsor">News</Link>
+                        <Link to ="/stories">Stories</Link>
+                        <Link to ="/news">News</Link>
                     </div>
             </div>
             <div className="login"><button className ="loginbutton" onClick={()=>navigate("/login")}>Login</button></div>
@@ -82,8 +82,8 @@ function NavBar() {
             <div className ="dropdown">
                 <button className ="dropbtn">Updates</button>
                     <div className ="dropdown-content">
-                        <Link to ="/donate">Stories</Link>
-                        <Link to ="/sponsor">News</Link>
+                        <Link to ="/stories">Stories</Link>
+                        <Link to ="/news">News</Link>
                     </div>
             </div>
             <button onClick = {toggleNavbar}>

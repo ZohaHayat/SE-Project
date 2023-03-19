@@ -8,6 +8,7 @@ const saltRounds = 10;
 const { connectToDb, getDb } = require('./db'); //importing functions from db.js
 
 const app = express();
+app.use(cors())
 
 const path = express("path");
 
@@ -19,6 +20,19 @@ connectToDb((err)=>{
     db = getDb(); // this will return database connection object
 
   }
+})
+
+app.get('/stories', (req,res)=> {
+  let storiesArr = [] //name,date,text
+  db.collection('Stories')
+    .find() 
+    .forEach(elem => storiesArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:storiesArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
 })
 
 // app.get('/aboutus', (req,res)=> {
@@ -34,7 +48,5 @@ connectToDb((err)=>{
 //       res.status(500).json({error:"could not fetch documents"})
 //     });
 // })
-
-
 
 

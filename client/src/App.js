@@ -7,6 +7,8 @@ import Footer from "./components/Footer"
 import Home from './pages/Home'
 import Events from './pages/Events'
 import About from './pages/about'
+import Stories from './pages/stories'
+import Team from './pages/team'
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route exact path = '/' element = {<Home/>}/>
         <Route exact path = '/events' element = {<Events/>}/>
         <Route exact path = '/about' element = {<About/>}/>
+        <Route exact path = '/stories' element = {<Stories/>}/>
+        <Route exact path = '/team' element = {<Team/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
       <Footer/>

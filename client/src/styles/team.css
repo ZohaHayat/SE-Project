@@ -1,0 +1,44 @@
+.Team {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: 30px;
+    margin: 20px;
+    /* font-size: medium; */
+    text-align: left;
+}
+
+img {
+    border-radius: 50%;
+    width: 100px;
+    height: auto;
+}
+
+.Teamheading {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #205567;
+    /* font-size: medium; */
+    text-align: center;
+} 
+
+.flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 1;
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+} 
