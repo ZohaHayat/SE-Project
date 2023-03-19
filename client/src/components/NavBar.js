@@ -13,21 +13,76 @@ function NavBar() {
     return (
     <div className = "navbar">
         <div className = "leftSide" id ={openLinks ? "open" : "close" }>
-            <img src={Logo}/>
-            PakTree
+            {/* <img src={Logo}/> */}
+            <Link to ="/"><img src={Logo}/>PakTree</Link>
             <div className = "hiddenLinks">
-                <Link to ="/">Home</Link>
-                <Link to ="/events">Events</Link>
-                <Link to ="/about">About</Link>
-                <Link to ="/contact">Contact</Link>
-
+                {/* <Link to ="/">Home</Link> */}
+                {/* <Link to ="/events">Events</Link> */}
+                {/* <Link to ="/about">About Us</Link>
+                <Link to ="/about">Get Involved</Link>
+                <Link to ="/contact">Updates</Link> */}
+            </div>
+            <div className ="dropdown">
+                <button className ="dropbtn">About Us</button>
+                    <div className ="dropdown-content">
+                        <Link to ="/about">About Us</Link>
+                        <Link to ="/team">View Team</Link>
+                        <Link to ="/contact">Contact Us</Link>
+                    </div>
+            </div>
+            <div className ="dropdown">
+                <button className ="dropbtn">Get Involved</button>
+                    <div className ="dropdown-content">
+                        <Link to ="/donate">Donate</Link>
+                        <Link to ="/sponsor">Sponsor</Link>
+                        <Link to ="/volunteer">Volunteer</Link>
+                        <Link to ="/events">Viw Upcoming Events</Link>
+                        <Link to ="/careers">Careers</Link>
+                        <Link to ="/member">Become a Member</Link>
+                    </div>
+            </div>
+            <div className ="dropdown">
+                <button className ="dropbtn">Updates</button>
+                    <div className ="dropdown-content">
+                        <Link to ="/donate">Stories</Link>
+                        <Link to ="/sponsor">News</Link>
+                    </div>
             </div>
         </div>
         <div className = "rightSide">
-            <Link to ="/">Home</Link>
+            {/* <Link to ="/">Home</Link>
             <Link to ="/events">Events</Link>
-            <Link to ="/about">About</Link>
-            <Link to ="/contact">Contact</Link>
+            <Link to ="/about">About Us</Link>
+            <Link to ="/about">Get Involved</Link>
+            <Link to ="/contact">Updates</Link> */}
+            {/* <Link to ="/">Home</Link> */}
+            {/* <Link to ="/events">Events</Link> */}
+            <div className ="dropdown">
+                <button className ="dropbtn">About Us</button>
+                    <div className ="dropdown-content">
+                        <Link to ="/about">About Us</Link>
+                        <Link to ="/team">View Team</Link>
+                        <Link to ="/contact">Contact Us</Link>
+                    </div>
+            </div>
+            <div className ="dropdown">
+                <button className ="dropbtn">Get Involved</button>
+                    <div className ="dropdown-content">
+                        <Link to ="/donate">Donate</Link>
+                        <Link to ="/sponsor">Sponsor</Link>
+                        <Link to ="/volunteer">Volunteer</Link>
+                        <Link to ="/events">Viw Upcoming Events</Link>
+                        <Link to ="/careers">Careers</Link>
+                        <Link to ="/member">Become a Member</Link>
+                    </div>
+            </div>
+            <div className ="dropdown">
+                <button className ="dropbtn">Updates</button>
+                    <div className ="dropdown-content">
+                        <Link to ="/donate">Stories</Link>
+                        <Link to ="/sponsor">News</Link>
+                    </div>
+            </div>
             <button onClick = {toggleNavbar}>
             <ReorderIcon/>
             </button>
