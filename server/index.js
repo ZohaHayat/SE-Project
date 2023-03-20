@@ -2,6 +2,7 @@ const express = require("express");
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const cors = require("cors");
 const e = require("express");
+const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
@@ -11,6 +12,8 @@ const app = express();
 app.use(cors())
 
 const path = express("path");
+
+
 
 let db;
 connectToDb((err)=>{
@@ -34,7 +37,6 @@ app.get('/stories', (req,res)=> {
       res.status(500).json({msg:"error",list:[]});
     });
 })
-
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
 //   db.collection('About_us')
