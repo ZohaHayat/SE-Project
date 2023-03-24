@@ -18,6 +18,8 @@ import Login from './pages/login'
 import Signup from './pages/signup'
 import Loginhome from './pages/loginhome'
 import Donate from './pages/donate'
+import Volunteer from './pages/volunteer'
+import VolunteerForm from './pages/volunteerform'
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
         <Route exact path = '/signup' element = {<Signup/>}/>
         <Route exact path = '/loginhome' element = {<Loginhome/>}/>
         <Route exact path = '/donate' element = {<Donate/>}/>
+        <Route exact path = '/volunteer' element = {<Volunteer/>}/>
+        <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
       <Footer/>
