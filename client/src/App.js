@@ -57,7 +57,7 @@ function App() {
         <Route exact path = '/donate' element = {<Donate/>}/>
         <Route exact path = '/volunteer' element = {<Volunteer/>}/>
         <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
-        <Route exact path = '/change' element = {<Change/>}/>
+        <Route exact path = '/changepass' element = {<Change/>}/>
         <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>

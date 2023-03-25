@@ -27,12 +27,12 @@ const Signup =()=>{
                 if(response.data === "User already exists")
                 {
                     // alert("Failed! Account not recognised. Please sign up or check log in details.");
-                    navigate("/loginhome")
+                    navigate("/")
                     // alert("User account already exists");
                 }
                 else if (response.data === "Success")
                 {
-                    navigate("/loginhome");
+                    navigate("/login");
                 }
             });
 
@@ -50,17 +50,17 @@ const Signup =()=>{
                 <div className="sign_form">
                     <div className='name_contain'>
                     <div className="form-group">
-                    <input type="text" className="your-name" name="your-name" placeholder='First Name' required onChange={(event) => {setFname(event.target.value)}}/>
+                    <input type="text" className="your-name" placeholder='First Name' required onChange={(event) => {setFname(event.target.value)}}/>
                     </div>
                     <div className="form-group">
-                    <input type="text" className="your-name" name="your-name" placeholder='Last Name' required onChange={(event) => {setLname(event.target.value)}}/>
+                    <input type="text" className="your-name" placeholder='Last Name' required onChange={(event) => {setLname(event.target.value)}}/>
                     </div>
                     </div>
                     <div className="form-group">
-                    <input type="email" className="sign_email" name="sign_email" placeholder='Email' required onChange={(event) => {setEmail(event.target.value)}}/>
+                    <input type="email" className="sign_email" placeholder='Email' required onChange={(event) => {setEmail(event.target.value)}}/>
                     </div>
                     <div className="form-group">
-                    <input type="password" className="sign_email" name="sign_email" placeholder='Password' required onChange={(event) => {setPassword(event.target.value)}}/>
+                    <input type="password" className="sign_email" placeholder='Password' required onChange={(event) => {setPassword(event.target.value)}}/>
                     </div>
                     <button type="submit" className="sign-submit-button">
                     Signup
