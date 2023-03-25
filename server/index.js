@@ -84,20 +84,22 @@ app.post('/signup', (req,res)=> {
       console.log(resul)
       if (resul != null)
       {
+        console.log("hello")
         res.send("User already exists")
       }
       else 
       {
-        db.collection('Users').insertOne(newDoc).then((result) => {
-          console.log(result.acknowledged)
-          if (result.acknowledged == true)
-          {
-            res.send("Success")
-          }
-          else
-          {
-            res.send("Error")
-          }
+        db.collection('Users').insertOne(newDoc).then((x) => {
+          console.log(x.acknowledged)
+          res.send("Success")
+          // if (result.acknowledged === true)
+          // {
+          //   res.send("Success")
+          // }
+          // else
+          // {
+          //   res.send("Error")
+          // }
         })
       }
     })
@@ -128,22 +130,6 @@ app.post('/login', (req,res)=> {
       })
     }
   })
-  //   if (succ){
-  //     // res.send({ message: 'Data updated successfully' })
-  //     // res.status(200).json({msg:"success"});
-  //     res.send("Found user")
-  //   }
-  //   else {
-  //     db.collection('Directors').findOne({Email: email, Password: pass}, (err, succ) => {
-  //       if (succ){
-  //         res.send("Found director")
-  //       }
-  //       else {
-  //         res.send("User not found")
-  //       }
-  //     })
-  //   }
-  // })
 })
 
 app.post("/volunteersubmit",(req, res) =>{
@@ -203,10 +189,10 @@ app.post('/del', (req,res)=> {
 
   console.log(email)
 
-  db.collection('Users').deleteOne({ Email: email }, function(err, result) {
-      console.log("Document deleted successfully");
+  db.collection('Users').deleteOne({ Email: email }).then((result) => {
+    console.log("Document deleted successfully");
       res.send("Success")
-  });
+  })
 })
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
