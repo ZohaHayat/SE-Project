@@ -23,17 +23,36 @@ function Volunteerform() {
       [name]:value
     })
   }
-  const volun = () => {
+  // const volun = () => {
+  //   const {event_name, name, age,vol_email, cnic, contact_num} = vol
+  //   if (event_name && name && age && vol_email && cnic){
+  //     console.log("before axios")
+  //     axios.post("http://localhost:3000/volunteersubmit", vol,{headers:{'Content-Type':'application/json'}})
+  //     .then((res) => {
+  //       alert(res.data.message)
+  //       navigate.push("/volunteer")
+  //     }).catch(err => {console.log(err)})
+  //   } else {
+  //     alert ("Invalid Input")
+  //   }
+  // }
+
+  const volun = async () => {
     const {event_name, name, age,vol_email, cnic, contact_num} = vol
-    if (event_name && name && age && vol_email && cnic){
-      console.log("before axios")
-      axios.post("http://localhost:3000/volunteersubmit", vol,{headers:{'Content-Type':'application/json'}})
-      .then(res => {
-        alert(res.data.message)
-        navigate.push("/volunteer")
-      }).catch(err => {console.log(err)})
-    } else {
-      alert ("Invalid Input")
+    try{
+      const response = await fetch ("http://localhost:3000/volunteersubmit",
+      {
+        method:'POST',
+        headers:{'Content-Type':'application/json'
+      },
+      body:JSON.stringify(vol)
+    });
+    const responseData = response.json();
+    console.log(responseData);
+
+    }catch (err){
+      console.log(err)
+
     }
   }
 

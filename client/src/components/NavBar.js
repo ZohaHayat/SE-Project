@@ -37,7 +37,7 @@ function NavBar() {
                     <div className ="dropdown-content">
                         <Link to ="/donate">Donate</Link>
                         <Link to ="/sponsor">Sponsor</Link>
-                        <Link to ="/volunteer">Volunteer</Link>
+                        <Link to ="/volunteerform">Volunteer</Link>
                         <Link to ="/events">View Upcoming Events</Link>
                         <Link to ="/careers">Careers</Link>
                         <Link to ="/member">Become a Member</Link>
