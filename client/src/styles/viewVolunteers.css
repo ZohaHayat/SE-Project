@@ -1,0 +1,63 @@
+.Volunteers {
+    width: 30%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: left; 
+    flex-direction: column;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: 100px;
+    /* margin: 20px; */
+    font-size: x-large;
+    /* text-align: left; */
+}
+
+img {
+    border-radius: 50%;
+    width: 100px;
+    height: auto;
+}
+
+.Volunteerheading {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #205567;
+    /* font-size: x-large; */
+    text-align: left;
+} 
+
+.flex-container {
+    display: flex;
+    font-family:Arial, Helvetica, sans-serif;
+    /* color: #205567; */
+    font-size: medium;
+    margin-top: 20px;
+}
+
+.flex-child-green {
+    flex: 1;
+    font-family:Arial, Helvetica, sans-serif;
+    /* color: #205567; */
+    font-size: medium;
+    margin-left: -200px;
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+    
+} 
+
+h4 {
+
+    font-size: small;
+
+}
+/* .flex-child-magenta{
+    border:#205567;
+
+} */

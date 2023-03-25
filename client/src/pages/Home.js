@@ -10,6 +10,7 @@ function Home() {
     <div>
       <div className = "home-donate" style={{backgroundImage: `url(${Banner})`}}>
         <div className = "headerContainer" >
+<<<<<<< HEAD
           <h1>Help Our Cause</h1>
           <p>Join us in our journey of serving humanity and the environment through targeted awareness campaigns, plantations, and donation drives for those in need.</p>
           <Link to="/events">
@@ -44,6 +45,12 @@ function Home() {
         </div>
         <Link to="/volunteerform">
           <button>Volunteer</button>
+=======
+        <h1>Help Our Cause</h1>
+        <p>Join us in our journey of serving humanity and the environment through targeted awareness campaigns, plantations, and donation drives for those in need.</p>
+        <Link to="/donate">
+        <button>Donate Now</button>
+>>>>>>> 8bf9820fbd3551d91c609bc9542b65a85f58292c
         </Link>
       </div>
 

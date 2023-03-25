@@ -1,4 +1,6 @@
 import React from 'react'
+import "../styles/event.css"
+
 
 function eventItem({image, name, text}) {
   return (
