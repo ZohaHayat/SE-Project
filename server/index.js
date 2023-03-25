@@ -13,6 +13,8 @@ app.use(cors())
 
 const path = express("path");
 
+let vol_counter = 1;
+
 
 
 let db;
@@ -61,6 +63,40 @@ app.post('/login', (req,res)=> {
     }
 })
 })
+
+app.post("/volunteersubmit",(req, res) =>{
+  const {event_name, name, age,vol_email, cnic, contact_num, vol_id = vol_counter++} = req.body
+  const voluns = db.collection('Volunteer_Details');
+  console.log("hello")
+  // const events = db.collection('Events');
+  voluns.findOne({Email:vol_email}, (err, user) =>{
+    if (user){
+      res.send({message: "Volunteer request already submitted"})
+
+    } else {
+      const user = new voluns({
+        age,
+        cnic,
+        contact_num,
+        vol_email,
+        event_name,
+        name,
+        vol_id
+      })
+      user.save(err => {
+        if (err){
+          res.send(err)
+        } else {
+          res.send({message:"Volunteer Request Submitted"})
+        }
+      })
+    }
+  })
+
+})
+
+
+
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
 //   db.collection('About_us')
