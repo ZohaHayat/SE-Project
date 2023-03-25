@@ -1,0 +1,91 @@
+.careers-form{
+    
+    text-align: center;
+
+}
+
+.heading {
+    font-family:Arial, Helvetica, sans-serif;
+    color: #205567;
+    font-size:30px
+
+}
+
+.full-name {
+    height:25px;
+    width: 200px;
+    border-color: rgb(205, 201, 201);
+    border-style: solid;
+    border-radius: 7px;
+    padding-left: 5px;
+    margin-right: 4px;
+
+}
+
+.age {
+    height:25px;
+    width: 200px;
+    border-color: rgb(205, 201, 201);
+    border-style: solid;
+    border-radius: 7px;
+    padding-left: 5px;
+    margin-left:4px;
+
+}
+
+.c-email {
+    margin-top: 15px;
+    height:25px;
+    width: 420px;
+    border-color: rgb(205, 201, 201);
+    border-style: solid;
+    border-radius: 7px;
+    padding-left: 5px;
+
+
+}
+
+.your-institution {
+    margin-top: 15px;
+    height:25px;
+    width: 420px;
+    border-color: rgb(205, 201, 201);
+    border-style: solid;
+    border-radius: 7px;
+    padding-left: 5px;
+
+
+}
+
+.why {
+
+    margin-top: 15px;
+    margin-bottom: 20px;
+    height: 200px;
+    width: 420px;
+
+    padding:3px;
+    border-color: rgb(205, 201, 201);
+    border-style: solid;
+    border-radius: 7px;
+}
+
+.why::placeholder {
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    pointer-events: none;
+}
+
+.apply-button {
+    margin-top: 20px;
+    background-color: #92D4D2;
+    border-radius: 30px;
+    height: 40px;
+    width:140px;
+    border: none;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 50px;
+    
+
+}

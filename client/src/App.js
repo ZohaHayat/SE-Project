@@ -11,6 +11,7 @@ import Stories from './pages/stories'
 import Team from './pages/team'
 import News from './pages/news'
 import Contact from './pages/contact'
+import Careers from './pages/Careers'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path = '/team' element = {<Team/>}/>
         <Route exact path = '/news' element = {<News/>}/>
         <Route exact path = '/contact' element = {<Contact/>}/>
+        <Route exact path = '/careers' element = {<Careers/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
       <Footer/>

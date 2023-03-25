@@ -17,7 +17,7 @@ function Team() {
 
             <div class="flex-container">
             <div class="flex-child magenta">
-                <img src={Logo6}/>
+                <img className='team-img' src={Logo6}/>
             </div>
             <div class="flex-child green">
                 <h3>Maryam Shaukat</h3>
@@ -27,7 +27,7 @@ function Team() {
 
             <div class="flex-container">
             <div class="flex-child magenta">
-                <img src={Logo}/>
+                <img className='team-img' src={Logo}/>
             </div>
             <div class="flex-child green">
                 <h3>Zoha Hayat</h3>
@@ -37,7 +37,7 @@ function Team() {
 
             <div class="flex-container">
             <div class="flex-child magenta">
-                <img src={Logo1}/>
+                <img className='team-img' src={Logo1}/>
             </div>
             <div class="flex-child green">
                 <h3>Mehak Humayun</h3>
@@ -47,7 +47,7 @@ function Team() {
 
             <div class="flex-container">
             <div class="flex-child magenta">
-                <img src={Logo2}/>
+                <img className='team-img' src={Logo2}/>
             </div>
             <div class="flex-child green">
                 <h3>Ayesha Yaseen</h3>
@@ -57,7 +57,7 @@ function Team() {
 
             <div class="flex-container">
             <div class="flex-child magenta">
-                <img src={Logo3}/>
+                <img className='team-img' src={Logo3}/>
             </div>
             <div class="flex-child green">
                 <h3>Ayesha Javaid</h3>
@@ -67,7 +67,7 @@ function Team() {
 
             <div class="flex-container">
             <div class="flex-child magenta">
-                <img src={Logo4}/>
+                <img className='team-img' src={Logo4}/>
             </div>
             <div class="flex-child green">
                 <h3>Fatima Ali</h3>
@@ -77,7 +77,7 @@ function Team() {
 
             <div class="flex-container">
             <div class="flex-child magenta">
-                <img src={Logo5}/>
+                <img className='team-img' src={Logo5}/>
             </div>
             <div class="flex-child green">
                 <h3>Sarah Akbar</h3>
