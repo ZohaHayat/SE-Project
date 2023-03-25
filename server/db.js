@@ -2,7 +2,7 @@
 const { MongoClient } = require('mongodb');
 
 let dbConnection;
-const uri = "mongodb+srv://nida:fkoB2d39k1pMF5Y8@ngo.a4mmh2z.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://zoha:fvelarisr@ngo.a4mmh2z.mongodb.net/?retryWrites=true&w=majority";
 
 module.exports = {
     //first function will establish connection to database

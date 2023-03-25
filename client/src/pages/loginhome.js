@@ -1,10 +1,11 @@
 import React from 'react'
 import Axios from "axios"
-import {Link} from "react-router-dom"
 import Banner from '../assets/grass.jpg'
 import '../styles/Home.css'
+import {Link} from 'react-router-dom'
 
-function Home() {
+function LoginHome() {
+    // NavBar()
   return (
     <div className = "home" style={{backgroundImage: `url(${Banner})`}}>
         <div className = "headerContainer" >
@@ -18,4 +19,4 @@ function Home() {
   )
 }
 
-export default Home
+export default LoginHome
