@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {useLocation} from 'react-router-dom'
 
 import { ChakraProvider } from '@chakra-ui/react'
 
@@ -14,15 +15,17 @@ import Stories from './pages/stories'
 import Team from './pages/team'
 import News from './pages/news'
 import Contact from './pages/contact'
-import Login from './pages/login'
-import Signup from './pages/signup'
-import Loginhome from './pages/loginhome'
-import Donate from './pages/donate'
-import Volunteer from './pages/volunteer'
-import VolunteerForm from './pages/volunteerform'
+import Careers from './pages/Careers'
+
+
 import  ViewVolunteers from './pages/viewVolunteers'
+import DirectorPage from './pages/directorPage';
+import ViewTeamDirector from './pages/viewTeamDirector';
+import Change from './pages/changepassword';
+import DeleteAcc from './pages/deleteacc';
 
 function App() {
+
   return (
     // the rendering is done inside the class name App and the components need to be self-closed
     //the NavBar is put outside of the Routes tag so that it appears on every page
@@ -38,7 +41,10 @@ function App() {
         <Route exact path = '/team' element = {<Team/>}/>
         <Route exact path = '/news' element = {<News/>}/>
         <Route exact path = '/contact' element = {<Contact/>}/>
+        <Route exact path = '/careers' element = {<Careers/>}/>
         <Route exact path = '/viewVolunteers' element = {<ViewVolunteers/>}/>
+        <Route exact path = '/directorPage' element ={<DirectorPage />}/>
+        <Route exact path = '/viewTeamDirector' element ={<ViewTeamDirector />}/>
         <Route exact path = '/login' element = {<Login/>}/>
         <Route exact path = '/signup' element = {<Signup/>}/>
         <Route exact path = '/loginhome' element = {<Loginhome/>}/>

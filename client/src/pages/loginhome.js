@@ -4,6 +4,7 @@ import Banner from '../assets/grass.jpg'
 import '../styles/Home.css'
 import {Link} from 'react-router-dom'
 
+
 function LoginHome() {
     // NavBar()
   return (

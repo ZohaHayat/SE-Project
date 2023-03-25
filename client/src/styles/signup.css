@@ -1,0 +1,101 @@
+.signup{
+    text-align: center;
+}
+
+.heading {
+    font-family:Arial, Helvetica, sans-serif;
+    color: #205567;
+    font-size:30px
+}
+  
+  .left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 300px;
+  }
+  
+  .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    padding-right: 150px;
+  }
+  
+  .title {
+    font-weight: bold;
+    font-size: 80px;
+    color: #12616F;
+    margin: 0;
+  }
+
+  .textt{
+    font-size: 14px;
+    margin: 0 0 20px 0;
+    color: #12616F;
+  }
+
+  
+  
+  .sign_container {
+    text-align: center;
+  }
+  
+  .s_title {
+    font-family:Arial, Helvetica, sans-serif;
+    color: #205567;
+    font-size:30px
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  
+  input {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 40%;
+  }
+  .sign_text{
+    font-size: 13px;
+
+  }
+  .name_contain {
+    display: flex;
+    flex-direction: row;
+    margin-left: 19px;
+    /* align-items: center; */
+    justify-content: center;
+  }
+  
+  #your-name{
+    width: 250px;
+    margin-right: 20px;
+  }
+  
+  #sign_email {
+    width: 540px;
+  }
+  
+  .sign-submit-button {
+    margin-top: 20px;
+    background-color: #92D4D2;
+    border-radius: 30px;
+    height: 40px;
+    width:140px;
+    border: none;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 218px;
+  }
+  

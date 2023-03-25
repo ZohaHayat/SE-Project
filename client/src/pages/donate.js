@@ -3,6 +3,10 @@ import "../styles/donate.css"
 import React, { useRef } from 'react';
 
 const Donate = () =>{
+
+    const donating = () => {
+        
+    }
         
     return (
         <div className="donate">

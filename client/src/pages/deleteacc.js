@@ -1,11 +1,11 @@
 import { useState } from "react"
-import "../styles/login.css"
+import "../styles/deleteacc.css"
 import React, { useRef } from 'react';
 import {Link} from 'react-router-dom'
 import Axios from "axios"
 import { useNavigate } from 'react-router-dom';
 
-const Login =()=>{
+const DeleteAcc =()=>{
     const [email, setEmail]=useState("")
     const [password, setPassword]=useState("")
 
@@ -14,35 +14,24 @@ const Login =()=>{
     
     const form = useRef();
 
-    const logging = () => {
+    const deleting = () => {
         
-        Axios.post("http://localhost:3000/login", {
+        Axios.post("http://localhost:3000/del", {
             email: email,
             password: password
             }).then((response) => {
                 console.log(response.data)
-                if(response.data === "User not found")
-                {
-                    alert("Failed! Account not recognised. Please sign up or check log in details.");
-                }
-                else if (response.data === "Found user")
-                {
-                    navigate("/loginhome");
-                }
-                else if (response.data === "Found director")
-                {
-                    navigate("/directorPage");
-                }
+                navigate("/");
             });
     };
 
     
         
     return (
-        <div className="login">
+        <div className="del">
 
             {/* <form ref={form} onSubmit={logging} > */}
-            <h2 className="heading">Login</h2>
+            <h2 className="heading">Delete Account</h2>
             <div >
                 <input id="email" className="email" type="text" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" name="user_email" placeholder="Email" required onChange={(event) => {setEmail(event.target.value)}}></input>
             </div>
@@ -50,12 +39,11 @@ const Login =()=>{
                 <input id="password" className="password" type="password" placeholder="Password" required onChange={(event) => {setPassword(event.target.value)}}></input>
             </div>
             <div >
-                <button className="login-button" onClick={(event) => [logging()]}>Login</button>
+                <button className="del-button" onClick={(event) => [deleting()]}>Delete Account</button>
             </div>
-            <h4 className="texts">New user? <Link to ="/signup"><u>Sign up</u></Link></h4>
             {/* </form> */}
         </div>
     )
 }
 
-export default Login
+export default DeleteAcc

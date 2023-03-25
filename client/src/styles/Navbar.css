@@ -154,6 +154,11 @@
     display: block;
     background: #92D4D2;
   }
+  .navbar .loginbutton:hover {
+    background-color: #a9e7e4;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+  }
   
   /* Change color of dropdown links on hover */
   .navbar .dropdown-content a:hover {background-color: #ddd;}

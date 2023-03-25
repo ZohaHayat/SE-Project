@@ -1,31 +1,34 @@
 import { useState } from "react"
-import "../styles/login.css"
+import "../styles/signup.css"
 import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import {Link} from 'react-router-dom'
 import Axios from "axios"
 import { useNavigate } from 'react-router-dom';
 
 const Signup =()=>{
     const [email, setEmail]=useState("")
     const [password, setPassword]=useState("")
+    const [fname, setFname]=useState("")
+    const [lname, setLname]=useState("")
 
     const navigate = useNavigate()
 
     
     const form = useRef();
 
-    const logging = (e) => {
+    const signingup = () => {
         
-        Axios.post("http://localhost:3000/login", {
+        Axios.post("http://localhost:3000/signup", {
             email: email,
             password: password,
+            fname: fname,
+            lname: lname
             }).then((response) => {
-                if(response.data === "User not found")
+                if(response.data === "User already exists")
                 {
-                    alert("Failed! Account not recognised. Please sign up or check log in details.");
+                    // alert("Failed! Account not recognised. Please sign up or check log in details.");
+                    alert("User account already exists");
                 }
-                else
+                else if (response.data === "Success")
                 {
                     navigate("/loginhome");
                 }
@@ -37,20 +40,31 @@ const Signup =()=>{
     
         
     return (
-        <div className="login">
+        <div className="signup">
 
-            <form ref={form} onSubmit={logging} >
-                <h2 class="heading">Login</h2>
-                <div >
-                    <input id="email" class="email" type="text" onChange={(event) => {setEmail(event.target.value)}} pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" name="user_email" placeholder="Email" required></input>
+            <form ref={form} onSubmit={signingup} >
+                <h2 className="heading">Signup</h2>
+                <div className="sign_container">
+                <div className="sign_form">
+                    <div className='name_contain'>
+                    <div className="form-group">
+                    <input type="text" id="your-name" name="your-name" placeholder='First Name' required onChange={(event) => {setFname(event.target.value)}}/>
+                    </div>
+                    <div className="form-group">
+                    <input type="text" id="your-name" name="your-name" placeholder='Last Name' required onChange={(event) => {setLname(event.target.value)}}/>
+                    </div>
+                    </div>
+                    <div className="form-group">
+                    <input type="email" id="sign_email" name="sign_email" placeholder='Email' required onChange={(event) => {setEmail(event.target.value)}}/>
+                    </div>
+                    <div className="form-group">
+                    <input type="password" id="sign_email" name="sign_email" placeholder='Password' required onChange={(event) => {setPassword(event.target.value)}}/>
+                    </div>
+                    <button type="submit" className="sign-submit-button">
+                    Signup
+                    </button>
                 </div>
-                <div>
-                    <input id="password" class="password" type="text" onChange={(event) => {setPassword(event.target.value)}} placeholder="Password" required></input>
                 </div>
-                <div >
-                    <button class="login-button" >Login</button>
-                </div>
-                <h4 class="texts">New user? <Link to ="/signup"><u>Sign up</u></Link></h4>
             </form>
         </div>
     )
