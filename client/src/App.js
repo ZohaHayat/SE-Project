@@ -21,6 +21,8 @@ import Donate from './pages/donate'
 import Volunteer from './pages/volunteer'
 import VolunteerForm from './pages/volunteerform'
 import  ViewVolunteers from './pages/viewVolunteers'
+import DirectorPage from './pages/directorPage';
+import ViewTeamDirector from './pages/viewTeamDirector';
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
         <Route exact path = '/news' element = {<News/>}/>
         <Route exact path = '/contact' element = {<Contact/>}/>
         <Route exact path = '/viewVolunteers' element = {<ViewVolunteers/>}/>
+        <Route exact path = '/directorPage' element ={<DirectorPage />}/>
+        <Route exact path = '/viewTeamDirector' element ={<ViewTeamDirector />}/>
         <Route exact path = '/login' element = {<Login/>}/>
         <Route exact path = '/signup' element = {<Signup/>}/>
         <Route exact path = '/loginhome' element = {<Loginhome/>}/>
