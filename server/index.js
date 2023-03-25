@@ -5,11 +5,14 @@ const e = require("express");
 const nodemailer = require("nodemailer");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+// var app = require('express')();
+var bodyParser = require('body-parser');
 
 const { connectToDb, getDb } = require('./db'); //importing functions from db.js
 
 const app = express();
 app.use(cors())
+app.use(bodyParser.json());
 
 const path = express("path");
 
@@ -38,52 +41,107 @@ app.get('/stories', (req,res)=> {
     });
 })
 
+app.get('/viewVolunteers', (req,res)=> {
+  let volunteersArr = [] //name,date,text
+  db.collection('Volunteer_Details')
+    .find() 
+    .forEach(elem => volunteersArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:volunteersArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
+app.post('/signup', (req,res)=> {
+  const email = req.body.email;
+  const pass = req.body.password;
+  const fname = req.body.fname;
+  const lname = req.body.lname;
+
+  console.log(email,pass,fname,lname)
+
+  const newDoc = {
+    Email: email,
+    Password: pass,
+    Name: fname + " " + lname
+  };
+
+    db.collection('Users').findOne({Email: email, Password: pass, Name: fname + " " + lname}, (err, succ) => {
+    console.log(succ,err)
+    if (succ){
+      res.send("User already exists")
+    }
+})
+
+  db.collection('Users').insertOne(newDoc, (err, succ) => {
+    if (err) 
+    {
+      console.log('Error inserting document: ', err);
+      res.send("Error")
+    } 
+    else 
+    {
+      console.log('Document inserted successfully: ', result.ops[0]);
+      res.send("Success")
+    }
+  })
+})
+
 app.post('/login', (req,res)=> {
   const email = req.body.email;
   const pass = req.body.password;
 
   console.log(email,pass)
 
-  const collection = db.collection('Users');
-  collection.findOne({ $and: [
-    { Email: email },
-    { Password: pass }
-  ]},
-  { projection: { Email: 1, Password: 1 } }, function(err, success) {
-    if (err) throw err;
-    console.log(success)
-    if (success) {
-      console.log("Found user");
+  db.collection('Users').findOne({Email: email, Password: pass}, (err, succ) => {
+    if (succ){
       res.send("Found user")
-    } else {
-      console.log("User not found");
-      res.send("User not found")
     }
-})
+    else {
+      db.collection('Directors').findOne({Email: email, Password: pass}, (err, succ) => {
+        if (succ){
+          res.send("Found director")
+        }
+        else {
+          res.send("User not found")
+        }
+      })
+    }
+  })
 })
 
-app.post('/login', (req,res)=> {
+app.post('/change', (req,res)=> {
+  const old = req.body.old;
+  const newp = req.body.newp;
   const email = req.body.email;
-  const pass = req.body.password;
 
-  console.log(email,pass)
+  console.log(newp,email)
 
-  const collection = db.collection('Users');
-  collection.findOne({ $and: [
-    { Email: email },
-    { Password: pass }
-  ]},
-  { projection: { Email: 1, Password: 1 } }, function(err, success) {
-    if (err) throw err;
-    console.log(success)
-    if (success) {
-      console.log("Found user");
-      res.send("Found user")
-    } else {
-      console.log("User not found");
-      res.send("User not found")
-    }
+  db.collection('Users').updateOne(
+    { Email: email }, // specify the user to update by their username
+    { $set: { Password: newp } } // set the new password
+  );
+
+  db.collection('Directors').updateOne(
+    { Email: email }, // specify the user to update by their username
+    { $set: { Password: newp } } // set the new password
+  );
+
+  res.send("Success")
 })
+
+app.post('/del', (req,res)=> {
+  const pass = req.body.old;
+  const email = req.body.email;
+
+  console.log(email)
+
+  db.collection('Users').deleteOne({ Email: email }, function(err, result) {
+      console.log("Document deleted successfully");
+      res.send("Success")
+  });
 })
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
