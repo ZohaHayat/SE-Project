@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import "../styles/directorPage.css"
+
 const DirectorPage=()=>{
     return(
     <div className="buttons">
@@ -16,7 +17,7 @@ const DirectorPage=()=>{
         </div>
 
         <div>
-        <button className="b">Member Applications</button>
+        <button className="b2">Member Applications</button>
         </div>
 
         <div>

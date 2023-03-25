@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 
 const path = express("path");
 
+
+
 let db;
 connectToDb((err)=>{
   if (!err){
@@ -33,6 +35,19 @@ app.get('/stories', (req,res)=> {
     .forEach(elem => storiesArr.push(elem))
     .then((result) => {
       res.status(200).json({msg:"success",list:storiesArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
+app.get('/viewVolunteers', (req,res)=> {
+  let volunteersArr = [] //name,date,text
+  db.collection('Volunteer_Details')
+    .find() 
+    .forEach(elem => volunteersArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:volunteersArr});
     })
     .catch(() => {
       res.status(500).json({msg:"error",list:[]});
@@ -128,7 +143,6 @@ app.post('/del', (req,res)=> {
       res.send("Success")
   });
 })
-
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
 //   db.collection('About_us')

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "../styles/viewTeamDirector.css"
 
 const ViewTeamDirector= ()=>{
@@ -6,19 +7,21 @@ const ViewTeamDirector= ()=>{
             <h1>View Team</h1>
             <div className="buttons">
                 <div>
-                <button className="b">Sponsors</button>
+                <button className="but">Sponsors</button>
                 </div>
 
                 <div>
-                <button className="b">Donors</button>
+                <button className="but">Donors</button>
                 </div>
 
                 <div>
-                <button className="b">Volunteers</button>
+                    <Link to="/viewVolunteers">
+                    <button className="but">Volunteers</button>
+                    </Link>
                 </div>
 
                 <div>
-                <button className="b">Directors</button>
+                <button className="but">Directors</button>
                 </div>
             </div>
         </div>
