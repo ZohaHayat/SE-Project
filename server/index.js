@@ -38,6 +38,19 @@ app.get('/stories', (req,res)=> {
     });
 })
 
+app.get('/viewVolunteers', (req,res)=> {
+  let volunteersArr = [] //name,date,text
+  db.collection('Volunteer_Details')
+    .find() 
+    .forEach(elem => volunteersArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:volunteersArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
 app.post('/login', (req,res)=> {
   const email = req.body.email;
   const pass = req.body.password;
