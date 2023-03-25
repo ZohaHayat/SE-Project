@@ -38,7 +38,7 @@ function NavBar() {
                         <Link to ="/donate">Donate</Link>
                         <Link to ="/sponsor">Sponsor</Link>
                         <Link to ="/volunteer">Volunteer</Link>
-                        <Link to ="/events">Viw Upcoming Events</Link>
+                        <Link to ="/events">View Upcoming Events</Link>
                         <Link to ="/careers">Careers</Link>
                         <Link to ="/member">Become a Member</Link>
                     </div>

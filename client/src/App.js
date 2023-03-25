@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {useLocation} from 'react-router-dom'
 
 import { ChakraProvider } from '@chakra-ui/react'
 
@@ -23,8 +24,11 @@ import VolunteerForm from './pages/volunteerform'
 import  ViewVolunteers from './pages/viewVolunteers'
 import DirectorPage from './pages/directorPage';
 import ViewTeamDirector from './pages/viewTeamDirector';
+import Change from './pages/changepassword';
+import DeleteAcc from './pages/deleteacc';
 
 function App() {
+
   return (
     // the rendering is done inside the class name App and the components need to be self-closed
     //the NavBar is put outside of the Routes tag so that it appears on every page
@@ -49,6 +53,8 @@ function App() {
         <Route exact path = '/donate' element = {<Donate/>}/>
         <Route exact path = '/volunteer' element = {<Volunteer/>}/>
         <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
+        <Route exact path = '/changepass' element = {<Change/>}/>
+        <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
       <Footer/>

@@ -16,9 +16,9 @@ function Team() {
             <h1 className = "Teamheading">Our Team</h1>
 
             <div class="flex-container">
-            <div class="flex-child magenta">
+            {/* <div class="flex-child magenta"> */}
                 <img src={Logo6}/>
-            </div>
+            {/* </div> */}
             <div class="flex-child green">
                 <h3>Maryam Shaukat</h3>
                 <h4>President</h4>
@@ -26,9 +26,9 @@ function Team() {
             </div>
 
             <div class="flex-container">
-            <div class="flex-child magenta">
+            {/* <div class="flex-child magenta"> */}
                 <img src={Logo}/>
-            </div>
+            {/* </div> */}
             <div class="flex-child green">
                 <h3>Zoha Hayat</h3>
                 <h4>Director Social Media</h4>
@@ -36,9 +36,9 @@ function Team() {
             </div>
 
             <div class="flex-container">
-            <div class="flex-child magenta">
+            {/* <div class="flex-child magenta"> */}
                 <img src={Logo1}/>
-            </div>
+            {/* </div> */}
             <div class="flex-child green">
                 <h3>Mehak Humayun</h3>
                 <h4>Director Logistics</h4>
@@ -46,9 +46,9 @@ function Team() {
             </div>
 
             <div class="flex-container">
-            <div class="flex-child magenta">
+            {/* <div class="flex-child magenta"> */}
                 <img src={Logo2}/>
-            </div>
+            {/* </div> */}
             <div class="flex-child green">
                 <h3>Ayesha Yaseen</h3>
                 <h4>Director Donations</h4>
@@ -56,9 +56,9 @@ function Team() {
             </div>
 
             <div class="flex-container">
-            <div class="flex-child magenta">
+            {/* <div class="flex-child magenta"> */}
                 <img src={Logo3}/>
-            </div>
+            {/* </div> */}
             <div class="flex-child green">
                 <h3>Ayesha Javaid</h3>
                 <h4>Director Publications</h4>
@@ -66,9 +66,9 @@ function Team() {
             </div>
 
             <div class="flex-container">
-            <div class="flex-child magenta">
+            {/* <div class="flex-child magenta"> */}
                 <img src={Logo4}/>
-            </div>
+            {/* </div> */}
             <div class="flex-child green">
                 <h3>Fatima Ali</h3>
                 <h4>Director Research</h4>
@@ -76,9 +76,9 @@ function Team() {
             </div>
 
             <div class="flex-container">
-            <div class="flex-child magenta">
+            {/* <div class="flex-child magenta"> */}
                 <img src={Logo5}/>
-            </div>
+            {/* </div> */}
             <div class="flex-child green">
                 <h3>Sarah Akbar</h3>
                 <h4>Director Green Awareness</h4>

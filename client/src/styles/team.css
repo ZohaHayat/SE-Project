@@ -33,10 +33,14 @@ img {
 
 .flex-container {
     display: flex;
+    margin-left: 600px;
+    align-items: center;
+    justify-content: center;
 }
 
 .flex-child {
     flex: 1;
+    margin-left: 20px
 }  
 
 .flex-child:first-child {
