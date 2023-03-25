@@ -16,6 +16,12 @@ import Team from './pages/team'
 import News from './pages/news'
 import Contact from './pages/contact'
 import Careers from './pages/Careers'
+import Login from './pages/login'
+import Signup from './pages/signup'
+import Loginhome from './pages/loginhome'
+import Donate from './pages/donate'
+import Volunteer from './pages/volunteer'
+import VolunteerForm from './pages/volunteerform'
 
 
 import  ViewVolunteers from './pages/viewVolunteers'
@@ -51,6 +57,8 @@ function App() {
         <Route exact path = '/donate' element = {<Donate/>}/>
         <Route exact path = '/volunteer' element = {<Volunteer/>}/>
         <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
+        <Route exact path = '/change' element = {<Change/>}/>
+        <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
       <Footer/>
