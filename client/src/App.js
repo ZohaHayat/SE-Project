@@ -14,8 +14,12 @@ import Stories from './pages/stories'
 import Team from './pages/team'
 import News from './pages/news'
 import Contact from './pages/contact'
-
-
+import Login from './pages/login'
+import Signup from './pages/signup'
+import Loginhome from './pages/loginhome'
+import Donate from './pages/donate'
+import Volunteer from './pages/volunteer'
+import VolunteerForm from './pages/volunteerform'
 import  ViewVolunteers from './pages/viewVolunteers'
 
 function App() {
