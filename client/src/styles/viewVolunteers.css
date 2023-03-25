@@ -49,6 +49,7 @@ img {
 
 .flex-child:first-child {
     margin-right: 20px;
+    
 } 
 
 h4 {
@@ -56,3 +57,7 @@ h4 {
     font-size: small;
 
 }
+/* .flex-child-magenta{
+    border:#205567;
+
+} */
