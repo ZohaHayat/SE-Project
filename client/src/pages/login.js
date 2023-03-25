@@ -20,7 +20,7 @@ const Login =()=>{
             email: email,
             password: password
             }).then((response) => {
-                console.log(response.data)
+                console.log(response)
                 if(response.data === "User not found")
                 {
                     alert("Failed! Account not recognised. Please sign up or check log in details.");

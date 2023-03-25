@@ -13,8 +13,16 @@ const { connectToDb, getDb } = require('./db'); //importing functions from db.js
 const app = express();
 app.use(cors())
 app.use(bodyParser.json());
+app.use(express.json());
 
 const path = express("path");
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("build"));
+//   app.get("*", (req, res) => {
+//     req.sendFile(path.resolve(__dirname, "build", "index.html"));
+//   });
+// }
 
 
 
@@ -22,6 +30,8 @@ let db;
 connectToDb((err)=>{
   if (!err){
     //start listening for requests
+    // app.listen(process.env.PORT || 3001);
+    // console.log("app listening on port 3000")
     app.listen(3000, () => {console.log("app listening on port 3000")});
     db = getDb(); // this will return database connection object
 
@@ -60,33 +70,37 @@ app.post('/signup', (req,res)=> {
   const fname = req.body.fname;
   const lname = req.body.lname;
 
+  const name = fname + " " + lname;
+
   console.log(email,pass,fname,lname)
 
   const newDoc = {
     Email: email,
     Password: pass,
-    Name: fname + " " + lname
+    Name: name
   };
 
-    db.collection('Users').findOne({Email: email, Password: pass, Name: fname + " " + lname}, (err, succ) => {
-    console.log(succ,err)
-    if (succ){
-      res.send("User already exists")
-    }
-})
-
-  db.collection('Users').insertOne(newDoc, (err, succ) => {
-    if (err) 
-    {
-      console.log('Error inserting document: ', err);
-      res.send("Error")
-    } 
-    else 
-    {
-      console.log('Document inserted successfully: ', result.ops[0]);
-      res.send("Success")
-    }
-  })
+    db.collection('Users').findOne({Email: email, Password: pass, Name: name}).then((resul) => {
+      console.log(resul)
+      if (resul != null)
+      {
+        res.send("User already exists")
+      }
+      else 
+      {
+        db.collection('Users').insertOne(newDoc).then((result) => {
+          console.log(result.acknowledged)
+          if (result.acknowledged == true)
+          {
+            res.send("Success")
+          }
+          else
+          {
+            res.send("Error")
+          }
+        })
+      }
+    })
 })
 
 app.post('/login', (req,res)=> {
@@ -95,21 +109,41 @@ app.post('/login', (req,res)=> {
 
   console.log(email,pass)
 
-  db.collection('Users').findOne({Email: email, Password: pass}, (err, succ) => {
-    if (succ){
+  db.collection('Users').findOne({Email: email, Password: pass}).then((result) => {
+    if (result != null)
+    {
       res.send("Found user")
     }
-    else {
-      db.collection('Directors').findOne({Email: email, Password: pass}, (err, succ) => {
-        if (succ){
+    else
+    {
+      db.collection('Directors').findOne({Email: email, Password: pass}).then((result) => {
+        if (result != null)
+        {
           res.send("Found director")
         }
-        else {
+        else
+        {
           res.send("User not found")
         }
       })
     }
   })
+  //   if (succ){
+  //     // res.send({ message: 'Data updated successfully' })
+  //     // res.status(200).json({msg:"success"});
+  //     res.send("Found user")
+  //   }
+  //   else {
+  //     db.collection('Directors').findOne({Email: email, Password: pass}, (err, succ) => {
+  //       if (succ){
+  //         res.send("Found director")
+  //       }
+  //       else {
+  //         res.send("User not found")
+  //       }
+  //     })
+  //   }
+  // })
 })
 
 app.post("/volunteersubmit",(req, res) =>{

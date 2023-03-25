@@ -79,12 +79,12 @@
     justify-content: center;
   }
   
-  #your-name{
+  .your-name{
     width: 250px;
     margin-right: 20px;
   }
   
-  #sign_email {
+  .sign_email {
     width: 540px;
   }
   
