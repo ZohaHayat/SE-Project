@@ -41,9 +41,7 @@ function App() {
         <Route exact path = '/team' element = {<Team/>}/>
         <Route exact path = '/news' element = {<News/>}/>
         <Route exact path = '/contact' element = {<Contact/>}/>
-<<<<<<< HEAD
         <Route exact path = '/careers' element = {<Careers/>}/>
-=======
         <Route exact path = '/viewVolunteers' element = {<ViewVolunteers/>}/>
         <Route exact path = '/directorPage' element ={<DirectorPage />}/>
         <Route exact path = '/viewTeamDirector' element ={<ViewTeamDirector />}/>
