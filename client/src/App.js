@@ -24,6 +24,8 @@ import Volunteer from './pages/volunteer'
 import VolunteerForm from './pages/volunteerform'
 
 
+import Donors from './pages/donors'
+import MemberAdd from './pages/member-add'
 import  ViewVolunteers from './pages/viewVolunteers'
 import DirectorPage from './pages/directorPage';
 import ViewTeamDirector from './pages/viewTeamDirector';
@@ -56,6 +58,8 @@ function App() {
         <Route exact path = '/loginhome' element = {<Loginhome/>}/>
         <Route exact path = '/donate' element = {<Donate/>}/>
         <Route exact path = '/volunteer' element = {<Volunteer/>}/>
+        <Route exact path = '/member' element = {<MemberAdd/>}/>
+        <Route exact path = '/donors' element = {<Donors/>}/>
         <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
         <Route exact path = '/changepass' element = {<Change/>}/>
         <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
