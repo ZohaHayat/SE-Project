@@ -3,7 +3,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 const cors = require("cors");
 const e = require("express");
 const nodemailer = require("nodemailer");
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 const { connectToDb, getDb } = require('./db'); //importing functions from db.js
