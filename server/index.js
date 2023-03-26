@@ -28,7 +28,7 @@ const path = express("path");
 //   });
 // }
 
-
+let vol_counter = 1;
 
 let db;
 connectToDb((err)=>{
@@ -177,33 +177,41 @@ app.post('/login', (req,res)=> {
 })
 
 app.post("/volunteersubmit",(req, res) =>{
-  const {event_name, name, age,vol_email, cnic, contact_num, vol_id = vol_counter++} = req.body
-  const voluns = db.collection('Volunteer_Details');
-  console.log("hello")
-  // const events = db.collection('Events');
-  voluns.findOne({Email:vol_email}, (err, user) =>{
-    if (user){
-      res.send({message: "Volunteer request already submitted"})
+  // const {event_name, name, age,vol_email, cnic, contact_num, vol_id = vol_counter++} = req.body
+  const event_name = req.body.event_name;
+  const name = req.body.name;
+  const age = req.body.age;
+  const vol_email = req.body.vol_email;
+  const cnic = req.body.cnic;
+  const contact_num = req.body.contact_num;
+  const vol_id = vol_counter++;
 
-    } else {
-      const user = new voluns({
-        age,
-        cnic,
-        contact_num,
-        vol_email,
-        event_name,
-        name,
-        vol_id
-      })
-      user.save(err => {
-        if (err){
-          res.send(err)
-        } else {
-          res.send({message:"Volunteer Request Submitted"})
-        }
-      })
+  // const voluns = db.collection('Volunteer_Details');
+  console.log("hello")
+  const volun = {
+    Event: event_name,
+    Name: name,
+    Age: age,
+    Vol_email: vol_email,
+    Cnic: cnic,
+    Contact: contact_num,
+    Vol_id: vol_id
+  };
+  // const events = db.collection('Events');
+  db.collection('Volunteer_Details').findOne({Email:vol_email}).then((result) => {
+    if (result != null){
+      res.send("Volunteer request already submitted")
     }
-  })
+    else {
+      db.collection('Volunteer_Details').insertOne(volun).then((f) => {
+        console.log(f.acknowledged)
+        res.send("Volunteer Request Submitted")
+      })
+
+
+    }
+  })  
+
 
 })
 
