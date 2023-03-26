@@ -92,14 +92,6 @@ app.post('/signup', (req,res)=> {
         db.collection('Users').insertOne(newDoc).then((x) => {
           console.log(x.acknowledged)
           res.send("Success")
-          // if (result.acknowledged === true)
-          // {
-          //   res.send("Success")
-          // }
-          // else
-          // {
-          //   res.send("Error")
-          // }
         })
       }
     })
@@ -126,6 +118,38 @@ app.post('/login', (req,res)=> {
         else
         {
           res.send("User not found")
+        }
+      })
+    }
+  })
+})
+
+app.post('/donate', (req,res)=> {
+  const email = req.body.email;
+  const name = req.body.name;
+  const bank = req.body.bank;
+  const amt = req.body.amt;
+
+  console.log(email,name,bank,amt)
+
+  db.collection('Donations').insertOne({Email: email, Bank: bank, Name: name, Amount: amt }).then((result) => {
+    if (result.acknowledged == true)
+    {
+      db.collection('Donors').findOne({Email: email}).then((result) => {
+        if (result != null)
+        {
+          vari = String(int(result.DonationAmount) + amt)
+          db.collection('Donors').updateOne(
+            { Email: email },
+            { $set: { "DonationAmount": vari } }
+        )
+        res.send("Success")
+        }
+        else
+        {
+          db.collection('Donors').insertOne({Email: email, Name: name, DonationAmount: amt}).then((result) => {
+            res.send("Success")
+          })
         }
       })
     }
