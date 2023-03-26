@@ -43,14 +43,18 @@ connectToDb((err)=>{
 })
 
 app.get('/events/get', (req,res) => {
-  Events.find((err,data) => {
-    if (err){
-      console.log("hello")
-      res.status(500).send(err)
-    } else {
-      console.log("hello1")
-      res.status(200).send(data)
-    }
+  let eventArr = []
+  // console.log("hello0")
+  db.collection('Events')
+  .find()
+  .forEach(ele => eventArr.push(ele))
+  .then((resu) => {
+    // console.log("hello")
+    res.status(200).json({msg:"success",list:eventArr});
+  })
+  .catch(() => {
+    // console.log("hello2")
+    res.status(500).json({msg:"error",list:[]});
   })
 })
 
