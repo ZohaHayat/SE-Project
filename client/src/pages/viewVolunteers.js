@@ -28,7 +28,7 @@ const ViewVolunteers=()=> {
             {volunteers.map((val, key) => { 
                 return (
                     <div className="flex-container">
-                        <div class="flex-child">
+                        <div class="flex-child-magenta">
                             <img src={Logo}/>
                         </div>
                         <div class="flex-child-green">
