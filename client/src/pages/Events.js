@@ -7,6 +7,21 @@ import "../styles/event.css"
 // we are importing a variable so curly braces used; here export default not used
 
 function Events() {
+
+  const [e, sete] = useState([]);
+
+  useEffect(() =>{
+    const fetchdata = async () => {
+      const data = await Axios.get('http://localhost:3000/events/get')
+      .then(res => {
+        sete(res.data.list);
+      })
+      .catch(err => {console.log(err)});
+      console.log('products >>>>', data)
+    };
+    fetchdata();
+  },[]);
+  
   const [popupcontent,setpopupcontent] = useState([]);
   const [popuptoggle, setpopuptoggle] = useState(false);
   const [styling, setstyling] = useState(null);

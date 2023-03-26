@@ -12,6 +12,10 @@ const { connectToDb, getDb } = require('./db'); //importing functions from db.js
 
 const app = express();
 app.use(cors())
+// configure the app to use bodyParser()
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 app.use(express.json());
 
@@ -24,7 +28,7 @@ const path = express("path");
 //   });
 // }
 
-
+let vol_counter = 1;
 
 let db;
 connectToDb((err)=>{
@@ -38,6 +42,18 @@ connectToDb((err)=>{
   }
 })
 
+app.get('/events/get', (req,res) => {
+  Events.find((err,data) => {
+    if (err){
+      console.log("hello")
+      res.status(500).send(err)
+    } else {
+      console.log("hello1")
+      res.status(200).send(data)
+    }
+  })
+})
+
 app.get('/stories', (req,res)=> {
   let storiesArr = [] //name,date,text
   db.collection('Stories')
@@ -49,6 +65,34 @@ app.get('/stories', (req,res)=> {
     .catch(() => {
       res.status(500).json({msg:"error",list:[]});
     });
+})
+
+app.get('/donors', (req,res)=> {
+  let donorsArr = [] //name,date,text
+  db.collection('Donors')
+    .find() 
+    .forEach(elem => donorsArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:donorsArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
+app.post('/addMember', async (req,res)=> {
+  const insertResult = db.collection('Members').insertMany([
+    {
+      "Name": req.body.name,
+      "DOB": req.body.dob,
+      "Email": req.body.email,
+      "CNIC": req.body.cnic,
+      "ContactNo": req.body.contactNo,
+      "Position": req.body.position,
+      "JoiningMsg": req.body.joiningMsg
+    }
+  ]);
+  res.status(200).json({result : insertResult});
 })
 
 app.get('/viewVolunteers', (req,res)=> {
@@ -157,33 +201,41 @@ app.post('/donate', (req,res)=> {
 })
 
 app.post("/volunteersubmit",(req, res) =>{
-  const {event_name, name, age,vol_email, cnic, contact_num, vol_id = vol_counter++} = req.body
-  const voluns = db.collection('Volunteer_Details');
-  console.log("hello")
-  // const events = db.collection('Events');
-  voluns.findOne({Email:vol_email}, (err, user) =>{
-    if (user){
-      res.send({message: "Volunteer request already submitted"})
+  // const {event_name, name, age,vol_email, cnic, contact_num, vol_id = vol_counter++} = req.body
+  const event_name = req.body.event_name;
+  const name = req.body.name;
+  const age = req.body.age;
+  const vol_email = req.body.vol_email;
+  const cnic = req.body.cnic;
+  const contact_num = req.body.contact_num;
+  const vol_id = vol_counter++;
 
-    } else {
-      const user = new voluns({
-        age,
-        cnic,
-        contact_num,
-        vol_email,
-        event_name,
-        name,
-        vol_id
-      })
-      user.save(err => {
-        if (err){
-          res.send(err)
-        } else {
-          res.send({message:"Volunteer Request Submitted"})
-        }
-      })
+  // const voluns = db.collection('Volunteer_Details');
+  console.log("hello")
+  const volun = {
+    Event: event_name,
+    Name: name,
+    Age: age,
+    Vol_email: vol_email,
+    Cnic: cnic,
+    Contact: contact_num,
+    Vol_id: vol_id
+  };
+  // const events = db.collection('Events');
+  db.collection('Volunteer_Details').findOne({Email:vol_email}).then((result) => {
+    if (result != null){
+      res.send("Volunteer request already submitted")
     }
-  })
+    else {
+      db.collection('Volunteer_Details').insertOne(volun).then((f) => {
+        console.log(f.acknowledged)
+        res.send("Volunteer Request Submitted")
+      })
+
+
+    }
+  })  
+
 
 })
 
