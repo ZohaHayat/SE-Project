@@ -12,6 +12,10 @@ const { connectToDb, getDb } = require('./db'); //importing functions from db.js
 
 const app = express();
 app.use(cors())
+// configure the app to use bodyParser()
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 app.use(express.json());
 
@@ -49,6 +53,34 @@ app.get('/stories', (req,res)=> {
     .catch(() => {
       res.status(500).json({msg:"error",list:[]});
     });
+})
+
+app.get('/donors', (req,res)=> {
+  let donorsArr = [] //name,date,text
+  db.collection('Donors')
+    .find() 
+    .forEach(elem => donorsArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:donorsArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
+app.post('/addMember', async (req,res)=> {
+  const insertResult = db.collection('Members').insertMany([
+    {
+      "Name": req.body.name,
+      "DOB": req.body.dob,
+      "Email": req.body.email,
+      "CNIC": req.body.cnic,
+      "ContactNo": req.body.contactNo,
+      "Position": req.body.position,
+      "JoiningMsg": req.body.joiningMsg
+    }
+  ]);
+  res.status(200).json({result : insertResult});
 })
 
 app.get('/viewVolunteers', (req,res)=> {
