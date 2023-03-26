@@ -42,6 +42,18 @@ connectToDb((err)=>{
   }
 })
 
+app.get('/events/get', (req,res) => {
+  Events.find((err,data) => {
+    if (err){
+      console.log("hello")
+      res.status(500).send(err)
+    } else {
+      console.log("hello1")
+      res.status(200).send(data)
+    }
+  })
+})
+
 app.get('/stories', (req,res)=> {
   let storiesArr = [] //name,date,text
   db.collection('Stories')
