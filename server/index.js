@@ -57,6 +57,21 @@ app.get('/events/get', (req,res) => {
     res.status(500).json({msg:"error",list:[]});
   })
 })
+app.get('/getambassadors', (req,res) => {
+  let ambassArr = []
+  // console.log("hello0")
+  db.collection('Ambassador')
+  .find()
+  .forEach(ele => ambassArr.push(ele))
+  .then((resu) => {
+    // console.log("hello")
+    res.status(200).json({msg:"success",list:ambassArr});
+  })
+  .catch(() => {
+    // console.log("hello2")
+    res.status(500).json({msg:"error",list:[]});
+  })
+})
 
 app.get('/stories', (req,res)=> {
   let storiesArr = [] //name,date,text

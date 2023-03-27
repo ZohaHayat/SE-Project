@@ -29,8 +29,10 @@ import MemberAdd from './pages/member-add'
 import  ViewVolunteers from './pages/viewVolunteers'
 import DirectorPage from './pages/directorPage';
 import ViewTeamDirector from './pages/viewTeamDirector';
+import ViewAmbassadors from './pages/viewAmbassadors';
 import Change from './pages/changepassword';
 import DeleteAcc from './pages/deleteacc';
+
 
 function App() {
 
@@ -63,6 +65,7 @@ function App() {
         <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
         <Route exact path = '/changepass' element = {<Change/>}/>
         <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
+        <Route exact path = '/viewAmbassadors' element ={<ViewAmbassadors/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
       <Footer/>
