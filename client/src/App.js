@@ -31,6 +31,7 @@ import DirectorPage from './pages/directorPage';
 import ViewTeamDirector from './pages/viewTeamDirector';
 import Change from './pages/changepassword';
 import DeleteAcc from './pages/deleteacc';
+import Follow from './pages/follow'
 
 function App() {
 
@@ -49,20 +50,7 @@ function App() {
         <Route exact path = '/team' element = {<Team/>}/>
         <Route exact path = '/news' element = {<News/>}/>
         <Route exact path = '/contact' element = {<Contact/>}/>
-        <Route exact path = '/careers' element = {<Careers/>}/>
-        <Route exact path = '/viewVolunteers' element = {<ViewVolunteers/>}/>
-        <Route exact path = '/directorPage' element ={<DirectorPage />}/>
-        <Route exact path = '/viewTeamDirector' element ={<ViewTeamDirector />}/>
-        <Route exact path = '/login' element = {<Login/>}/>
-        <Route exact path = '/signup' element = {<Signup/>}/>
-        <Route exact path = '/loginhome' element = {<Loginhome/>}/>
-        <Route exact path = '/donate' element = {<Donate/>}/>
-        <Route exact path = '/volunteer' element = {<Volunteer/>}/>
-        <Route exact path = '/member' element = {<MemberAdd/>}/>
-        <Route exact path = '/donors' element = {<Donors/>}/>
-        <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
-        <Route exact path = '/changepass' element = {<Change/>}/>
-        <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
+        <Route exact path = '/follow' element = {<Follow/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
       <Footer/>

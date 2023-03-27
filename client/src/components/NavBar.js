@@ -30,6 +30,7 @@ function NavBar() {
                         <Link to ="/about">About Us</Link>
                         <Link to ="/team">View Team</Link>
                         <Link to ="/contact">Contact Us</Link>
+                        <Link to ="/follow">Follow us!</Link>
                     </div>
             </div>
             <div className ="dropdown">
@@ -66,6 +67,7 @@ function NavBar() {
                         <Link to ="/about">About Us</Link>
                         <Link to ="/team">View Team</Link>
                         <Link to ="/contact">Contact Us</Link>
+                        <Link to ="/follow">Follow us!</Link>
                     </div>
             </div>
             <div className ="dropdown">
