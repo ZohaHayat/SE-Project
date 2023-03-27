@@ -186,7 +186,7 @@ app.post('/donate', (req,res)=> {
       db.collection('Donors').findOne({Email: email}).then((result) => {
         if (result != null)
         {
-          vari = String(int(result.DonationAmount) + amt)
+          let vari = String(parseInt(result.DonationAmount) + amt)
           db.collection('Donors').updateOne(
             { Email: email },
             { $set: { "DonationAmount": vari } }
