@@ -11,7 +11,7 @@ function ViewAmbassadors() {
     useEffect(() => {
         Axios.get("http://localhost:3000/getambassadors")
         .then (res => {
-            console.log("hello")
+            // console.log("hello")
             setambass(res.data.list);
         })
         .catch(err => {
@@ -19,6 +19,20 @@ function ViewAmbassadors() {
         })
     })
 
+    const RemoveAmbass = (name, email) => {
+      console.log(`The name and email to be removed ${name} and ${email}`)
+
+      Axios.post("http://localhost:3000/ambassremove",{
+        name:name,
+        email:email
+      }).then((res) =>{
+        console.log(res)
+      })
+      .catch(err =>{
+        console.log(err)
+      })
+
+    }
   return (
     <div className='Ambassadors_'>
         <h1 className = "AmbassHeading">Ambassadors</h1>
@@ -36,7 +50,7 @@ function ViewAmbassadors() {
                     <p>{val.Email}</p>
                     </div>
                     <div className="AmbassButt">
-                    <button className="button_ambass">Remove</button>
+                    <button className="button_ambass" onClick={() => RemoveAmbass(val.Name, val.Email)}>Remove</button>
                     </div>
                   </div>
                 )

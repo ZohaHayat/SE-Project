@@ -165,6 +165,18 @@ app.get('/members', (req,res)=> {
     });
 })
 
+app.post('/ambassremove',(req,res) =>{
+  const name = req.body.name
+  const email = req.body.email
+
+  db.collection('Ambassador').deleteOne({Name:name, Email: email})
+  .then((res) =>{
+    console.log(res)
+  }).catch(err => {
+    console.log(err)
+  })
+})
+
 app.post('/members',(req,res)=>{
   const id=req.body.id;
   const memstatus=req.body.memstatus;
