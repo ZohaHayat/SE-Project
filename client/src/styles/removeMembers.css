@@ -1,0 +1,77 @@
+.Members {
+    width: 30%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: left; 
+    flex-direction: column;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: 100px;
+    /* margin: 20px; */
+    font-size: x-large;
+    /* text-align: left; */
+}
+
+img {
+    border-radius: 50%;
+    width: 100px;
+    height: auto;
+}
+
+.Memberheading {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #205567;
+    /* font-size: x-large; */
+    text-align: left;
+} 
+
+.membercontainer {
+    display: flex;
+    flex-direction:row;
+    font-family:Arial, Helvetica, sans-serif;
+    /* color: #205567; */
+    font-size: medium;
+    margin-top: 20px;
+    align-self: left;
+}
+
+.memberdetail {
+    flex: 1;
+    font-family:Arial, Helvetica, sans-serif;
+    /* color: #205567; */
+    font-size: medium;
+    margin-left: 50px;
+}  
+
+.memberpic{
+    margin-right: 10px;
+    
+} 
+
+h4 {
+
+    font-size: small;
+
+}
+/* .flex-child-magenta{
+    border:#205567;
+
+} */
+
+.removebutton {
+    margin-top: 20px;
+    background-color: rgb(234, 114, 114);
+    border-radius: 30px;
+    height: 40px;
+    width:140px;
+    border: none;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 142px;
+    color: white;
+}
