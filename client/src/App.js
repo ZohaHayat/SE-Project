@@ -33,6 +33,8 @@ import ViewAmbassadors from './pages/viewAmbassadors';
 import Change from './pages/changepassword';
 import DeleteAcc from './pages/deleteacc';
 import ViewSponsors from './pages/viewSponsors';
+import ViewBeneficiaries from './pages/viewbeneficiaries';
+import AddBeneficiary from './pages/addbeneficiary';
 
 
 function App() {
@@ -68,6 +70,8 @@ function App() {
         <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
         <Route exact path = '/viewAmbassadors' element ={<ViewAmbassadors/>}/>
         <Route exact path = '/viewSponsors' element = {<ViewSponsors/>}/>
+        <Route exact path = '/viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
+        <Route exact path = '/addbeneficiary' element = {<AddBeneficiary/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
       <Footer/>

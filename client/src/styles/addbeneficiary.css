@@ -1,0 +1,87 @@
+.b_container {
+    text-align: center;
+  }
+  
+  .b_title {
+    font-family:Arial, Helvetica, sans-serif;
+    color: #205567;
+    font-size:30px
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  
+  input {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 40%;
+  }
+  .b_text{
+    font-size: 13px;
+
+  }
+
+  #event-name {
+    width: 540px;
+  }
+
+  .name_age_contain {
+    display: flex;
+    flex-direction: row;
+    /* padding: 100px; */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #your-name{
+    width: 250px;
+    margin-right: 20px;
+  }
+  #contact {
+    width: 250px;
+  }
+  
+  #b_email {
+    width: 540px;
+  }
+  
+  #cnic {
+    width: 250px;
+    margin-right: 20px;
+
+  }
+  #contact-number {
+    width: 250px;
+  }
+  
+  .b_a {
+    font-size: 13px;
+    margin-left: 10px;
+  }
+  
+  .b-submit-button {
+    margin-top: 20px;
+    background-color: #92D4D2;
+    border-radius: 30px;
+    height: 40px;
+    width:140px;
+    border: none;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 278px;
+  }
+
+  .b-submit-button:hover {
+    background-color: #a9e7e4;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+  }
+  
