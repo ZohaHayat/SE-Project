@@ -146,7 +146,20 @@ app.get('/viewbeneficiaries', (req,res)=> {
     .find() 
     .forEach(elem => benefitarr.push(elem))
     .then((result) => {
-      res.status(200).json({msg:"success",list:benefitarr});
+      let len = benefitarr.length
+      let newarr = []
+      for (let i=0; i<len; i++)
+      {
+        if (benefitarr[i]['Status'] == "Removed/Completed")
+        {
+          continue
+        }
+        else
+        {
+          newarr.push(benefitarr[i])
+        }
+      }
+      res.status(200).json({msg:"success",list:newarr});
     })
     .catch(() => {
       res.status(500).json({msg:"error",list:[]});
@@ -328,7 +341,8 @@ app.post('/addbeneficiary', (req,res)=> {
     CNIC: cnic,
     Reason: reason,
     Name: name,
-    Contact: contact
+    Contact: contact, 
+    Status: "In progress"
   };
 
   db.collection('Beneficiaries').findOne({cnic: cnic}).then((resul) => {
@@ -343,6 +357,25 @@ app.post('/addbeneficiary', (req,res)=> {
       db.collection('Beneficiaries').insertOne(newDoc).then((x) => {
         res.send("Success")
       })
+    }
+  })
+})
+
+app.post('/removebeneficiary', (req,res)=> {
+  const cnic = req.body.cnic;
+
+  db.collection('Beneficiaries').findOne({CNIC: cnic}).then((resul) => {
+    // console.log(resul)
+    if (resul != null)
+    {
+      if (resul.Status == "In progress")
+      {
+        db.collection('Beneficiaries').updateOne(
+          { CNIC: cnic },
+          { $set: { "Status": "Removed/Completed" } }
+      )
+      res.send("Success")
+      }
     }
   })
 })

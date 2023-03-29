@@ -5,10 +5,14 @@ import circle from '../assets/circlebutton.jpg'
 import "../styles/viewbeneficiaries.css"
 import { useState,useEffect } from 'react'
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const ViewBeneficiaries=()=> {
 
     const [benefit,setBenefit] = useState([])
+    // const [cnic,setCnic] = useState('')
+
+    const navigate = useNavigate();
     
     useEffect(() => {
     Axios.get("http://localhost:3000/viewbeneficiaries")
@@ -17,6 +21,18 @@ const ViewBeneficiaries=()=> {
     })
     .catch(err => {console.log(err)})
     })
+
+    const removing = (cnic) => {
+        console.log(cnic)
+        Axios.post("http://localhost:3000/removebeneficiary", 
+        {
+            cnic: cnic
+        }
+        ).then((res) => {
+            navigate("/viewbeneficiaries");
+        }).catch(err => {console.log(err)})
+
+    }
 
     return (
         <div  className='Benefit'>
@@ -30,6 +46,7 @@ const ViewBeneficiaries=()=> {
             {benefit.map((val) => { 
                 return (
                     <div>
+                    <button className='bene-submit-button' onClick={(event) => {removing(val.CNIC)}}>Remove</button>
                     <div className="benefitcontainer">
                         <div class="benefitpic">
                             <img src={Logo}/>
@@ -38,13 +55,9 @@ const ViewBeneficiaries=()=> {
                             <h3>{val.Name}</h3>
                             <h6>{val.Contact}</h6>
                             <h4>{val.Reason}</h4>
-                         </div>
+                        </div>
+
                     </div>
-                    {/* <div className='leftSide'> */}
-                    <div className='login'>
-                    <Link to ="/removebeneficiary"><button className='loginbutton'>Remove</button></Link>
-                    </div>
-                    {/* </div> */}
                     </div>)
             })}
         </div>

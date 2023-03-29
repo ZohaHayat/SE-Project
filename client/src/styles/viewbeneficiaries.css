@@ -99,24 +99,21 @@ h4 {
     width: 50px;
   }
 
-  .login {
-    position: right;
+  .bene-submit-button {
+    position: absolute;
     display:inline-block;
+    margin-top: 20px;
+    margin-left: 700px;
+    background-color: #F16A70;
+    border-radius: 30px;
+    height: 40px;
+    width:140px;
+    border: none;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 278px;
   }
 
-  .loginbutton {
-    text-align: center;
-    width: 100px; 
-    height: 30px;
-    /* margin-top: 15px; */
-    margin-left: 650%;
-    align-items: right;
-    border-radius: 100px;
-    font-size: 16px;
-    display: block;
-    background:#F16A70;
-  }
-  .loginbutton:hover {
+  .bene-submit-button:hover {
     background-color: #eb9296;
     cursor: pointer;
     transition: 0.3s ease-in;
@@ -125,7 +122,7 @@ h4 {
   .leftSide {
     flex: 5%;
     height: 100%;
-    display: flex;
+    display: inline;
     align-items: center;
     justify-content: center;
     padding-left: 500px;
