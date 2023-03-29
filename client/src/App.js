@@ -32,6 +32,7 @@ import ViewTeamDirector from './pages/viewTeamDirector';
 import ViewAmbassadors from './pages/viewAmbassadors';
 import Change from './pages/changepassword';
 import DeleteAcc from './pages/deleteacc';
+import ViewSponsors from './pages/viewSponsors';
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
         <Route exact path = '/changepass' element = {<Change/>}/>
         <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
         <Route exact path = '/viewAmbassadors' element ={<ViewAmbassadors/>}/>
+        <Route exact path = '/viewSponsors' element = {<ViewSponsors/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
       <Footer/>

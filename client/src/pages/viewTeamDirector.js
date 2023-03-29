@@ -7,7 +7,9 @@ const ViewTeamDirector= ()=>{
             <h1>View Team</h1>
             <div className="buttons">
                 <div>
-                <button className="but">Sponsors</button>
+                    <Link to= "/viewSponsors">
+                    <button className="but">Sponsors</button>
+                    </Link>
                 </div>
 
                 <div>

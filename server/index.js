@@ -127,6 +127,19 @@ app.get('/viewVolunteers', (req,res)=> {
     });
 })
 
+app.get('/viewSponsors', (req,res)=> {
+  let sponsorArr = [] //name,date,text
+  db.collection('Sponsorships')
+    .find() 
+    .forEach(elem => sponsorArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:sponsorArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
 app.post('/signup', (req,res)=> {
   const email = req.body.email;
   const pass = req.body.password;
