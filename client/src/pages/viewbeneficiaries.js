@@ -29,6 +29,7 @@ const ViewBeneficiaries=()=> {
                 </div>
             {benefit.map((val) => { 
                 return (
+                    <div>
                     <div className="benefitcontainer">
                         <div class="benefitpic">
                             <img src={Logo}/>
@@ -38,7 +39,12 @@ const ViewBeneficiaries=()=> {
                             <h6>{val.Contact}</h6>
                             <h4>{val.Reason}</h4>
                          </div>
-                    
+                    </div>
+                    {/* <div className='leftSide'> */}
+                    <div className='login'>
+                    <Link to ="/removebeneficiary"><button className='loginbutton'>Remove</button></Link>
+                    </div>
+                    {/* </div> */}
                     </div>)
             })}
         </div>
