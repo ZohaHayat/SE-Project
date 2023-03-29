@@ -9,7 +9,9 @@ const DirectorPage=()=>{
         </div>
 
         <div>
-        <button className="b">People to Sponsor</button>
+        <Link to="/viewbeneficiaries">
+        <button className="b">Beneficiaries</button>
+        </Link>
         </div>
 
         <div>

@@ -139,6 +139,19 @@ app.get('/viewSponsors', (req,res)=> {
     });
 })
 
+app.get('/viewbeneficiaries', (req,res)=> {
+  let benefitarr = []
+  db.collection('Beneficiaries')
+    .find() 
+    .forEach(elem => benefitarr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:benefitarr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
 app.get('/members', (req,res)=> {
   let memberArr = [] //name,date,text
   db.collection('Members')
@@ -326,6 +339,37 @@ app.post('/del', (req,res)=> {
   db.collection('Users').deleteOne({ Email: email }).then((result) => {
     console.log("Document deleted successfully");
       res.send("Success")
+  })
+})
+
+app.post('/addbeneficiary', (req,res)=> {
+  const name = req.body.name;
+  const contact = req.body.contact;
+  const reason = req.body.reason;
+  const cnic = req.body.cnic;
+
+  console.log(name,contact, reason)
+
+  const newDoc = {
+    CNIC: cnic,
+    Reason: reason,
+    Name: name,
+    Contact: contact
+  };
+
+  db.collection('Beneficiaries').findOne({cnic: cnic}).then((resul) => {
+    console.log(resul)
+    if (resul != null)
+    {
+      console.log("hello")
+      res.send("Already exists")
+    }
+    else 
+    {
+      db.collection('Beneficiaries').insertOne(newDoc).then((x) => {
+        res.send("Success")
+      })
+    }
   })
 })
 // app.get('/aboutus', (req,res)=> {
