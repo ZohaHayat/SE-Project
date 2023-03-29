@@ -15,8 +15,9 @@ function NavBarlogin() {
     return (
     <div className = "navbarlogin">
         <div className = "leftSide" id ={openLinks ? "open" : "close" }>
-            <Link to ="/"><img src={Logo}/>PakTree</Link>
-            <div className = "hiddenLinks">
+            {/* <Link to ="/"><img src={Logo}/>PakTree</Link> */}
+            <Link to ="/directorPage"><img src={Logo}/>PakTree</Link>
+            {/* <div className = "hiddenLinks">
             </div>
             <div className ="dropdown">
                 <button className ="dropbtn">About Us</button>
@@ -43,20 +44,20 @@ function NavBarlogin() {
                         <Link to ="/stories">Stories</Link>
                         <Link to ="/news">News</Link>
                     </div>
-            </div>
+            </div> */}
             <div className ="dropdown">
                 <button className ="dropbtn"><img src={Logo2}/></button>
                     <div className ="dropdown-content">
                         <Link to ="/changepass">Change password</Link>
-                        <Link to ="/delacc">Delete account</Link>
+                        {/* <Link to ="/delacc">Delete account</Link>
                         <Link to ="/records">View Records</Link>
-                        <Link to ="/status">View status</Link>
+                        <Link to ="/status">View status</Link> */}
                     </div>
             </div>
             <div className="login"><button className ="loginbutton" onClick={()=>navigate("/")}>Logout</button></div>
         </div>
         <div className = "rightSide">
-            <div className ="dropdown">
+            {/* <div className ="dropdown">
                 <button className ="dropbtn">About Us</button>
                     <div className ="dropdown-content">
                         <Link to ="/about">About Us</Link>
@@ -80,8 +81,8 @@ function NavBarlogin() {
                     <div className ="dropdown-content">
                         <Link to ="/stories">Stories</Link>
                         <Link to ="/news">News</Link>
-                    </div>
-            </div>
+                    </div> */}
+            {/* </div> */}
             <button onClick = {toggleNavbar}>
             <ReorderIcon/>
             </button>

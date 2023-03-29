@@ -417,6 +417,18 @@ app.post('/removebeneficiary', (req,res)=> {
     }
   })
 })
+
+
+// const stripe = require('stripe')('sk_test_51Mp7mTFJDc8oaStDTeaSLVZxTszm4hGy6lGCkCn14e9vcgGDiaEdrYV4dux1S422XalmLpKytqJPpBPC7ekqTaW500zcIyztTu');
+
+// stripe.paymentLinks.listLineItems(
+//   'plink_1Mp8DEFJDc8oaStDhqDADTyZ',
+//   { limit: 100 },
+//   function(err, lineItems) {
+//     // asynchronously called
+//   }
+// );
+
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
 //   db.collection('About_us')

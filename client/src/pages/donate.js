@@ -31,7 +31,7 @@ const Donate = () =>{
     return (
         <div className="donate">
 
-        <form action="https://buy.stripe.com/test_8wMaEQ1SL8Vz5UsfYY" >
+        <form action="https://donate.stripe.com/test_8wMaEQ1SL8Vz5UsfYY" >
             <h2 className="heading">Make a Donation</h2>
             <div >
                 <input className="amount" type="text" placeholder="Enter Amount to donate" required onChange={(event) => {setAmt(event.target.value)}}></input>
@@ -49,6 +49,10 @@ const Donate = () =>{
                 <button className="donate-button" onClick={ (event) => {donating()}}>Donate</button>
             </div>
             </form>
+            <div>
+                <h5>If you want to donate items such as clothes, toys, books etc, please drop them at the address below: </h5>
+                <h6>PO Box 45 Lahore Cantt </h6>
+            </div>
         </div>
     )
 }

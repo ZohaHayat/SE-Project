@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import {useLocation} from 'react-router-dom'
+import { useState, useEffect } from "react"
 
 import { ChakraProvider } from '@chakra-ui/react'
 
@@ -40,12 +41,31 @@ import AddBeneficiary from './pages/addbeneficiary';
 
 function App() {
 
+  const [loggedIn, setLoggedIn] = useState(false)
+  const handleLogin = () => {
+    setLoggedIn(true)
+    localStorage.setItem("loggedIn",true)
+  }
+
+  const handleLogout = () => {
+    setLoggedIn(false);
+    localStorage.setItem("loggedIn",false)
+  };
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("loggedIn")
+    if (isLoggedIn == "true")
+    {
+      setLoggedIn(true)
+    }
+  },[])
+
   return (
     // the rendering is done inside the class name App and the components need to be self-closed
     //the NavBar is put outside of the Routes tag so that it appears on every page
     <div className="App"> 
     <Router>
-      <NavBar/> 
+      <NavBar loggedIn={loggedIn} handleLogout={handleLogout}/> 
       {/* <NavBarlogin/> */}
       <Routes>
         <Route exact path = '/' element = {<Home/>}/>
@@ -59,7 +79,7 @@ function App() {
         <Route exact path = '/viewVolunteers' element = {<ViewVolunteers/>}/>
         <Route exact path = '/directorPage' element ={<DirectorPage />}/>
         <Route exact path = '/viewTeamDirector' element ={<ViewTeamDirector />}/>
-        <Route exact path = '/login' element = {<Login/>}/>
+        <Route exact path = '/login' element = {<Login handleLogin={handleLogin}/>}/>
         <Route exact path = '/signup' element = {<Signup/>}/>
         <Route exact path = '/loginhome' element = {<Loginhome/>}/>
         <Route exact path = '/donate' element = {<Donate/>}/>
@@ -76,7 +96,7 @@ function App() {
         <Route exact path = '/members' element = {<RemoveMembers/>}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
-      <Footer/>
+      <Footer loggedIn={loggedIn} handleLogout={handleLogout}/>
     </Router>
 
     </div>

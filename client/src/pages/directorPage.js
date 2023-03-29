@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom"
 import "../styles/directorPage.css"
+import Banner from '../assets/grass.jpg'
 
 const DirectorPage=()=>{
     return(
+    <div className = "dir-bg" style={{backgroundImage: `url(${Banner})`}}>
+        <div className = "headContainer" >
     <div className="buttons">
         <div>
         <button className="b">Events</button>
@@ -48,7 +51,9 @@ const DirectorPage=()=>{
 
             </Link>
         </div>
+        </div>
 
+    </div>
     </div>)
 }
 
