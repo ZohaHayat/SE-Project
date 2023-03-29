@@ -13,7 +13,9 @@ const DirectorPage=()=>{
         </div>
 
         <div>
-        <button className="b">Members</button>
+            <Link to= "/members">
+                <button className="b">Members</button>
+            </Link>
         </div>
 
         <div>

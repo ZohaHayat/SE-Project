@@ -1,5 +1,5 @@
 const express = require("express");
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const cors = require("cors");
 const e = require("express");
 const nodemailer = require("nodemailer");
@@ -9,7 +9,6 @@ const saltRounds = 10;
 var bodyParser = require('body-parser');
 
 const { connectToDb, getDb } = require('./db'); //importing functions from db.js
-
 const app = express();
 app.use(cors())
 // configure the app to use bodyParser()
@@ -138,6 +137,33 @@ app.get('/viewSponsors', (req,res)=> {
     .catch(() => {
       res.status(500).json({msg:"error",list:[]});
     });
+})
+
+app.get('/members', (req,res)=> {
+  let memberArr = [] //name,date,text
+  db.collection('Members')
+    .find() 
+    .forEach(elem => {if(elem.status=='active') {memberArr.push(elem)}})
+    .then((result) => {
+      res.status(200).json({msg:"success",list:memberArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
+app.post('/members',(req,res)=>{
+  const id=req.body.id;
+  const memstatus=req.body.memstatus;
+    
+  db.collection('Members').updateOne(
+    { _id: new ObjectId(`${id}`) },
+    { $set: { status: memstatus } }
+    )
+    res.send("success")
+    
+
+
 })
 
 app.post('/signup', (req,res)=> {
