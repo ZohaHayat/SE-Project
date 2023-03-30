@@ -439,6 +439,26 @@ app.post("/volunteersubmit",(req, res) =>{
 
 })
 
+app.post('/storeSub', (req,res) =>{
+  const email = req.body.subscriberEmail;
+  const subscriber = {
+    Email: email
+  }
+  
+  db.collection('Newsletter').findOne({Email:email}).then((result) => {
+    if (result != null){
+      res.send("Already Subscribed")
+    }
+    else {
+      db.collection('Newsletter').insertOne(subscriber).then((f) => {
+        res.send("Successfully Subscribed")
+      })
+
+
+    }
+  })  
+})
+
 app.post('/change', (req,res)=> {
   const old = req.body.old;
   const newp = req.body.newp;
