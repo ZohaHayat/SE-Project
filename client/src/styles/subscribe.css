@@ -67,6 +67,10 @@
   .email_form{
     padding-left: 30px;
     padding-top: 32px;
+    
+  }
+  .this_form{
+    display:flex
   }
   .The_headers{
     text-align:center;
