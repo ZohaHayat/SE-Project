@@ -58,13 +58,23 @@ app.get('/events/get', (req,res) => {
 })
 app.get('/getambassadors', (req,res) => {
   let ambassArr = []
-  // console.log("hello0")
   db.collection('Ambassador')
   .find()
   .forEach(ele => ambassArr.push(ele))
-  .then((resu) => {
+  .then((result) => {
+    console.log("hello0")
+    let l = ambassArr.length
+    let new_l = [];
+    for (let i = 0; i < l; i++){
+      if (ambassArr[i]['Status'] == 'Completed'){
+        continue
+      }
+      else{
+        new_l.push(ambassArr[i])
+      }
+    }
     // console.log("hello")
-    res.status(200).json({msg:"success",list:ambassArr});
+    res.status(200).json({msg:"success",list:new_l});
   })
   .catch(() => {
     // console.log("hello2")
@@ -181,11 +191,22 @@ app.get('/members', (req,res)=> {
 app.post('/ambassremove',(req,res) =>{
   const name = req.body.name
   const email = req.body.email
+  console.log("hello2")
 
-  db.collection('Ambassador').deleteOne({Name:name, Email: email})
+
+  db.collection('Ambassador').findOne({Name:name, Email: email})
   .then((res) =>{
-    console.log(res)
-  }).catch(err => {
+    if (res != null){
+      if (res.Status == 'Active'){
+        db.collection('Ambassador').updateOne(
+          {Email:email, Name:name},
+          {$set:{"Status":"Completed"}}
+      )
+      // res.send("Success")
+      }
+    }
+  })
+  .catch(err =>{
     console.log(err)
   })
 })

@@ -3,15 +3,18 @@ import Axios from "axios";
 import { useEffect, useState } from 'react'
 import Icon from "../assets/icon.jpg";
 import "../styles/ambassadors.css"
+import { useNavigate } from 'react-router-dom';
 
 
 function ViewAmbassadors() {
     const [ambass, setambass] = useState([])
 
+    const navigate = useNavigate();
+
     useEffect(() => {
         Axios.get("http://localhost:3000/getambassadors")
         .then (res => {
-            // console.log("hello")
+            console.log("hello")
             setambass(res.data.list);
         })
         .catch(err => {
