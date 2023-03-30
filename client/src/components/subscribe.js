@@ -11,10 +11,6 @@ function ChatIcon() {
   const [popuptoggle, setpopuptoggle] = useState(false);
   const [styling, setstyling] = useState(null);
 
-  const handleIconClick = () => {
-    console.log("hello")
-    setShowForm(!showForm);
-  };
   const changecontent = (vall) => {
     setpopupcontent([vall]);
     setpopuptoggle(!popuptoggle);
@@ -37,15 +33,6 @@ function ChatIcon() {
   </div>
   <div className="chat_pop_up_content">
       Subscribe to our Newsletter
-    {/* {popupcontent.map((val)=>{
-      return (
-        <div className="chat_pop_up_card">
-         <h2>{val.EventName}</h2>
-          <p>{val.Description}</p>
-        </div>
-      )
-
-    })} */}
   </div>
   </div>
 </div>)}
@@ -60,13 +47,4 @@ function ChatIcon() {
 export default ChatIcon;
 
 
-
-
-// {showForm && (
-//     <div className="chat-form">
-//       <form>
-//         {/* form elements go here */}
-//       </form>
-//     </div>
-//   )}
 
