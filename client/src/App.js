@@ -103,6 +103,7 @@ function App() {
           <Route exact path = '/addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route exact path = '/members' element = {<RemoveMembers/>}/>
         </Route>}
+        
       </Routes>
       <Footer loggedIn={loggedIn} handleLogout={handleLogout}/>
     </Router>

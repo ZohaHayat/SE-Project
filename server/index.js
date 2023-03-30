@@ -466,15 +466,24 @@ app.post('/change', (req,res)=> {
 
   console.log(newp,email)
 
-  db.collection('Users').updateOne(
-    { Email: email }, // specify the user to update by their username
-    { $set: { Password: newp } } // set the new password
-  );
+  // db.collection('Users').updateOne(
+  //   { Email: email }, // specify the user to update by their username
+  //   { $set: { Password: newp } } // set the new password
+  // );
 
   db.collection('Directors').updateOne(
-    { Email: email }, // specify the user to update by their username
+    { Email: email, Password: old }, // specify the user to update by their username
     { $set: { Password: newp } } // set the new password
-  );
+  ).then((response) => {
+    if (response.acknowledged)
+    {
+      res.send("Success")
+    }
+    else
+    {
+      res.send("Failure")
+    }
+  });
 
   res.send("Success")
 })
