@@ -76,25 +76,27 @@ function App() {
         <Route exact path = '/news' element = {<News/>}/>
         <Route exact path = '/contact' element = {<Contact/>}/>
         <Route exact path = '/careers' element = {<Careers/>}/>
-        <Route exact path = '/viewVolunteers' element = {<ViewVolunteers/>}/>
-        <Route exact path = '/directorPage' element ={<DirectorPage />}/>
-        <Route exact path = '/viewTeamDirector' element ={<ViewTeamDirector />}/>
         <Route exact path = '/login' element = {<Login handleLogin={handleLogin}/>}/>
         <Route exact path = '/signup' element = {<Signup/>}/>
         <Route exact path = '/loginhome' element = {<Loginhome/>}/>
         <Route exact path = '/donate' element = {<Donate/>}/>
         <Route exact path = '/volunteer' element = {<Volunteer/>}/>
-        <Route exact path = '/member' element = {<MemberAdd/>}/>
-        <Route exact path = '/donors' element = {<Donors/>}/>
         <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
-        <Route exact path = '/changepass' element = {<Change/>}/>
-        <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
-        <Route exact path = '/viewAmbassadors' element ={<ViewAmbassadors/>}/>
-        <Route exact path = '/viewSponsors' element = {<ViewSponsors/>}/>
-        <Route exact path = '/viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
-        <Route exact path = '/addbeneficiary' element = {<AddBeneficiary/>}/>
-        <Route exact path = '/members' element = {<RemoveMembers/>}/>
-        {/* the / simply means that homepage is with a / */}
+
+        {loggedIn &&
+        <Route exact path = '/directorPage' element ={<DirectorPage />}>
+          <Route exact path = '/viewVolunteers' element = {<ViewVolunteers/>}/>
+          <Route exact path = '/viewTeamDirector' element ={<ViewTeamDirector />}/>
+          <Route exact path = '/member' element = {<MemberAdd/>}/>
+          <Route exact path = '/donors' element = {<Donors/>}/>
+          <Route exact path = '/changepass' element = {<Change/>}/>
+          <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
+          <Route exact path = '/viewAmbassadors' element ={<ViewAmbassadors/>}/>
+          <Route exact path = '/viewSponsors' element = {<ViewSponsors/>}/>
+          <Route exact path = '/viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
+          <Route exact path = '/addbeneficiary' element = {<AddBeneficiary/>}/>
+          <Route exact path = '/members' element = {<RemoveMembers/>}/>
+        </Route>}
       </Routes>
       <Footer loggedIn={loggedIn} handleLogout={handleLogout}/>
     </Router>
