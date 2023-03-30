@@ -285,7 +285,7 @@ app.post('/login', (req,res)=> {
   })
 })
 
-app.post('/donate', (req,res)=> {
+app.post('/okay', (req,res)=> {
   const email = req.body.email;
   const name = req.body.name;
   const bank = req.body.bank;
@@ -316,6 +316,89 @@ app.post('/donate', (req,res)=> {
     }
   })
 })
+
+const stripe = require('stripe')('sk_test_51Mp7mTFJDc8oaStDTeaSLVZxTszm4hGy6lGCkCn14e9vcgGDiaEdrYV4dux1S422XalmLpKytqJPpBPC7ekqTaW500zcIyztTu');
+
+app.post('/donate', async (req,res)=> {
+  const email = req.body.email;
+  const name = req.body.name;
+  const bank = req.body.bank;
+  const amt = req.body.amt;
+
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'pkr',
+          product_data: {
+            name: 'Donation',
+          },
+          unit_amount: amt*100,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    metadata: {'bank_name': bank},
+    success_url: `http://localhost:3001/success?name=${name}&email=${email}&bank=${bank}&amt=${amt}`,
+    cancel_url: 'http://localhost:3001/failure',
+    customer_email: email,
+    client_reference_id: name
+  });
+
+  console.log(session)
+
+  console.log(email,name,bank,amt)
+  res.send(session)
+})
+
+// app.post('/donate2', async (req,res)=> {
+//   const email = req.body.email;
+//   const name = req.body.name;
+//   const bank = req.body.bank;
+//   const amt = req.body.amt;
+
+//   const session = await stripe.subscriptions.create({
+//     items: [{price: amt}],
+//     billing_cycle_anchor: 'year',
+//     currency: 'pkr',
+//     payment_behavior: 'default_incomplete',
+//     expand: ['latest_invoice.payment_intent'],
+//     // success_url: `http://localhost:3001/success2?name=${name}&email=${email}&bank=${bank}&amt=${amt}`,
+//     // cancel_url: 'http://localhost:3001/failure',
+//   });
+  
+
+//   // const session = await stripe.plans.create({
+//   //   payment_method_types: ['card'],
+//   //   line_items: [
+//   //     {
+//   //       price_data: {
+//   //         currency: 'pkr',
+//   //         product_data: {
+//   //           name: 'Monthly Donation',
+//   //         },
+//   //         unit_amount: amt*100,
+//   //       },
+//   //       quantity: 1,
+//   //     },
+//   //   ],
+//   //   mode: 'subscription',
+//   //   metadata: {'bank_name': bank},
+//   //   success_url: `http://localhost:3001/success2?name=${name}&email=${email}&bank=${bank}&amt=${amt}`,
+//   //   cancel_url: 'http://localhost:3001/failure',
+//   //   customer_email: email,
+//   //   client_reference_id: name,
+//   //   interval: 'month',
+//   //   interval_count: 1,
+//   // });
+
+//   console.log(session)
+
+//   console.log(email,name,bank,amt)
+//   res.send(session)
+// })
 
 app.post("/volunteersubmit",(req, res) =>{
   // const {event_name, name, age,vol_email, cnic, contact_num, vol_id = vol_counter++} = req.body

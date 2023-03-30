@@ -37,6 +37,9 @@ import ViewSponsors from './pages/viewSponsors';
 import RemoveMembers from './pages/removeMembers';
 import ViewBeneficiaries from './pages/viewbeneficiaries';
 import AddBeneficiary from './pages/addbeneficiary';
+import Success from './pages/success';
+import Failure from './pages/failure';
+// import Success2 from './pages/success2';
 
 
 function App() {
@@ -82,6 +85,9 @@ function App() {
         <Route exact path = '/donate' element = {<Donate/>}/>
         <Route exact path = '/volunteer' element = {<Volunteer/>}/>
         <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
+        <Route exact path = '/success' element = {<Success/>}/>
+        <Route exact path = '/failure' element = {<Failure/>}/>
+        {/* <Route exact path = '/success2' element = {<Success2/>}/> */}
 
         {loggedIn &&
         <Route exact path = '/directorPage' element ={<DirectorPage />}>
