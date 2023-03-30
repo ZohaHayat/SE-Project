@@ -32,7 +32,16 @@ function ChatIcon() {
     <button className="chat_button" onClick={changecontent}>x</button>
   </div>
   <div className="chat_pop_up_content">
-      Subscribe to our Newsletter
+    <div className='The_headers'>
+    <h3 className='hh'>Add impact to your inbox</h3>
+    <p className='pp'>Get our emails to stay in the know</p>
+    </div>
+    <div className='email_form'>
+      <input className='sub_email' type="email" placeholder='Email' required/>
+    </div>
+    <div className='sub_pop_button'>
+      <button className='butt_sub'>Subscribe</button>
+    </div>
   </div>
   </div>
 </div>)}
