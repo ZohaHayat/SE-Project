@@ -33,11 +33,9 @@ import ViewTeamDirector from './pages/viewTeamDirector';
 import ViewAmbassadors from './pages/viewAmbassadors';
 import Change from './pages/changepassword';
 import DeleteAcc from './pages/deleteacc';
-<<<<<<< HEAD
 import DEvents from './pages/directorEvents';
 import DDirectors from './pages/DViewDirectors';
 import AmbassadorApplications from './pages/AmbassadorApplications';
-=======
 import ViewSponsors from './pages/viewSponsors';
 import RemoveMembers from './pages/removeMembers';
 import ViewBeneficiaries from './pages/viewbeneficiaries';
@@ -48,7 +46,6 @@ import MemberApp from './pages/memberApp';
 import MemberAppDecision from './pages/accept_dec_member';
 // import Success2 from './pages/success2';
 
->>>>>>> b87425e991c55699471510ae339d0199ef019513
 
 function App() {
 

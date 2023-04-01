@@ -95,7 +95,6 @@ app.get('/stories', (req,res)=> {
     });
 })
 
-<<<<<<< HEAD
 // Ayesha Masood
 app.get('/ambassadorApplications', (req,res)=> {
   let appsArr = [] 
@@ -191,9 +190,7 @@ app.post('/careers', async (req,res)=> {
 })
 
 app.get('/donors', (req,res)=> {
-=======
 app.get('/directorPage/donors', (req,res)=> {
->>>>>>> b87425e991c55699471510ae339d0199ef019513
   let donorsArr = [] //name,date,text
   db.collection('Donors')
     .find() 
@@ -204,6 +201,7 @@ app.get('/directorPage/donors', (req,res)=> {
     .catch(() => {
       res.status(500).json({msg:"error",list:[]});
     });
+})
 })
 
 app.post('/directorPage/addMember', async (req,res)=> {
