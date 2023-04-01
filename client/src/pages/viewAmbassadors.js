@@ -12,7 +12,7 @@ function ViewAmbassadors() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        Axios.get("http://localhost:3000/getambassadors")
+        Axios.get("http://localhost:3000/directorPage/getambassadors")
         .then (res => {
             console.log("hello")
             setambass(res.data.list);
@@ -25,7 +25,7 @@ function ViewAmbassadors() {
     const RemoveAmbass = (name, email) => {
       console.log(`The name and email to be removed ${name} and ${email}`)
 
-      Axios.post("http://localhost:3000/ambassremove",{
+      Axios.post("http://localhost:3000/directorPage/ambassremove",{
         name:name,
         email:email
       }).then((res) =>{

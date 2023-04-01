@@ -103,7 +103,6 @@ function App() {
           <Route exact path = '/viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
           <Route exact path = '/addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route exact path = '/members' element = {<RemoveMembers/>}/>
-          <Route exact path = '/memberapp' element = {<MemberApp/>}/>
         </Route>}
         
       </Routes>

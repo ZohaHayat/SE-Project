@@ -56,7 +56,7 @@ app.get('/events/get', (req,res) => {
     res.status(500).json({msg:"error",list:[]});
   })
 })
-app.get('/getambassadors', (req,res) => {
+app.get('/directorPage/getambassadors', (req,res) => {
   let ambassArr = []
   db.collection('Ambassador')
   .find()
@@ -95,7 +95,7 @@ app.get('/stories', (req,res)=> {
     });
 })
 
-app.get('/donors', (req,res)=> {
+app.get('/directorPage/donors', (req,res)=> {
   let donorsArr = [] //name,date,text
   db.collection('Donors')
     .find() 
@@ -108,7 +108,7 @@ app.get('/donors', (req,res)=> {
     });
 })
 
-app.post('/addMember', async (req,res)=> {
+app.post('/directorPage/addMember', async (req,res)=> {
   const insertResult = db.collection('Members').insertMany([
     {
       "Name": req.body.name,
@@ -123,7 +123,7 @@ app.post('/addMember', async (req,res)=> {
   res.status(200).json({result : insertResult});
 })
 
-app.get('/viewVolunteers', (req,res)=> {
+app.get('/directorPage/viewVolunteers', (req,res)=> {
   let volunteersArr = [] //name,date,text
   db.collection('Volunteer_Details')
     .find() 
@@ -136,7 +136,7 @@ app.get('/viewVolunteers', (req,res)=> {
     });
 })
 
-app.get('/viewSponsors', (req,res)=> {
+app.get('/directorPage/viewSponsors', (req,res)=> {
   let sponsorArr = [] //name,date,text
   db.collection('Sponsorships')
     .find() 
@@ -149,7 +149,7 @@ app.get('/viewSponsors', (req,res)=> {
     });
 })
 
-app.get('/viewbeneficiaries', (req,res)=> {
+app.get('/directorPage/viewbeneficiaries', (req,res)=> {
   let benefitarr = []
   db.collection('Beneficiaries')
     .find() 
@@ -175,7 +175,7 @@ app.get('/viewbeneficiaries', (req,res)=> {
     });
 })
 
-app.get('/members', (req,res)=> {
+app.get('/directorPage/members', (req,res)=> {
   let memberArr = [] //name,date,text
   db.collection('Members')
     .find() 
@@ -188,7 +188,7 @@ app.get('/members', (req,res)=> {
     });
 })
 
-app.post('/ambassremove',(req,res) =>{
+app.post('/directorPage/ambassremove',(req,res) =>{
   const name = req.body.name
   const email = req.body.email
   console.log("hello2")
@@ -211,7 +211,7 @@ app.post('/ambassremove',(req,res) =>{
   })
 })
 
-app.post('/members',(req,res)=>{
+app.post('/directorPage/members',(req,res)=>{
   const id=req.body.id;
   const memstatus=req.body.memstatus;
     
@@ -500,7 +500,7 @@ app.post('/del', (req,res)=> {
   })
 })
 
-app.post('/addbeneficiary', (req,res)=> {
+app.post('/directorPage/addbeneficiary', (req,res)=> {
   const name = req.body.name;
   const contact = req.body.contact;
   const reason = req.body.reason;
@@ -532,7 +532,7 @@ app.post('/addbeneficiary', (req,res)=> {
   })
 })
 
-app.post('/removebeneficiary', (req,res)=> {
+app.post('/directorPage/removebeneficiary', (req,res)=> {
   const cnic = req.body.cnic;
 
   db.collection('Beneficiaries').findOne({CNIC: cnic}).then((resul) => {

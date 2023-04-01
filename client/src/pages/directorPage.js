@@ -12,13 +12,13 @@ const DirectorPage=()=>{
         </div>
 
         <div>
-        <Link to="/viewbeneficiaries">
+        <Link to="/directorPage/viewbeneficiaries">
         <button className="b">Beneficiaries</button>
         </Link>
         </div>
 
         <div>
-            <Link to= "/members">
+            <Link to= "/directorPage/members">
                 <button className="b">Members</button>
             </Link>
         </div>
@@ -28,7 +28,7 @@ const DirectorPage=()=>{
         </div>
 
         <div>
-        <Link to="/viewAmbassadors">
+        <Link to="/directorPage/viewAmbassadors">
         <button className="b">Ambassadors</button>
         </Link>
         </div>
@@ -46,7 +46,7 @@ const DirectorPage=()=>{
         </div>
 
         <div>
-            <Link to="/viewTeamDirector">
+            <Link to="/directorPage/viewTeamDirector">
             <button className="b">View Team</button>
 
             </Link>

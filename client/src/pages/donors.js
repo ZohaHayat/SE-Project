@@ -9,7 +9,7 @@ function Donors() {
     const [donors, setDonors] = useState([])
     
     useEffect(() => {
-    Axios.get("http://localhost:3000/donors")
+    Axios.get("http://localhost:3000/directorPage/donors")
     .then(res => {
         setDonors(res.data.list);
     })

@@ -7,7 +7,7 @@ const ViewTeamDirector= ()=>{
             <h1>View Team</h1>
             <div className="buttons">
                 <div>
-                    <Link to= "/viewSponsors">
+                    <Link to= "/directorPage/viewSponsors">
                     <button className="but">Sponsors</button>
                     </Link>
                 </div>
@@ -17,7 +17,7 @@ const ViewTeamDirector= ()=>{
                 </div>
 
                 <div>
-                    <Link to="/viewVolunteers">
+                    <Link to="/directorPage/viewVolunteers">
                     <button className="but">Volunteers</button>
                     </Link>
                 </div>

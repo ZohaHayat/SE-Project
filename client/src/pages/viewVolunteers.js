@@ -15,7 +15,7 @@ const ViewVolunteers=()=> {
     const [volunteers,setVolunteer] = useState([])
     
     useEffect(() => {
-    Axios.get("http://localhost:3000/viewVolunteers")
+    Axios.get("http://localhost:3000/directorPage/viewVolunteers")
     .then(res => {
         setVolunteer(res.data.list); //stores the data from the backend
     })
