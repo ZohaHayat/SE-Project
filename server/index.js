@@ -552,15 +552,18 @@ app.post('/removebeneficiary', (req,res)=> {
 })
 
 
-// const stripe = require('stripe')('sk_test_51Mp7mTFJDc8oaStDTeaSLVZxTszm4hGy6lGCkCn14e9vcgGDiaEdrYV4dux1S422XalmLpKytqJPpBPC7ekqTaW500zcIyztTu');
-
-// stripe.paymentLinks.listLineItems(
-//   'plink_1Mp8DEFJDc8oaStDhqDADTyZ',
-//   { limit: 100 },
-//   function(err, lineItems) {
-//     // asynchronously called
-//   }
-// );
+app.get('/getmemberapps', (req,res)=> {
+  let memberArr = [] //name,date,text
+  db.collection('Employee_Applications')
+    .find() 
+    .forEach(elem => {if(elem.status=='active') {memberArr.push(elem)}})
+    .then((result) => {
+      res.status(200).json({msg:"success",list:memberArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
 
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []

@@ -39,6 +39,7 @@ import ViewBeneficiaries from './pages/viewbeneficiaries';
 import AddBeneficiary from './pages/addbeneficiary';
 import Success from './pages/success';
 import Failure from './pages/failure';
+import MemberApp from './pages/memberApp';
 // import Success2 from './pages/success2';
 
 
@@ -102,6 +103,7 @@ function App() {
           <Route exact path = '/viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
           <Route exact path = '/addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route exact path = '/members' element = {<RemoveMembers/>}/>
+          <Route exact path = '/memberapp' element = {<MemberApp/>}/>
         </Route>}
         
       </Routes>
