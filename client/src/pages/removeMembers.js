@@ -1,6 +1,6 @@
 import React from 'react'
 import Axios from "axios"
-import Logo from '../assets/nodp.png'
+import Icon from '../assets/nodp.png'
 import "../styles/removeMembers.css"
 import { useState,useEffect } from 'react'
 import { Navigate } from 'react-router-dom'
@@ -60,28 +60,55 @@ const RemoveMembers=()=> {
     }
 
     return (
-        <div  className='Members'>
-            <h1 className = "Memberheading">Members</h1>
-            {members.map((val) => { 
+        <div className='Members_'>
+        <h1 className = "memHeading">Ambassadors</h1>
+        <div className='horizontal_line'></div>
+        <div className="memList">
+            {
+              members.map((val) => {
                 return (
-                    <div className="membercontainer">
-                        <div class="memberpic">
-                            <img src={Logo}/>
-                        </div>
-                        <div class="memberdetail">
-                            <h3>{val.Name}</h3>
-                            <h4>{val.Event}</h4>
-                         </div>
-                         <div>
-                            <button key={val.Name} style={{backgroundColor:color}} className='removebutton' onClick={()=>ClickRemoveMember(val._id)}>Remove</button>
-                         </div>
+                    <div className='memItem'>
+                  <div className="memImg">
+                    <img src={Icon} alt=""/>
+                    </div>
+                    <div className="memText">
+                    <h2>{val.Name}</h2>
+                    <p>{val.Email}</p>
+                    </div>
+                    <div className="memButt">
+                    <button className="button_mem" onClick={()=>ClickRemoveMember(val._id)}>Remove</button>
+                    </div>
+                  </div>
+                )
+              })
+            }
+
+          </div>
+
+
+    </div>
+        // <div  className='Members'>
+        //     <h1 className = "Memberheading">Members</h1>
+        //     {members.map((val) => { 
+        //         return (
+        //             <div className="membercontainer">
+        //                 <div class="memberpic">
+        //                     <img src={Logo}/>
+        //                 </div>
+        //                 <div class="memberdetail">
+        //                     <h3>{val.Name}</h3>
+        //                     <h4>{val.Event}</h4>
+        //                  </div>
+        //                  <div>
+        //                     <button key={val.Name} style={{backgroundColor:color}} className='removebutton' onClick={()=>ClickRemoveMember(val._id)}>Remove</button>
+        //                  </div>
                     
-                    </div>)
-            })}
+        //             </div>)
+        //     })}
           
 
            
-        </div>
+        // </div>
       )
 }
 

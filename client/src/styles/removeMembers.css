@@ -1,4 +1,70 @@
-.Members {
+.memHeading {
+    
+    font-size: 50px;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    margin-left: 15%;
+    /* place-items: center; */
+  }
+  .horizontal_line{
+    border-bottom: 2px solid #ccc;
+    width: 70%;
+    position: relative;
+    top: -30px;
+    margin: 0 auto;
+  }
+
+  .memList {
+    width: 50vw;
+    /* height: auto; */
+    display: list-item;
+    list-style: none;
+    place-items: center;
+    margin-left: 15%;
+    padding: 10px;
+    
+  }
+
+  .memItem{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .memImg{
+    height: 100px;
+    margin: 20px;
+  }
+  .memText{
+    flex: 3;
+    padding-top: 20px;
+  }
+.memText h2{
+    font-size: 20px;
+    font-weight: 100;
+}
+
+
+  .memButt{
+    padding-top: 30px;
+    flex: 3;
+  }
+
+  .button_mem{
+    position: absolute;
+    right: 15%;
+    color: white;
+    background-color: #F96B7C;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    justify-content: center;
+    height: 40px;
+    width: 170px;
+    font-size: 18px;
+  }
+
+/* .Members {
     width: 30%;
     height: auto;
     display: flex;
@@ -7,9 +73,7 @@
     flex-direction: column;
     font-family:Arial, Helvetica, sans-serif;
     margin-left: 100px;
-    /* margin: 20px; */
     font-size: x-large;
-    /* text-align: left; */
 }
 
 img {
@@ -27,7 +91,6 @@ img {
     flex-direction: column;
     font-family:Arial, Helvetica, sans-serif;
     color: #205567;
-    /* font-size: x-large; */
     text-align: left;
 } 
 
@@ -35,7 +98,6 @@ img {
     display: flex;
     flex-direction:row;
     font-family:Arial, Helvetica, sans-serif;
-    /* color: #205567; */
     font-size: medium;
     margin-top: 20px;
     align-self: left;
@@ -44,7 +106,6 @@ img {
 .memberdetail {
     flex: 1;
     font-family:Arial, Helvetica, sans-serif;
-    /* color: #205567; */
     font-size: medium;
     margin-left: 50px;
 }  
@@ -59,10 +120,6 @@ h4 {
     font-size: small;
 
 }
-/* .flex-child-magenta{
-    border:#205567;
-
-} */
 
 .removebutton {
     margin-top: 20px;
@@ -74,4 +131,4 @@ h4 {
     font-family:Arial, Helvetica, sans-serif;
     margin-bottom: 142px;
     color: white;
-}
+} */

@@ -565,6 +565,19 @@ app.get('/getmemberapps', (req,res)=> {
     });
 })
 
+app.get('/aboutus', (req,res)=> {
+  let abt_arr = [] //name,date,text
+  db.collection('About_us')
+    .find() 
+    .forEach(elem => abt_arr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:abt_arr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
 //   db.collection('About_us')
