@@ -5,7 +5,9 @@ const DirectorPage=()=>{
     return(
     <div className="buttons">
         <div>
-        <button className="b">Events</button>
+            <Link to='/directorEevents'>
+                <button className="b">Events</button>
+            </Link>
         </div>
 
         <div>
@@ -25,7 +27,9 @@ const DirectorPage=()=>{
         </div>
 
         <div>
-        <button className="b2">Ambassador Applications</button>
+            <Link to='/AmbassadorApplications'>
+                <button className="b2">Ambassador Applications</button>
+            </Link>
         </div>
 
         <div>

@@ -31,6 +31,9 @@ import DirectorPage from './pages/directorPage';
 import ViewTeamDirector from './pages/viewTeamDirector';
 import Change from './pages/changepassword';
 import DeleteAcc from './pages/deleteacc';
+import DEvents from './pages/directorEvents';
+import DDirectors from './pages/DViewDirectors';
+import AmbassadorApplications from './pages/AmbassadorApplications';
 
 function App() {
 
@@ -63,6 +66,9 @@ function App() {
         <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
         <Route exact path = '/changepass' element = {<Change/>}/>
         <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
+        <Route exact path = '/directorEevents' element ={<DEvents />}/>
+        <Route exact path = '/directorViewDirectors' element ={<DDirectors />}/>
+        <Route exact path = '/AmbassadorApplications' element ={<AmbassadorApplications />}/>
         {/* the / simply means that homepage is with a / */}
       </Routes>
       <Footer/>

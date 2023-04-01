@@ -67,7 +67,7 @@
   }
   
   .headerContainer button:hover {
-    background-color: #FF8C9B;
+    background-color: #f55366;
     cursor: pointer;
     transition: 0.3s ease-in;
   }
@@ -111,7 +111,7 @@
   
     .headerContainer button:hover {
       background-color: rgb(225, 225, 225);
-      color: #FF8C9B;
+      color: #f55366;
     }
   }
 
@@ -161,7 +161,7 @@
 }
 
 .sponsor-container button:hover {
-  background-color: #FF8C9B;
+  background-color: #f55366;
   cursor: pointer;
   transition: 0.3s ease-in;
 }
@@ -235,7 +235,7 @@
 }
 
 .home-volunteer button:hover {
-  background-color: #FF8C9B;
+  background-color: #f55366;
   cursor: pointer;
   transition: 0.3s ease-in;
 }
