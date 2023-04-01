@@ -40,6 +40,7 @@ import AddBeneficiary from './pages/addbeneficiary';
 import Success from './pages/success';
 import Failure from './pages/failure';
 import MemberApp from './pages/memberApp';
+import MemberAppDecision from './pages/accept_dec_member';
 // import Success2 from './pages/success2';
 
 
@@ -104,7 +105,12 @@ function App() {
           <Route path = 'viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
           <Route path = 'addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route path = 'members' element = {<RemoveMembers/>}/>
-          <Route path = 'memberapp' element = {<MemberApp/>}/>
+          {/* <Route path = 'memberapp' element = {<MemberApp/>}/> */}
+          <Route path ='memberapp'>
+            <Route index element = {<MemberApp/>}/>
+            <Route path = 'acceptdecmember/:name/:email' element = {<MemberAppDecision/>}/>
+
+          </Route>
         </Route>}
         
       </Routes>

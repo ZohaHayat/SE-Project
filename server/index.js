@@ -556,7 +556,7 @@ app.get('/getmemberapps', (req,res)=> {
   let memberArr = [] //name,date,text
   db.collection('Employee_Applications')
     .find() 
-    .forEach(elem => {if(elem.status=='active') {memberArr.push(elem)}})
+    .forEach(elem => {if(elem.status=='pending') {memberArr.push(elem)}})
     .then((result) => {
       res.status(200).json({msg:"success",list:memberArr});
     })
@@ -564,6 +564,52 @@ app.get('/getmemberapps', (req,res)=> {
       res.status(500).json({msg:"error",list:[]});
     });
 })
+
+app.post('/accept_members', (req,res)=> {
+  const Name = req.body.Name;
+  const DOB = req.body.DOB;
+  const Email =req.body.Email;
+  const CNIC =req.body.CNIC;
+  const ContactNo = req.body.ContactNo;
+  const Position = req.body.Position;
+  const JoiningMsg = req.body.JoiningMsg;
+  const status = req.body.status;
+
+  // console.log(name,contact, reason)
+
+  const newDoc = {
+    Name : Name,
+    DOB : DOB,
+    Email :Email,
+    CNIC :CNIC,
+    ContactNo : ContactNo,
+    Position : Position,
+    JoiningMsg : JoiningMsg,
+    status : status
+  };
+
+  db.collection('Members').insertOne(newDoc).then((x) => {
+  db.collection('Employee_Applications').updateOne(
+    { CNIC: CNIC },
+    { $set: { status: status} }
+    
+    )
+    res.send("Success")
+  })
+})
+
+app.post('/reject_members', (req,res)=> {
+  
+  const status= req.body.status
+  const CNIC= req.body.cnic;
+  db.collection('Employee_Applications').updateOne(
+    { CNIC: CNIC },
+    { $set: { status: status} }
+    
+    )
+    res.send("Success")
+  })
+
 
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []

@@ -1,0 +1,54 @@
+.functionContainer {
+    margin-left: 15%;
+    padding-right: 15%;
+}
+
+.memberInfocontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -80px;
+    margin-left: 80px;
+  
+}
+
+.butAccept {
+    background-color: rgb(234, 114, 114);
+    border-radius: 30px;
+    height: 40px;
+    width:140px;
+    border: none;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
+    margin-right: 20px;
+
+
+}
+
+.butDecline {
+
+    background-color: rgb(234, 114, 114);
+    border-radius: 30px;
+    height: 40px;
+    width:140px;
+    border: none;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.horizontal_line{
+    border-bottom: 2px solid #ccc;
+    width: 70%;
+    position: relative;
+    top: -30px;
+    margin: 0 auto;
+
+}    
+
+.buttondec {
+    margin-left: 500px;
+}
+
+.memberInfo{
+    margin-top: 70px;
+}
