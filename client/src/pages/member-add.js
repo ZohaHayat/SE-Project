@@ -20,7 +20,7 @@ const MemberAdd = () => {
 
     const addMember = () => {
 
-        Axios.post("http://localhost:3000/addMember", {
+        Axios.post("http://localhost:3000/directorPage/addMember", {
             name: name,
             dob : dob,
             email : email,

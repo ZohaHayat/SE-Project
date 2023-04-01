@@ -9,7 +9,7 @@ const ViewSponsors=()=> {
     const [sponsors,setSponsors] = useState([])
     
     useEffect(() => {
-    Axios.get("http://localhost:3000/viewSponsors")
+    Axios.get("http://localhost:3000/directorPage/viewSponsors")
     .then(res => {
         setSponsors(res.data.list); //stores the data from the backend
     })

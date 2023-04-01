@@ -17,7 +17,7 @@ function AddBeneficiary() {
   const adding = () => {
     // const {event_name, name, age,vol_email, cnic, contact_num} = vol
     console.log(name)
-      Axios.post("http://localhost:3000/addbeneficiary", 
+      Axios.post("http://localhost:3000/directorPage/addbeneficiary", 
       {
         name: name,
         contact: contact,
@@ -25,7 +25,7 @@ function AddBeneficiary() {
         cnic: cnic
       }
       ).then((res) => {
-        navigate("/viewbeneficiaries");
+        navigate("/directorPage/viewbeneficiaries");
       }).catch(err => {console.log(err)})
  }
 

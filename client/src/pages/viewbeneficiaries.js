@@ -15,7 +15,7 @@ const ViewBeneficiaries=()=> {
     const navigate = useNavigate();
     
     useEffect(() => {
-    Axios.get("http://localhost:3000/viewbeneficiaries")
+    Axios.get("http://localhost:3000/directorPage/viewbeneficiaries")
     .then(res => {
         setBenefit(res.data.list); //stores the data from the backend
     })
@@ -24,12 +24,12 @@ const ViewBeneficiaries=()=> {
 
     const removing = (cnic) => {
         console.log(cnic)
-        Axios.post("http://localhost:3000/removebeneficiary", 
+        Axios.post("http://localhost:3000/directorPage/removebeneficiary", 
         {
             cnic: cnic
         }
         ).then((res) => {
-            navigate("/viewbeneficiaries");
+            navigate("/directorPage/viewbeneficiaries");
         }).catch(err => {console.log(err)})
 
     }
@@ -40,7 +40,7 @@ const ViewBeneficiaries=()=> {
                 <h1 className = "Benefitheading">Beneficiaries</h1>
                 <div className='leftSide'>
                     <h3>Add New</h3>
-                    <Link to ="/addbeneficiary"><img src={circle}/></Link>
+                    <Link to ="/directorPage/addbeneficiary"><img src={circle}/></Link>
                 </div>
                 </div>
             {benefit.map((val) => { 

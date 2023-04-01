@@ -3,6 +3,7 @@ import Axios from "axios"
 import Logo from '../assets/nodp.png'
 import "../styles/removeMembers.css"
 import { useState,useEffect } from 'react'
+import { Navigate } from 'react-router-dom'
 
 const RemoveMembers=()=> {
 
@@ -13,7 +14,7 @@ const RemoveMembers=()=> {
     const memberArray=[]
 
     useEffect(() => {
-    Axios.get("http://localhost:3000/members")
+    Axios.get("http://localhost:3000/directorPage/members")
     .then(res => {
         setMembers(res.data.list); //stores the data from the backend
     })
@@ -23,33 +24,36 @@ const RemoveMembers=()=> {
     const ClickRemoveMember=(id)=>{
         
         setcurrentmember(id)
-        console.log(`this button: ${id} was clicked`)
-        console.log(members)
-        let index = -1
+        // console.log(`this button: ${id} was clicked`)
+        // console.log(members)
+        
+        // for (let i = 0; i < members.length; i++) {
+        //     if(members[i]._id === id){
+        //         index=i
+        //         break
 
-        for (let i = 0; i < members.length; i++) {
-            if(members[i]._id === id){
-                index=i
-                break
-
-            }
-        }  
-        members.splice(index, 1)
-        setMembers(members);
+        //     }
+        // }  
+        // members.splice(index, 1)
+        // setMembers(members);
         // setButtonText("Removed")
         // setButtonColor('Green')
 
-        Axios.post("http://localhost:3000/members", {
+        Axios.post("http://localhost:3000/directorPage/members", {
 
             id:id,
             memstatus:"removed"
             }).then((response) => {
 
-                if(response.data==="success") {
-                    console.log(response)
+                
+
+                // if(response.data==="success") {
+                //     console.log(response)
                     
                     
-                }
+                // }
+
+                Navigate("/directorPage/members")
                
             });
 
