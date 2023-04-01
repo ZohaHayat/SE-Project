@@ -39,7 +39,6 @@ import ViewBeneficiaries from './pages/viewbeneficiaries';
 import AddBeneficiary from './pages/addbeneficiary';
 import Success from './pages/success';
 import Failure from './pages/failure';
-import MemberApp from './pages/memberApp';
 // import Success2 from './pages/success2';
 
 
@@ -91,18 +90,19 @@ function App() {
         {/* <Route exact path = '/success2' element = {<Success2/>}/> */}
 
         {loggedIn &&
-        <Route exact path = '/directorPage' element ={<DirectorPage />}>
-          <Route exact path = '/viewVolunteers' element = {<ViewVolunteers/>}/>
-          <Route exact path = '/viewTeamDirector' element ={<ViewTeamDirector />}/>
-          <Route exact path = '/member' element = {<MemberAdd/>}/>
-          <Route exact path = '/donors' element = {<Donors/>}/>
-          <Route exact path = '/changepass' element = {<Change/>}/>
-          <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
-          <Route exact path = '/viewAmbassadors' element ={<ViewAmbassadors/>}/>
-          <Route exact path = '/viewSponsors' element = {<ViewSponsors/>}/>
-          <Route exact path = '/viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
-          <Route exact path = '/addbeneficiary' element = {<AddBeneficiary/>}/>
-          <Route exact path = '/members' element = {<RemoveMembers/>}/>
+        <Route path = '/directorPage'>
+          <Route index element ={<DirectorPage />}/>
+          <Route path = 'viewVolunteers' element = {<ViewVolunteers/>}/>
+          <Route path = 'viewTeamDirector' element ={<ViewTeamDirector />}/>
+          <Route path = 'member' element = {<MemberAdd/>}/>
+          <Route path = 'donors' element = {<Donors/>}/>
+          <Route path = 'changepass' element = {<Change/>}/>
+          <Route path = 'delacc' element = {<DeleteAcc/>}/>
+          <Route path = 'viewAmbassadors' element ={<ViewAmbassadors/>}/>
+          <Route path = 'viewSponsors' element = {<ViewSponsors/>}/>
+          <Route path = 'viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
+          <Route path = 'addbeneficiary' element = {<AddBeneficiary/>}/>
+          <Route path = 'members' element = {<RemoveMembers/>}/>
         </Route>}
         
       </Routes>
