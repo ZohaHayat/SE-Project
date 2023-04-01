@@ -52,7 +52,7 @@ function DirectorStories() {
     const navigate = useNavigate()
     
     const navigateToAddStory = () => {
-        navigate('/addstory')
+        navigate('/directorPage/addstory')
     }
     
     useEffect(() => {

@@ -43,10 +43,11 @@ import AddBeneficiary from './pages/addbeneficiary';
 import Success from './pages/success';
 import Failure from './pages/failure';
 import MemberApp from './pages/memberApp';
-import MemberAppDecision from './pages/accept_dec_member';
 import ForgotPassword from './pages/forgotpassword';
 import PassCode from './pages/passcode';
 // import Success2 from './pages/success2';
+import DirectorStories from './pages/directorStories'
+import AddStory from './pages/AddStory'
 
 
 function App() {
@@ -119,12 +120,9 @@ function App() {
           <Route path = 'viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
           <Route path = 'addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route path = 'members' element = {<RemoveMembers/>}/>
-          {/* <Route path = 'memberapp' element = {<MemberApp/>}/> */}
-          <Route path ='memberapp'>
-            <Route index element = {<MemberApp/>}/>
-            <Route path = 'acceptdecmember/:name/:email' element = {<MemberAppDecision/>}/>
-
-          </Route>
+          <Route path = 'memberapp' element = {<MemberApp/>}/>
+          <Route path = 'directorStories' element = {<DirectorStories/>}/>
+          <Route path = 'addstory' element = {<AddStory/>}/>
         </Route>}
         
       </Routes>

@@ -5,7 +5,8 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "bcrypt": "^5.1.0",
-    "framer-motion": "^10.8.5"
+    "framer-motion": "^10.8.5",
+    "stripe": "^11.17.0"
   },
   "devDependencies": {
     "cors": "^2.8.5",
