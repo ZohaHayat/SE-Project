@@ -36,7 +36,14 @@ const ViewBeneficiaries=()=> {
 
     return (
         <div className='Benefit_'>
-        <h1 className = "BenefitHeading">Beneficiaries</h1>
+          <div className='navbar2'>
+                 <h1 className = "BenefitHeading">Beneficiaries</h1>
+                 <div className='leftSide'>
+                     <h3>Add New</h3>
+                     <Link to ="/directorPage/addbeneficiary"><img src={circle}/></Link>
+                 </div>
+          </div>
+        {/* <h1 className = "BenefitHeading">Beneficiaries</h1> */}
         <div className='horizontal_line'></div>
         <div className="benefitList">
             {
@@ -48,7 +55,7 @@ const ViewBeneficiaries=()=> {
                     </div>
                     <div className="benefitText">
                     <h2>{val.Name}</h2>
-                    <p>{val.Email}</p>
+                    <p>{val.Reason}</p>
                     </div>
                     <div className="benefitButt">
                     <button className="button_benefit" onClick={() => removing(val.CNIC)}>Remove</button>

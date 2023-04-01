@@ -33,6 +33,9 @@ import ViewTeamDirector from './pages/viewTeamDirector';
 import ViewAmbassadors from './pages/viewAmbassadors';
 import Change from './pages/changepassword';
 import DeleteAcc from './pages/deleteacc';
+import DEvents from './pages/directorEvents';
+import DDirectors from './pages/DViewDirectors';
+import AmbassadorApplications from './pages/AmbassadorApplications';
 import ViewSponsors from './pages/viewSponsors';
 import RemoveMembers from './pages/removeMembers';
 import ViewBeneficiaries from './pages/viewbeneficiaries';
@@ -40,9 +43,6 @@ import AddBeneficiary from './pages/addbeneficiary';
 import Success from './pages/success';
 import Failure from './pages/failure';
 import MemberApp from './pages/memberApp';
-import DirectorStories from './pages/directorStories';
-import AddStory from './pages/AddStory';
-
 // import Success2 from './pages/success2';
 
 
@@ -74,6 +74,7 @@ function App() {
     <Router>
       <NavBar loggedIn={loggedIn} handleLogout={handleLogout}/> 
       {/* <NavBarlogin/> */}
+    
       <Routes>
         <Route exact path = '/' element = {<Home/>}/>
         <Route exact path = '/events' element = {<Events/>}/>
@@ -89,6 +90,12 @@ function App() {
         <Route exact path = '/donate' element = {<Donate/>}/>
         <Route exact path = '/volunteer' element = {<Volunteer/>}/>
         <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
+        <Route exact path = '/changepass' element = {<Change/>}/>
+        <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
+        <Route exact path = '/directorEevents' element ={<DEvents />}/>
+        <Route exact path = '/directorViewDirectors' element ={<DDirectors />}/>
+        <Route exact path = '/AmbassadorApplications' element ={<AmbassadorApplications />}/>
+        {/* the / simply means that homepage is with a / */}
         <Route exact path = '/success' element = {<Success/>}/>
         <Route exact path = '/failure' element = {<Failure/>}/>
         {/* <Route exact path = '/success2' element = {<Success2/>}/> */}
@@ -108,8 +115,6 @@ function App() {
           <Route path = 'addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route path = 'members' element = {<RemoveMembers/>}/>
           <Route path = 'memberapp' element = {<MemberApp/>}/>
-          <Route path = 'addstory' element = {<AddStory/>}/>
-          <Route path = 'directorStories' element = {<DirectorStories/>}/>
         </Route>}
         
       </Routes>

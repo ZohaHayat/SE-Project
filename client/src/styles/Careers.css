@@ -1,6 +1,12 @@
+::placeholder {
+    font-family: Arial, sans-serif;
+    font-size:16px;
+}
+
 .careers-form{
     
     text-align: center;
+    height: 700px;
 
 }
 
@@ -22,7 +28,7 @@
 
 }
 
-.age {
+.dob {
     height:25px;
     width: 200px;
     border-color: rgb(205, 201, 201);
@@ -41,8 +47,16 @@
     border-style: solid;
     border-radius: 7px;
     padding-left: 5px;
+}
 
-
+.c-contact {
+    margin-top: 15px;
+    height:25px;
+    width: 420px;
+    border-color: rgb(205, 201, 201);
+    border-style: solid;
+    border-radius: 7px;
+    padding-left: 5px;
 }
 
 .your-institution {
@@ -64,17 +78,10 @@
     height: 200px;
     width: 420px;
 
-    padding:3px;
+    padding:8px;
     border-color: rgb(205, 201, 201);
     border-style: solid;
     border-radius: 7px;
-}
-
-.why::placeholder {
-    position: absolute;
-    top: 5px;
-    left: 4px;
-    pointer-events: none;
 }
 
 .apply-button {

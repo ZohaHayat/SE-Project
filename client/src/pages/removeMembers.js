@@ -45,15 +45,7 @@ const RemoveMembers=()=> {
             memstatus:"removed"
             }).then((response) => {
 
-                
-
-                // if(response.data==="success") {
-                //     console.log(response)
-                    
-                    
-                // }
-
-                Navigate("/directorPage/members")
+                Navigate("/directorPage/memberapp")
                
             });
 
@@ -64,6 +56,8 @@ const RemoveMembers=()=> {
         <h1 className = "memHeading">Ambassadors</h1>
         <div className='horizontal_line'></div>
         <div className="memList">
+            <div className='horizontal_line'></div>
+
             {
               members.map((val) => {
                 return (
