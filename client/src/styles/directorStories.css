@@ -1,0 +1,58 @@
+
+
+button {
+    width:100px;
+    border-radius: 20px;
+    background-color:#f96b7c
+
+}
+
+
+.Stories {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-left: 30px;
+    margin: 20px;
+    /* font-size: medium; */
+    text-align: left;
+}
+
+/* .team-img {
+    border-radius: 50%;
+    width: 100px;
+    height: auto;
+} */
+
+.Storyheading {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #205567;
+    /* font-size: medium; */
+    text-align: center;
+} 
+
+.flex-container {
+    display: flex;
+    margin-left: 600px;
+    align-items: center;
+    justify-content: left;
+}
+
+.flex-child {
+    flex: 1;
+    margin-left: 20px
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+} 

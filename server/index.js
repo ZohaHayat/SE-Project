@@ -578,6 +578,44 @@ app.get('/aboutus', (req,res)=> {
     });
 })
 
+app.post('/deleteStory', (req,res)=> {
+  // console.log(req);
+
+  
+  db.collection('Stories').deleteOne({ "Name": req.body.name,"Date":req.body.date,"Text":req.body.text}).then((result) => {
+    console.log("Story deleted successfully");
+      res.send("Success")
+  })
+  .catch((err)=>{res.send("Fail")})
+ 
+})
+
+app.post('/addstory', (req,res)=> {
+  console.log("add story called");
+  db.collection('Stories').findOne({ "Name": req.body.name}).then((result) => {
+    console.log(result)
+    if (result!==null){
+      console.log("This name already exists")
+      res.send("Duplicate")
+    }
+    else{
+      db.collection('Stories').insertOne({ "Name": req.body.name, "Date":req.body.date, "Text":req.body.text}).then((result) => {
+        console.log("Story added successfully");
+        res.send("Success")
+      })
+      .catch((err)=>{res.send("Fail")})
+    }
+    
+  })
+  .catch((err)=>{res.send("Fail")})
+
+  
+
+  
+  
+ 
+})
+
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
 //   db.collection('About_us')
