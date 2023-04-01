@@ -12,7 +12,7 @@ const Contact =()=>{
     const sendEmail = (e) => {
         
         e.preventDefault();
-        emailjs.sendForm('gmail', 'template_ho0sdji', form.current, 'qwZ-gJBy-s1_fkz9V')
+        emailjs.sendForm('gmail', 'template_4943j5l', form.current, 'qwZ-gJBy-s1_fkz9V')
         .then((result) => {
             console.log(result.text);
             e.target.reset()

@@ -758,6 +758,19 @@ app.post('/reject_members', (req,res)=> {
   })
 
 
+app.post('/forgotpass', (req,res)=> {
+
+  const email= req.body.email
+  const pass= req.body.password;
+  db.collection('Directors').updateOne(
+    { Email: email },
+    { $set: { Password: pass} }
+    
+    )
+    res.send("Success")
+  })
+
+
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
 //   db.collection('About_us')

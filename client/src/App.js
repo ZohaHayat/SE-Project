@@ -44,6 +44,8 @@ import Success from './pages/success';
 import Failure from './pages/failure';
 import MemberApp from './pages/memberApp';
 import MemberAppDecision from './pages/accept_dec_member';
+import ForgotPassword from './pages/forgotpassword';
+import PassCode from './pages/passcode';
 // import Success2 from './pages/success2';
 
 
@@ -86,6 +88,8 @@ function App() {
         <Route exact path = '/contact' element = {<Contact/>}/>
         <Route exact path = '/careers' element = {<Careers/>}/>
         <Route exact path = '/login' element = {<Login handleLogin={handleLogin}/>}/>
+        <Route exact path = '/forgotpassword' element={<ForgotPassword/>}/>
+        <Route exact path= '/passcode' element={<PassCode/>}/>
         <Route exact path = '/signup' element = {<Signup/>}/>
         <Route exact path = '/loginhome' element = {<Loginhome/>}/>
         <Route exact path = '/donate' element = {<Donate/>}/>

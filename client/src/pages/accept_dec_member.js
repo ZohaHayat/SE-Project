@@ -18,7 +18,8 @@ const MemberAppDecision = (props)=>{
         var templateParams = {
             name: name,
             email: email,
-            message:message
+            message:message,
+            subject: "PakTree Member Application Decision"
         };
         Axios.post("http://localhost:3000/accept_members", {
            
@@ -51,7 +52,8 @@ const MemberAppDecision = (props)=>{
         var templateParams = {
             name: name,
             email: email,
-            message:message
+            message:message,
+            subject: "PakTree Member Application Decision"
         };
         Axios.post("http://localhost:3000/reject_members", {
             cnic: location.state.cnic,

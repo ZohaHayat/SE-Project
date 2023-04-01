@@ -1,0 +1,19 @@
+.code{
+    font-size: 20px;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #205567;
+    /* font-size: medium; */
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 370px;;
+
+}
