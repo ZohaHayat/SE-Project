@@ -25,6 +25,10 @@ const Change =()=>{
                 {
                     alert("Password changed");
                 }
+                else
+                {
+                    alert("Incorrect username or password")
+                }
             });
     };
 

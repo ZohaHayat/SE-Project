@@ -1,0 +1,44 @@
+.newStory{
+    
+    text-align: center;
+
+}
+
+.heading {
+    font-family:Arial, Helvetica, sans-serif;
+    color: #205567;
+    font-size:30px
+}
+
+
+.namefield {
+    height:25px;
+    width: 400px;
+    border-color: rgb(205, 201, 201);
+    border-style: solid;
+    border-radius: 7px;
+    padding-left: 5px;
+    margin-bottom: 20px;
+}
+
+.storyfield {
+    height:100px;
+    width: 400px;
+    border-color: rgb(205, 201, 201);
+    border-style: solid;
+    border-radius: 7px;
+    padding-left: 5px;
+    margin-bottom: 20px;
+}
+
+.story-button {
+    margin-top: 20px;
+    background-color: #92D4D2;
+    border-radius: 30px;
+    height: 40px;
+    width:140px;
+    border: none;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 132px;
+
+}

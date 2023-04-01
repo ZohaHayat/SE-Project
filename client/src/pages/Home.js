@@ -2,6 +2,7 @@ import React from 'react'
 import Axios from "axios"
 import {Link} from "react-router-dom"
 import Banner from '../assets/grass.jpg'
+import ChatIcon from '../components/subscribe'
 import '../styles/Home.css'
 import childStudying from '../assets/childStudying.jpg'
 
@@ -51,7 +52,7 @@ function Home() {
         <button>Donate Now</button>
         </Link> */}
       </div>
-
+      <ChatIcon/>
       
     </div>
   )

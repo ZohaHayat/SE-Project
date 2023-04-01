@@ -169,3 +169,25 @@
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .navbar .dropdown:hover .dropbtn {background-color: none;}
+
+  .navbar .logout {
+    position: relative;
+    display: inline-block;
+  }
+  .navbar .logoutbutton {
+    text-align: center;
+    width: 100px; 
+    height: 30px;
+    /* margin-top: 15px; */
+    margin-left: 973%;
+    align-items: right;
+    border-radius: 100px;
+    font-size: 16px;
+    display: block;
+    background: #92D4D2;
+  }
+  .navbar .logoutbutton:hover {
+    background-color: #a9e7e4;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+  }

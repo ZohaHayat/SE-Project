@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import {useLocation} from 'react-router-dom'
+import { useState, useEffect } from "react"
 
 import { ChakraProvider } from '@chakra-ui/react'
 
@@ -29,21 +30,54 @@ import MemberAdd from './pages/member-add'
 import  ViewVolunteers from './pages/viewVolunteers'
 import DirectorPage from './pages/directorPage';
 import ViewTeamDirector from './pages/viewTeamDirector';
+import ViewAmbassadors from './pages/viewAmbassadors';
 import Change from './pages/changepassword';
 import DeleteAcc from './pages/deleteacc';
+<<<<<<< HEAD
 import DEvents from './pages/directorEvents';
 import DDirectors from './pages/DViewDirectors';
 import AmbassadorApplications from './pages/AmbassadorApplications';
+=======
+import ViewSponsors from './pages/viewSponsors';
+import RemoveMembers from './pages/removeMembers';
+import ViewBeneficiaries from './pages/viewbeneficiaries';
+import AddBeneficiary from './pages/addbeneficiary';
+import Success from './pages/success';
+import Failure from './pages/failure';
+import MemberApp from './pages/memberApp';
+// import Success2 from './pages/success2';
+
+>>>>>>> b87425e991c55699471510ae339d0199ef019513
 
 function App() {
+
+  const [loggedIn, setLoggedIn] = useState(false)
+  const handleLogin = () => {
+    setLoggedIn(true)
+    localStorage.setItem("loggedIn",true)
+  }
+
+  const handleLogout = () => {
+    setLoggedIn(false);
+    localStorage.setItem("loggedIn",false)
+  };
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("loggedIn")
+    if (isLoggedIn == "true")
+    {
+      setLoggedIn(true)
+    }
+  },[])
 
   return (
     // the rendering is done inside the class name App and the components need to be self-closed
     //the NavBar is put outside of the Routes tag so that it appears on every page
     <div className="App"> 
     <Router>
-      <NavBar/> 
+      <NavBar loggedIn={loggedIn} handleLogout={handleLogout}/> 
       {/* <NavBarlogin/> */}
+    
       <Routes>
         <Route exact path = '/' element = {<Home/>}/>
         <Route exact path = '/events' element = {<Events/>}/>
@@ -53,25 +87,44 @@ function App() {
         <Route exact path = '/news' element = {<News/>}/>
         <Route exact path = '/contact' element = {<Contact/>}/>
         <Route exact path = '/careers' element = {<Careers/>}/>
-        <Route exact path = '/viewVolunteers' element = {<ViewVolunteers/>}/>
-        <Route exact path = '/directorPage' element ={<DirectorPage />}/>
-        <Route exact path = '/viewTeamDirector' element ={<ViewTeamDirector />}/>
-        <Route exact path = '/login' element = {<Login/>}/>
+        <Route exact path = '/login' element = {<Login handleLogin={handleLogin}/>}/>
         <Route exact path = '/signup' element = {<Signup/>}/>
         <Route exact path = '/loginhome' element = {<Loginhome/>}/>
         <Route exact path = '/donate' element = {<Donate/>}/>
         <Route exact path = '/volunteer' element = {<Volunteer/>}/>
-        <Route exact path = '/member' element = {<MemberAdd/>}/>
-        <Route exact path = '/donors' element = {<Donors/>}/>
         <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
+<<<<<<< HEAD
         <Route exact path = '/changepass' element = {<Change/>}/>
         <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
         <Route exact path = '/directorEevents' element ={<DEvents />}/>
         <Route exact path = '/directorViewDirectors' element ={<DDirectors />}/>
         <Route exact path = '/AmbassadorApplications' element ={<AmbassadorApplications />}/>
         {/* the / simply means that homepage is with a / */}
+=======
+        <Route exact path = '/success' element = {<Success/>}/>
+        <Route exact path = '/failure' element = {<Failure/>}/>
+        {/* <Route exact path = '/success2' element = {<Success2/>}/> */}
+
+        {loggedIn &&
+        <Route path = '/directorPage'>
+          <Route index element ={<DirectorPage />}/>
+          <Route path = 'viewVolunteers' element = {<ViewVolunteers/>}/>
+          <Route path = 'viewTeamDirector' element ={<ViewTeamDirector />}/>
+          <Route path = 'member' element = {<MemberAdd/>}/>
+          <Route path = 'donors' element = {<Donors/>}/>
+          <Route path = 'changepass' element = {<Change/>}/>
+          <Route path = 'delacc' element = {<DeleteAcc/>}/>
+          <Route path = 'viewAmbassadors' element ={<ViewAmbassadors/>}/>
+          <Route path = 'viewSponsors' element = {<ViewSponsors/>}/>
+          <Route path = 'viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
+          <Route path = 'addbeneficiary' element = {<AddBeneficiary/>}/>
+          <Route path = 'members' element = {<RemoveMembers/>}/>
+          <Route path = 'memberapp' element = {<MemberApp/>}/>
+        </Route>}
+        
+>>>>>>> b87425e991c55699471510ae339d0199ef019513
       </Routes>
-      <Footer/>
+      <Footer loggedIn={loggedIn} handleLogout={handleLogout}/>
     </Router>
 
     </div>

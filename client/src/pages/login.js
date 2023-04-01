@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import Axios from "axios"
 import { useNavigate } from 'react-router-dom';
 
-const Login =()=>{
+const Login =(props)=>{
     const [email, setEmail]=useState("")
     const [password, setPassword]=useState("")
 
@@ -31,6 +31,7 @@ const Login =()=>{
                 }
                 else if (response.data === "Found director")
                 {
+                    props.handleLogin();
                     navigate("/directorPage");
                 }
             });
@@ -52,7 +53,8 @@ const Login =()=>{
             <div >
                 <button className="login-button" onClick={(event) => [logging()]}>Login</button>
             </div>
-            <h4 className="texts">New user? <Link to ="/signup"><u>Sign up</u></Link></h4>
+            <h4>This page is for authorised personnel only.</h4>
+            {/* <h4 className="texts">New user? <Link to ="/signup"><u>Sign up</u></Link></h4> */}
             {/* </form> */}
         </div>
     )

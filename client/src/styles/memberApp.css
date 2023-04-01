@@ -1,0 +1,66 @@
+.memberHeading {
+    
+    font-size: 50px;
+    justify-content: center;
+    text-align: left;
+    align-items: center;
+    margin-left: 15%;
+    /* place-items: center; */
+  }
+  .horizontal_line{
+    border-bottom: 2px solid #ccc;
+    width: 70%;
+    position: relative;
+    top: -30px;
+    margin: 0 auto;
+  }
+
+  .memberList {
+    width: 50vw;
+    /* height: auto; */
+    display: list-item;
+    list-style: none;
+    place-items: center;
+    margin-left: 15%;
+    padding: 10px;
+    
+  }
+
+  .memberItem{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+  }
+
+  .memberImg{
+    height: 100px;
+    margin: 20px;
+  }
+  .memberText{
+    flex: 3;
+    padding-top: 20px;
+  }
+.memberText h2{
+    font-size: 20px;
+    font-weight: 100;
+}
+
+
+  .memberButt{
+    padding-top: 30px;
+    flex: 3;
+  }
+
+  .button_member{
+    position: absolute;
+    right: 15%;
+    color: white;
+    background-color: #F96B7C;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    justify-content: center;
+    height: 40px;
+    width: 170px;
+    font-size: 18px;
+  }
