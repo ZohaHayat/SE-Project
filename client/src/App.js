@@ -71,6 +71,7 @@ function App() {
     <Router>
       <NavBar loggedIn={loggedIn} handleLogout={handleLogout}/> 
       {/* <NavBarlogin/> */}
+    
       <Routes>
         <Route exact path = '/' element = {<Home/>}/>
         <Route exact path = '/events' element = {<Events/>}/>
