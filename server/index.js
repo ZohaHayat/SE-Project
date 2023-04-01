@@ -95,7 +95,105 @@ app.get('/stories', (req,res)=> {
     });
 })
 
+<<<<<<< HEAD
+// Ayesha Masood
+app.get('/ambassadorApplications', (req,res)=> {
+  let appsArr = [] 
+  db.collection('Ambassador_Applications')
+    .find() 
+    .forEach(elem => appsArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:appsArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
+app.put('/ambassadorApplications/:id', (req, res) => {
+  const appId = req.params.id;
+  const updatedStatus = req.body.Status;
+  db.collection('Ambassador_Applications')
+    .updateOne({Application_ID: appId}, {$set: {Status: updatedStatus}})
+    .then(() => {
+      res.status(200).json({msg: 'success'});
+    })
+    .catch(() => {
+      res.status(500).json({msg: 'error'});
+    });
+});
+
+app.post('/addAmbassador', async (req,res)=> {
+  const insertResult = db.collection('Ambassador').insertMany([
+    {
+      "Name": req.body.Name,
+      "Email": req.body.Email,
+      "ContactNo": req.body.contactNo,
+      "Address": "",
+      "DOB": req.body.dob,
+      "Status": "Active",
+    }
+  ]);
+  res.status(200).json({result : insertResult});
+})
+
+// app.post('/careers', async (req,res)=> {
+//   // query the database table 'Ambassador_Applications' to retrieve the max application IDs
+//   const maxIdResult = await db.collection('Ambassador_Applications')
+//     .find({}, { "Application ID": 1 })
+//     .sort({ "Application ID": -1 })
+//     .limit(1)
+//     .toArray();
+//   // unique Application_ID generation
+//   const newId = maxIdResult.length === 0 ? 1 : maxIdResult[0]["Application ID"] + 1;
+//   // insert into 'Ambassador_Applications' the new entry
+//   const insertResult = db.collection('Ambassador_Applications').insertMany([
+//     {
+//       "Application ID": newId,
+//       "Email": req.body.email,
+//       "Name": req.body.name,
+//       "Contact no": req.body.contact,
+//       "DOB": req.body.age,
+//       "Reason": req.body.why,
+//       "Institution": req.body.inst,
+//       "Status": req.body.status
+//     }
+//   ]);
+//   res.status(200).json({result : insertResult});
+// })
+
+app.post('/careers', async (req,res)=> {
+  try {
+    // query the database table 'Ambassador_Applications' to retrieve the max application ID
+    const maxIdResult = await db.collection('Ambassador_Applications')
+      .find({}, { "Application_ID": 1 })
+      .sort({ "Application_ID": -1 })
+      .limit(1)
+      .toArray();
+    // unique Application_ID generation
+    const newId = maxIdResult.length === 0 ? 1 : maxIdResult[0]["Application_ID"] + 1;
+    // insert into 'Ambassador_Applications' the new entry
+    const insertResult = await db.collection('Ambassador_Applications').insertOne({
+        "Application_ID": newId,
+        "Email": req.body.email,
+        "Name": req.body.name,
+        "Contact_no": req.body.contact,
+        "DOB": req.body.dob,
+        "Reason": req.body.why,
+        "Institution": req.body.inst,
+        "Status": req.body.status
+    });
+    res.status(200).json({result : insertResult.ops});
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({error: 'Error inserting document into database.'});
+  }
+})
+
+app.get('/donors', (req,res)=> {
+=======
 app.get('/directorPage/donors', (req,res)=> {
+>>>>>>> b87425e991c55699471510ae339d0199ef019513
   let donorsArr = [] //name,date,text
   db.collection('Donors')
     .find() 
@@ -563,6 +661,57 @@ app.get('/getmemberapps', (req,res)=> {
     .catch(() => {
       res.status(500).json({msg:"error",list:[]});
     });
+})
+
+app.get('/aboutus', (req,res)=> {
+  let abt_arr = [] //name,date,text
+  db.collection('About_us')
+    .find() 
+    .forEach(elem => abt_arr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:abt_arr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
+app.post('/deleteStory', (req,res)=> {
+  // console.log(req);
+
+  
+  db.collection('Stories').deleteOne({ "Name": req.body.name,"Date":req.body.date,"Text":req.body.text}).then((result) => {
+    console.log("Story deleted successfully");
+      res.send("Success")
+  })
+  .catch((err)=>{res.send("Fail")})
+ 
+})
+
+app.post('/addstory', (req,res)=> {
+  console.log("add story called");
+  db.collection('Stories').findOne({ "Name": req.body.name}).then((result) => {
+    console.log(result)
+    if (result!==null){
+      console.log("This name already exists")
+      res.send("Duplicate")
+    }
+    else{
+      db.collection('Stories').insertOne({ "Name": req.body.name, "Date":req.body.date, "Text":req.body.text}).then((result) => {
+        console.log("Story added successfully");
+        res.send("Success")
+      })
+      .catch((err)=>{res.send("Fail")})
+    }
+    
+  })
+  .catch((err)=>{res.send("Fail")})
+
+  
+
+  
+  
+ 
 })
 
 app.post('/accept_members', (req,res)=> {

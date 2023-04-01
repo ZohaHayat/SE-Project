@@ -9,3 +9,22 @@
     /* font-size: medium; */
     text-align: center;
 }
+
+.flex-contain {
+    display: flex;
+    flex-direction:row;
+    font-family:Arial, Helvetica, sans-serif;
+    /* color: #205567; */
+    font-size: medium;
+    margin-top: 20px;
+    align-self: left;
+    margin-bottom: 248px;
+}
+
+.flex-child-g {
+    flex: 1;
+    font-family:Arial, Helvetica, sans-serif;
+    /* color: #205567; */
+    font-size: medium;
+    margin-left: 50px;
+} 

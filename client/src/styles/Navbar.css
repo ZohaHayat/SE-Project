@@ -143,19 +143,20 @@
     display: inline-block;
   }
   .navbar .loginbutton {
+    border: none;
     text-align: center;
     width: 100px; 
     height: 30px;
     /* margin-top: 15px; */
     margin-left: 650%;
     align-items: right;
-    border-radius: 100px;
+    border-radius: 5px;
     font-size: 16px;
     display: block;
-    background: #92D4D2;
+    background-color: #92D4D2;
   }
   .navbar .loginbutton:hover {
-    background-color: #a9e7e4;
+    background-color: #76c6c3;
     cursor: pointer;
     transition: 0.3s ease-in;
   }
