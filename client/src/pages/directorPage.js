@@ -24,7 +24,9 @@ const DirectorPage=()=>{
         </div>
 
         <div>
+        <Link to="/directorPage/memberapp">
         <button className="b2">Member Applications</button>
+        </Link>
         </div>
 
         <div>

@@ -39,6 +39,7 @@ import ViewBeneficiaries from './pages/viewbeneficiaries';
 import AddBeneficiary from './pages/addbeneficiary';
 import Success from './pages/success';
 import Failure from './pages/failure';
+import MemberApp from './pages/memberApp';
 // import Success2 from './pages/success2';
 
 
@@ -103,6 +104,7 @@ function App() {
           <Route path = 'viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
           <Route path = 'addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route path = 'members' element = {<RemoveMembers/>}/>
+          <Route path = 'memberapp' element = {<MemberApp/>}/>
         </Route>}
         
       </Routes>

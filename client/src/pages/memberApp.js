@@ -39,7 +39,7 @@ function MemberApp() {
                     <p>{val.Email}</p>
                     </div>
                     <div className="memberButt">
-                    <button className="button_member" onClick={() => navigate("/acceptdecmember/"+val.Name + "/" + val.Email)}>Learn More</button>
+                    <button className="button_member" onClick={() => navigate("directorPage/acceptdecmember/"+val.Name + "/" + val.Email)}>Learn More</button>
                     </div>
                   </div>
                 )
