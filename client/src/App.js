@@ -40,6 +40,9 @@ import AddBeneficiary from './pages/addbeneficiary';
 import Success from './pages/success';
 import Failure from './pages/failure';
 import MemberApp from './pages/memberApp';
+import DirectorStories from './pages/directorStories';
+import AddStory from './pages/AddStory';
+
 // import Success2 from './pages/success2';
 
 
@@ -105,6 +108,8 @@ function App() {
           <Route path = 'addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route path = 'members' element = {<RemoveMembers/>}/>
           <Route path = 'memberapp' element = {<MemberApp/>}/>
+          <Route path = 'addstory' element = {<AddStory/>}/>
+          <Route path = 'directorStories' element = {<DirectorStories/>}/>
         </Route>}
         
       </Routes>
