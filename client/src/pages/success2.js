@@ -7,11 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Success2 = () =>{
-
-    // const [amt, setAmt] = useState("");
-    // const [bank, setBank] = useState("");
-    // const [name, setName] = useState("");
-    // const [email, setEmail] = useState("");
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -21,22 +16,20 @@ const Success2 = () =>{
         let name = urlParams.get('name');
         let email = urlParams.get('email');
         let bank = urlParams.get('bank');
+        let event = urlParams.get('event');
         // console.log(sessionId, name, email);
 
-    Axios.post("http://localhost:3000/okay", {
+    Axios.post("http://localhost:3000/okay2", {
             email: email,
             amt: amt*12,
             name: name,
-            bank: bank
+            bank: bank,
+            event: event
             }).then((response) => {
                 console.log(response.data)
                 if(response.data)
                 {
-                    // console.log(response.data.url)
-                    // console.log(stripe)
-                    // window.location.href = `${response.data.url}`;
-                    // navigate("/")
-                    alert("Donation Made");
+                    alert("Sponsorship completed");
                 }
             });
         },)
@@ -45,7 +38,7 @@ const Success2 = () =>{
         <div className="donate-donate">
 
            <div className="succcontainer">
-             <h3>You have successfully made your payment. Please click on the below button to navigate to the home page:</h3>
+             <h3>You have successfully made your sponsorship donation. Please click on the below button to navigate to the home page:</h3>
              <button className="okay-button" onClick={(event) => {navigate("/")}}>Home</button>
            </div>
         </div>

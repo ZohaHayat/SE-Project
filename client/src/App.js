@@ -21,6 +21,7 @@ import Login from './pages/login'
 import Signup from './pages/signup'
 import Loginhome from './pages/loginhome'
 import Donate from './pages/donate'
+import Sponsor from './pages/sponsor'
 import Volunteer from './pages/volunteer'
 import VolunteerForm from './pages/volunteerform'
 
@@ -42,6 +43,8 @@ import ViewBeneficiaries from './pages/viewbeneficiaries';
 import AddBeneficiary from './pages/addbeneficiary';
 import Success from './pages/success';
 import Failure from './pages/failure';
+import Success2 from './pages/success2';
+import Failure2 from './pages/failure2';
 import MemberApp from './pages/memberApp';
 import ForgotPassword from './pages/forgotpassword';
 import PassCode from './pages/passcode';
@@ -106,6 +109,10 @@ function App() {
         {/* the / simply means that homepage is with a / */}
         <Route exact path = '/success' element = {<Success/>}/>
         <Route exact path = '/failure' element = {<Failure/>}/>
+        <Route exact path = '/success2' element = {<Success2/>}/>
+        <Route exact path = '/failure2' element = {<Failure2/>}/>
+        <Route exact path = '/sponsor' element = {<Sponsor/>}/>
+
         {/* <Route exact path = '/success2' element = {<Success2/>}/> */}
 
         {loggedIn &&

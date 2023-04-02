@@ -449,6 +449,53 @@ app.post('/donate', async (req,res)=> {
   res.send(session)
 })
 
+app.post('/sponsor', async (req,res)=> {
+  const email = req.body.email;
+  const name = req.body.name;
+  const bank = req.body.bank;
+  const amt = req.body.amt;
+  const event = req.body.event;
+
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'pkr',
+          product_data: {
+            name: 'Sponsor ' + event,
+          },
+          unit_amount: amt*100,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    metadata: {'bank_name': bank, 'event_name': event},
+    success_url: `http://localhost:3001/success2?name=${name}&email=${email}&bank=${bank}&amt=${amt}&event=${event}`,
+    cancel_url: 'http://localhost:3001/failure2',
+    customer_email: email,
+    client_reference_id: name
+  });
+
+  console.log(session)
+
+  console.log(email,name,bank,amt)
+  res.send(session)
+})
+
+app.post('/okay2', (req,res)=> {
+  const email = req.body.email;
+  const name = req.body.name;
+  const bank = req.body.bank;
+  const amt = req.body.amt;
+  const event = req.body.event;
+
+  console.log(email,name,bank,amt,event)
+
+  db.collection('Sponsorships').insertOne({Email: email, Bank: bank, Name: name, Amount: amt, Event: event })
+})
+
 // app.post('/donate2', async (req,res)=> {
 //   const email = req.body.email;
 //   const name = req.body.name;
