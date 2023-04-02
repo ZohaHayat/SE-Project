@@ -55,6 +55,7 @@ import DirectorNews from './pages/directorNews'
 import AddNews from './pages/addnews'
 import AddEvent from './pages/addEvent'
 import DirectorEvent from './pages/directorEvents'
+import MemberAppDecision from './pages/accept_dec_member'
 
 
 
@@ -115,6 +116,7 @@ function App() {
         <Route exact path = '/success2' element = {<Success2/>}/>
         <Route exact path = '/failure2' element = {<Failure2/>}/>
         <Route exact path = '/sponsor' element = {<Sponsor/>}/>
+        <Route path = 'member' element = {<MemberAdd/>}/>
 
         {/* <Route exact path = '/success2' element = {<Success2/>}/> */}
 
@@ -123,7 +125,6 @@ function App() {
           <Route index element ={<DirectorPage />}/>
           <Route path = 'viewVolunteers' element = {<ViewVolunteers/>}/>
           <Route path = 'viewTeamDirector' element ={<ViewTeamDirector />}/>
-          <Route path = 'member' element = {<MemberAdd/>}/>
           <Route path = 'donors' element = {<Donors/>}/>
           <Route path = 'changepass' element = {<Change/>}/>
           <Route path = 'delacc' element = {<DeleteAcc/>}/>
@@ -132,13 +133,18 @@ function App() {
           <Route path = 'viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
           <Route path = 'addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route path = 'members' element = {<RemoveMembers/>}/>
-          <Route path = 'memberapp' element = {<MemberApp/>}/>
           <Route path = 'directorStories' element = {<DirectorStories/>}/>
           <Route exact path = 'directorEvents' element ={<DEvents />}/>
           <Route path = 'addstory' element = {<AddStory/>}/>
           <Route path = 'directorNews' element = {<DirectorNews/>}/>
           <Route path = 'addnews' element = {<AddNews/>}/>
           <Route path = 'addEvent' element = {<AddEvent/>}/>
+          {/* <Route path = 'memberapp' element = {<MemberApp/>}/> */}
+
+          <Route path = 'memberapp'>
+            <Route index element = {<MemberApp/>}/>
+            <Route path = 'acceptdecmember/:name/:email' element = {<MemberAppDecision/>}/>
+          </Route>
         </Route>}
         
       </Routes>

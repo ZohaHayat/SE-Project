@@ -52,7 +52,7 @@ function NavBar(props) {
                         <Link to ="/about">About Us</Link>
                         <Link to ="/team">View Team</Link>
                         <Link to ="/contact">Contact Us</Link>
-                        <Link to ="/follow">Follow us!</Link>
+                        {/* <Link to ="/follow">Follow us!</Link> */}
                     </div>
             </div> }
             {!props.loggedIn &&
@@ -85,7 +85,7 @@ function NavBar(props) {
                         <Link to ="/about">About Us</Link>
                         <Link to ="/team">View Team</Link>
                         <Link to ="/contact">Contact Us</Link>
-                        <Link to ="/follow">Follow us!</Link>
+                        {/* <Link to ="/follow">Follow us!</Link> */}
                     </div>
             </div> }
             {props.loggedIn &&
