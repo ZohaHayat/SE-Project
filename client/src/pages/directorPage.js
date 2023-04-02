@@ -44,7 +44,9 @@ const DirectorPage=()=>{
         </div>
 
         <div>
+        <Link to="/directorPage/directorNews">
         <button className="b">News</button>
+        </Link>
         </div>
 
         <div>

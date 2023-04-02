@@ -704,13 +704,37 @@ app.post('/addstory', (req,res)=> {
     
   })
   .catch((err)=>{res.send("Fail")})
+})
+
+app.get('/dirnews', (req,res)=> {
+  let newsArr = [] //name,date,text
+  console.log("this is news")
+  db.collection('News')
+    .find() 
+    .forEach(elem => newsArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:newsArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
+app.post('/deleteNews', (req,res)=> {
+  // console.log(req);
 
   
-
-  
-  
+  db.collection('News').deleteOne({ "Heading": req.body.name,"Date_Published":req.body.date,"News_Text":req.body.text}).then((result) => {
+    console.log("News deleted successfully");
+      res.send("Success")
+  })
+  .catch((err)=>{res.send("Fail")})
  
 })
+
+
+
+
 
 app.post('/accept_members', (req,res)=> {
   const Name = req.body.Name;

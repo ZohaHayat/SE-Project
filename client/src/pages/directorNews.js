@@ -1,6 +1,6 @@
 import React from 'react'
 import Axios from "axios"
-import "../styles/directorStories.css"
+// import "../styles/directorNews.css"
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
@@ -11,22 +11,22 @@ import { IconButton } from '@mui/material';
 
 
 
-function SingleStory({...props}){
+function SingleNews({...props}){
     
   
     return (
     <div className="flex-container">
 
     <div className="flex-child-magenta">
-        <h2>{props.Name}</h2>
-        <p className='story_p'>{props.Date}</p>
-        <p className='story_p'>{props.Text}</p>
+        <h2>{props.Heading}</h2>
+        <p className='story_p'>{props.Date_Published}</p>
+        <p className='story_p'>{props.News_Text}</p>
     </div>
 
     <div className="flex-child-green">
         <button className = "dir-story-button" onClick={()=> {
             console.log(props._id+" button clicked")
-            deleteStory(props.Name,props.Date,props.Text)
+            deleteNews(props.Name,props.Date,props.Text)
             }} >Remove</button>
         
     </div>
@@ -35,30 +35,30 @@ function SingleStory({...props}){
 
 }
 
-function deleteStory(delete_name,delete_date,delete_text) {
-    Axios.post("http://localhost:3000/deleteStory",{name:delete_name,date:delete_date,text:delete_text}).then((msg)=>{console.log(msg)})
+function deleteNews(delete_name,delete_date,delete_text) {
+    Axios.post("http://localhost:3000/deleteNews",{name:delete_name,date:delete_date,text:delete_text}).then((msg)=>{console.log(msg)})
 }
 
 
-function DirectorStories() {
+function DirectorNews() {
     
-    const [story,setStory] = useState([])
+    const [n,setN] = useState([])
     const navigate = useNavigate()
     
-    const navigateToAddStory = () => {
-        navigate('/directorPage/addstory')
+    const navigateToAddNews = () => {
+        navigate('/directorPage/addnews')
     }
     
     useEffect(() => {
-    Axios.get("http://localhost:3000/stories")
+    Axios.get("http://localhost:3000/dirnews")
     .then(res => {
-        setStory(res.data.list); //stores the data from the backend
+        setN(res.data.list); //stores the data from the backend
     })
     .catch(err => {console.log(err)})
-    },[story])
+    },[n])
 
     const deleteStory = (passed_name,passed_date,passed_text) => {
-        Axios.post("http://localhost:3000/deleteStory", {
+        Axios.post("http://localhost:3000/deleteNews", {
         name:passed_name,
         date:passed_date,
         text:passed_text
@@ -81,10 +81,10 @@ function DirectorStories() {
     return (
         <div className = "Stories_">
             <div className='above_hor_line'>
-            <h1 className = "Storyheading_">Stories</h1>
+            <h1 className = "Storyheading_">News</h1>
             <div className='stor_button_new_text'>
             <h2 className = "Storysubheading">Add New</h2>
-                <IconButton  sx={{display: "flex", justifyContent: "flex-end"}} onClick={navigateToAddStory}>
+                <IconButton  sx={{display: "flex", justifyContent: "flex-end"}} onClick={navigateToAddNews}>
                     <AddCircleIcon style={{color: "#92D4D2", fontSize:60}}/>
                 </IconButton>
                 </div>
@@ -99,15 +99,15 @@ function DirectorStories() {
             </div> */}
             
 
-            {story.map((val, key) => { 
-                return (<div key={key}>{SingleStory(val)}</div>)
+            {n.map((val, key) => { 
+                return (<div key={key}>{SingleNews(val)}</div>)
             })}
             
         </div>
       )
 }
 
-export default DirectorStories;
+export default DirectorNews;
 
 
 
