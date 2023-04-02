@@ -53,6 +53,8 @@ import DirectorStories from './pages/directorStories'
 import AddStory from './pages/AddStory'
 import DirectorNews from './pages/directorNews'
 import AddNews from './pages/addnews'
+import AddEvent from './pages/addEvent'
+import DirectorEvent from './pages/directorEvents'
 
 
 
@@ -104,7 +106,7 @@ function App() {
         <Route exact path = '/volunteerform' element = {<VolunteerForm/>}/>
         <Route exact path = '/changepass' element = {<Change/>}/>
         <Route exact path = '/delacc' element = {<DeleteAcc/>}/>
-        <Route exact path = '/directorEevents' element ={<DEvents />}/>
+        
         <Route exact path = '/directorViewDirectors' element ={<DDirectors />}/>
         <Route exact path = '/AmbassadorApplications' element ={<AmbassadorApplications />}/>
         {/* the / simply means that homepage is with a / */}
@@ -132,9 +134,11 @@ function App() {
           <Route path = 'members' element = {<RemoveMembers/>}/>
           <Route path = 'memberapp' element = {<MemberApp/>}/>
           <Route path = 'directorStories' element = {<DirectorStories/>}/>
+          <Route exact path = 'directorEvents' element ={<DEvents />}/>
           <Route path = 'addstory' element = {<AddStory/>}/>
           <Route path = 'directorNews' element = {<DirectorNews/>}/>
           <Route path = 'addnews' element = {<AddNews/>}/>
+          <Route path = 'addEvent' element = {<AddEvent/>}/>
         </Route>}
         
       </Routes>
