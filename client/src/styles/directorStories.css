@@ -1,6 +1,8 @@
 .flex-child-green{
     padding-top: 30px;
     flex: 3;
+    animation: fadeIn 2s;
+
 }
 
 .dir-story-button {
@@ -16,6 +18,13 @@
     width: 170px;
     font-size: 18px;
 
+}
+
+.dir-story-button:hover{
+    transition: 0.2s ease-in;
+    background-color: #f78391;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(106, 106, 106, 0.5);
 }
 
 .stor_button_new_text{
@@ -53,5 +62,7 @@
     margin-right: 400px;
     margin-left: 15%;
     justify-content: space-between;
+    animation: fadeIn 2s;
+
 
 }

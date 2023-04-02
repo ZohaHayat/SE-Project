@@ -1,5 +1,7 @@
 .login{
     text-align: center;
+    animation: fadeIn 2s;
+
 }
 
 .heading {
@@ -32,6 +34,8 @@
     border-style: solid;
     border-radius: 7px;
     padding-left: 5px;
+    background-color: #f0f4f2;
+
 }
 
 .login-button {
@@ -49,4 +53,9 @@
     margin-top:-250px;
     margin-bottom: 250px;
 
+}
+
+.login-button:hover{
+    background-color: #9ae0de;
+    cursor: pointer;
 }

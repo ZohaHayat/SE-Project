@@ -1,5 +1,7 @@
 .page-amb-applications h1 {
     text-align: center;
+    animation: fadeIn 2s;
+
 }
 
 .single-amb-app {

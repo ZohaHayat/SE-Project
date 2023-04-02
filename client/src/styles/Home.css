@@ -1,5 +1,4 @@
 
-
 .home-donate {
     width: 100%;
     height: 90vh;
@@ -10,6 +9,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    animation: fadeIn 2s;
+
     /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
 }
   
@@ -30,6 +31,8 @@
     flex-direction: column;
     background-color: rgb(253, 250, 245);
     color: white;
+    animation: fadeIn 2s;
+
   }
   
   .headerContainer h1 {
@@ -39,6 +42,8 @@
     height: 50px;
     font-weight: bold;
     color: #205567;
+    animation: fadeIn 2s;
+
   }
   
   .headerContainer p {
@@ -49,6 +54,8 @@
     font-size: 20px;
     font-weight: lighter;
     color: #000000;
+    animation: fadeIn 2s;
+
   }
   
   .headerContainer button {
@@ -64,6 +71,8 @@
     color: white;
     text-decoration: none;
     font-size: 20px;
+    animation: fadeIn 2s;
+
   }
   
   .headerContainer button:hover {
@@ -133,6 +142,8 @@
   outline: 1px solid #b8b8b8;
   border-radius: 10px;
   z-index: 2;
+  animation: fadeIn 1s;
+
 }
 
 .sponsor-container h1 {
@@ -176,6 +187,8 @@
   border-radius: 10px;
   transform: scaleX(-1);
   z-index: 1;
+  animation: fadeIn 1s;
+
 }
 
 .home-volunteer {

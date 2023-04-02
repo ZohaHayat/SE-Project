@@ -10,6 +10,8 @@
     margin: 20px;
     /* font-size: medium; */
     text-align: left;
+    animation: fadeIn 2s;
+
 }
 
 .team-img {
