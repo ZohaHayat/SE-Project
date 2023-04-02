@@ -65,6 +65,12 @@
   font-size: 18px;
 }
 
+img {
+  border-radius: 50%;
+  width: 100px;
+  height: auto;
+}
+
 /* .Benefit {
     width: 100%;
     height: auto;
