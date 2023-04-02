@@ -1,7 +1,7 @@
 import React from 'react'
 import Axios from "axios";
 import { useEffect, useState } from 'react'
-import Icon from "../assets/icon.jpg";
+import AmbassIcon from "../assets/icon.jpg";
 import "../styles/ambassadors.css"
 import { useNavigate } from 'react-router-dom';
 
@@ -46,7 +46,7 @@ function ViewAmbassadors() {
                 return (
                     <div className='AmbassItem'>
                   <div className="AmbassImg">
-                    <img src={Icon} alt=""/>
+                    <img src={AmbassIcon} alt=""/>
                     </div>
                     <div className="AmbassText">
                     <h2>{val.Name}</h2>
