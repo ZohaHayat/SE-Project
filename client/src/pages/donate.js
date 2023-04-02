@@ -35,7 +35,6 @@ const Donate = () =>{
                     console.log(response.data.url)
                     console.log(stripe)
                     window.location.href = `${response.data.url}`;
-                    alert("Donation Made");
                 }
             });
         }
