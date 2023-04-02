@@ -55,6 +55,7 @@ import DirectorNews from './pages/directorNews'
 import AddNews from './pages/addnews'
 import AddEvent from './pages/addEvent'
 import DirectorEvent from './pages/directorEvents'
+import MemberAppDecision from './pages/accept_dec_member'
 
 
 
@@ -132,13 +133,18 @@ function App() {
           <Route path = 'viewbeneficiaries' element = {<ViewBeneficiaries/>}/>
           <Route path = 'addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route path = 'members' element = {<RemoveMembers/>}/>
-          <Route path = 'memberapp' element = {<MemberApp/>}/>
           <Route path = 'directorStories' element = {<DirectorStories/>}/>
           <Route exact path = 'directorEvents' element ={<DEvents />}/>
           <Route path = 'addstory' element = {<AddStory/>}/>
           <Route path = 'directorNews' element = {<DirectorNews/>}/>
           <Route path = 'addnews' element = {<AddNews/>}/>
           <Route path = 'addEvent' element = {<AddEvent/>}/>
+          {/* <Route path = 'memberapp' element = {<MemberApp/>}/> */}
+
+          <Route path = 'memberapp'>
+            <Route index element = {<MemberApp/>}/>
+            <Route path = 'acceptdecmember/:name/:email' element = {<MemberAppDecision/>}/>
+          </Route>
         </Route>}
         
       </Routes>
