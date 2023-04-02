@@ -52,6 +52,7 @@ import PassCode from './pages/passcode';
 import DirectorStories from './pages/directorStories'
 import AddStory from './pages/AddStory'
 import DirectorNews from './pages/directorNews'
+import AddNews from './pages/addnews'
 
 
 
@@ -133,6 +134,7 @@ function App() {
           <Route path = 'directorStories' element = {<DirectorStories/>}/>
           <Route path = 'addstory' element = {<AddStory/>}/>
           <Route path = 'directorNews' element = {<DirectorNews/>}/>
+          <Route path = 'addnews' element = {<AddNews/>}/>
         </Route>}
         
       </Routes>

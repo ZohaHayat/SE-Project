@@ -755,7 +755,7 @@ app.post('/addstory', (req,res)=> {
 
 app.get('/dirnews', (req,res)=> {
   let newsArr = [] //name,date,text
-  console.log("this is news")
+  // console.log("this is news")
   db.collection('News')
     .find() 
     .forEach(elem => newsArr.push(elem))
@@ -777,6 +777,26 @@ app.post('/deleteNews', (req,res)=> {
   })
   .catch((err)=>{res.send("Fail")})
  
+})
+
+app.post('/addnews', (req,res)=> {
+  console.log("add news called");
+  db.collection('News').findOne({ "Headline": req.body.headline,"Date":req.body.date,"News_Text":req.body.text}).then((result) => {
+    console.log(result)
+    if (result!==null){
+      console.log("This news already exists")
+      res.send("Duplicate")
+    }
+    else{
+      db.collection('News').insertOne({ "Headline": req.body.headline,"Date":req.body.date,"News_Text":req.body.text}).then((result) => {
+        console.log("News added successfully");
+        res.send("Success")
+      })
+      .catch((err)=>{res.send("Fail")})
+    }
+    
+  })
+  .catch((err)=>{res.send("Fail")})
 })
 
 

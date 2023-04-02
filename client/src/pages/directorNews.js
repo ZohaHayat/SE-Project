@@ -18,7 +18,7 @@ function SingleNews({...props}){
     <div className="flex-container">
 
     <div className="flex-child-magenta">
-        <h2>{props.Heading}</h2>
+        <h2>{props.Headline}</h2>
         <p className='story_p'>{props.Date_Published}</p>
         <p className='story_p'>{props.News_Text}</p>
     </div>
