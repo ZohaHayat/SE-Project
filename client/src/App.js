@@ -115,6 +115,7 @@ function App() {
         <Route exact path = '/success2' element = {<Success2/>}/>
         <Route exact path = '/failure2' element = {<Failure2/>}/>
         <Route exact path = '/sponsor' element = {<Sponsor/>}/>
+        <Route path = 'member' element = {<MemberAdd/>}/>
 
         {/* <Route exact path = '/success2' element = {<Success2/>}/> */}
 
@@ -123,7 +124,6 @@ function App() {
           <Route index element ={<DirectorPage />}/>
           <Route path = 'viewVolunteers' element = {<ViewVolunteers/>}/>
           <Route path = 'viewTeamDirector' element ={<ViewTeamDirector />}/>
-          <Route path = 'member' element = {<MemberAdd/>}/>
           <Route path = 'donors' element = {<Donors/>}/>
           <Route path = 'changepass' element = {<Change/>}/>
           <Route path = 'delacc' element = {<DeleteAcc/>}/>
