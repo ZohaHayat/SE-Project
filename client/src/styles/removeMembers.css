@@ -132,3 +132,12 @@ h4 {
     margin-bottom: 142px;
     color: white;
 } */
+
+
+.horizontal_line{
+    border-bottom: 2px solid #ccc;
+    width: 70%;
+    position: relative;
+    top: -30px;
+    margin: 0 auto;
+}   

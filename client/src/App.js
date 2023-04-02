@@ -21,6 +21,7 @@ import Login from './pages/login'
 import Signup from './pages/signup'
 import Loginhome from './pages/loginhome'
 import Donate from './pages/donate'
+import Sponsor from './pages/sponsor'
 import Volunteer from './pages/volunteer'
 import VolunteerForm from './pages/volunteerform'
 
@@ -42,8 +43,17 @@ import ViewBeneficiaries from './pages/viewbeneficiaries';
 import AddBeneficiary from './pages/addbeneficiary';
 import Success from './pages/success';
 import Failure from './pages/failure';
+import Success2 from './pages/success2';
+import Failure2 from './pages/failure2';
 import MemberApp from './pages/memberApp';
+import ForgotPassword from './pages/forgotpassword';
+import PassCode from './pages/passcode';
 // import Success2 from './pages/success2';
+import DirectorStories from './pages/directorStories'
+import AddStory from './pages/AddStory'
+import DirectorNews from './pages/directorNews'
+import AddNews from './pages/addnews'
+
 
 
 function App() {
@@ -85,6 +95,8 @@ function App() {
         <Route exact path = '/contact' element = {<Contact/>}/>
         <Route exact path = '/careers' element = {<Careers/>}/>
         <Route exact path = '/login' element = {<Login handleLogin={handleLogin}/>}/>
+        <Route exact path = '/forgotpassword' element={<ForgotPassword/>}/>
+        <Route exact path= '/passcode' element={<PassCode/>}/>
         <Route exact path = '/signup' element = {<Signup/>}/>
         <Route exact path = '/loginhome' element = {<Loginhome/>}/>
         <Route exact path = '/donate' element = {<Donate/>}/>
@@ -98,6 +110,10 @@ function App() {
         {/* the / simply means that homepage is with a / */}
         <Route exact path = '/success' element = {<Success/>}/>
         <Route exact path = '/failure' element = {<Failure/>}/>
+        <Route exact path = '/success2' element = {<Success2/>}/>
+        <Route exact path = '/failure2' element = {<Failure2/>}/>
+        <Route exact path = '/sponsor' element = {<Sponsor/>}/>
+
         {/* <Route exact path = '/success2' element = {<Success2/>}/> */}
 
         {loggedIn &&
@@ -115,6 +131,10 @@ function App() {
           <Route path = 'addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route path = 'members' element = {<RemoveMembers/>}/>
           <Route path = 'memberapp' element = {<MemberApp/>}/>
+          <Route path = 'directorStories' element = {<DirectorStories/>}/>
+          <Route path = 'addstory' element = {<AddStory/>}/>
+          <Route path = 'directorNews' element = {<DirectorNews/>}/>
+          <Route path = 'addnews' element = {<AddNews/>}/>
         </Route>}
         
       </Routes>

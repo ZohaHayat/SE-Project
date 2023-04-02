@@ -53,6 +53,10 @@ const Login =(props)=>{
             <div >
                 <button className="login-button" onClick={(event) => [logging()]}>Login</button>
             </div>
+            <div className="forgetpass">
+                <Link to="/forgotPassword">Forgot Password?</Link>
+                
+            </div>
             <h4>This page is for authorised personnel only.</h4>
             {/* <h4 className="texts">New user? <Link to ="/signup"><u>Sign up</u></Link></h4> */}
             {/* </form> */}

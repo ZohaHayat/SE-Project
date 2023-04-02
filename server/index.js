@@ -165,6 +165,7 @@ app.post('/careers', async (req,res)=> {
   }
 })
 
+<<<<<<< HEAD
 app.delete('/events/delete/:id', (req, res) => {
   const eventId = parseFloat(req.params.id); // parse the ID as a float
   db.collection('Events')
@@ -180,6 +181,9 @@ app.delete('/events/delete/:id', (req, res) => {
 
 
 // app.get('/donors', (req,res)=> {
+=======
+app.get('/donors', (req,res)=> {
+>>>>>>> 756bbad2ebf7f149b7fd54bce454b625c35d124e
 app.get('/directorPage/donors', (req,res)=> {
   let donorsArr = [] //name,date,text
   db.collection('Donors')
@@ -191,6 +195,7 @@ app.get('/directorPage/donors', (req,res)=> {
     .catch(() => {
       res.status(500).json({msg:"error",list:[]});
     });
+})
 })
 
 app.post('/directorPage/addMember', async (req,res)=> {
@@ -438,6 +443,53 @@ app.post('/donate', async (req,res)=> {
   res.send(session)
 })
 
+app.post('/sponsor', async (req,res)=> {
+  const email = req.body.email;
+  const name = req.body.name;
+  const bank = req.body.bank;
+  const amt = req.body.amt;
+  const event = req.body.event;
+
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: [
+      {
+        price_data: {
+          currency: 'pkr',
+          product_data: {
+            name: 'Sponsor ' + event,
+          },
+          unit_amount: amt*100,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    metadata: {'bank_name': bank, 'event_name': event},
+    success_url: `http://localhost:3001/success2?name=${name}&email=${email}&bank=${bank}&amt=${amt}&event=${event}`,
+    cancel_url: 'http://localhost:3001/failure2',
+    customer_email: email,
+    client_reference_id: name
+  });
+
+  console.log(session)
+
+  console.log(email,name,bank,amt)
+  res.send(session)
+})
+
+app.post('/okay2', (req,res)=> {
+  const email = req.body.email;
+  const name = req.body.name;
+  const bank = req.body.bank;
+  const amt = req.body.amt;
+  const event = req.body.event;
+
+  console.log(email,name,bank,amt,event)
+
+  db.collection('Sponsorships').insertOne({Email: email, Bank: bank, Name: name, Amount: amt, Event: event })
+})
+
 // app.post('/donate2', async (req,res)=> {
 //   const email = req.body.email;
 //   const name = req.body.name;
@@ -641,7 +693,7 @@ app.get('/getmemberapps', (req,res)=> {
   let memberArr = [] //name,date,text
   db.collection('Employee_Applications')
     .find() 
-    .forEach(elem => {if(elem.status=='active') {memberArr.push(elem)}})
+    .forEach(elem => {if(elem.status=='pending') {memberArr.push(elem)}})
     .then((result) => {
       res.status(200).json({msg:"success",list:memberArr});
     })
@@ -693,13 +745,116 @@ app.post('/addstory', (req,res)=> {
     
   })
   .catch((err)=>{res.send("Fail")})
+})
+
+app.get('/dirnews', (req,res)=> {
+  let newsArr = [] //name,date,text
+  // console.log("this is news")
+  db.collection('News')
+    .find() 
+    .forEach(elem => newsArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:newsArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
+app.post('/deleteNews', (req,res)=> {
+  // console.log(req);
 
   
-
-  
-  
+  db.collection('News').deleteOne({ "Heading": req.body.name,"Date_Published":req.body.date,"News_Text":req.body.text}).then((result) => {
+    console.log("News deleted successfully");
+      res.send("Success")
+  })
+  .catch((err)=>{res.send("Fail")})
  
 })
+
+app.post('/addnews', (req,res)=> {
+  console.log("add news called");
+  db.collection('News').findOne({ "Headline": req.body.headline,"Date":req.body.date,"News_Text":req.body.text}).then((result) => {
+    console.log(result)
+    if (result!==null){
+      console.log("This news already exists")
+      res.send("Duplicate")
+    }
+    else{
+      db.collection('News').insertOne({ "Headline": req.body.headline,"Date":req.body.date,"News_Text":req.body.text}).then((result) => {
+        console.log("News added successfully");
+        res.send("Success")
+      })
+      .catch((err)=>{res.send("Fail")})
+    }
+    
+  })
+  .catch((err)=>{res.send("Fail")})
+})
+
+
+
+
+
+app.post('/accept_members', (req,res)=> {
+  const Name = req.body.Name;
+  const DOB = req.body.DOB;
+  const Email =req.body.Email;
+  const CNIC =req.body.CNIC;
+  const ContactNo = req.body.ContactNo;
+  const Position = req.body.Position;
+  const JoiningMsg = req.body.JoiningMsg;
+  const status = req.body.status;
+
+  // console.log(name,contact, reason)
+
+  const newDoc = {
+    Name : Name,
+    DOB : DOB,
+    Email :Email,
+    CNIC :CNIC,
+    ContactNo : ContactNo,
+    Position : Position,
+    JoiningMsg : JoiningMsg,
+    status : status
+  };
+
+  db.collection('Members').insertOne(newDoc).then((x) => {
+  db.collection('Employee_Applications').updateOne(
+    { CNIC: CNIC },
+    { $set: { status: status} }
+    
+    )
+    res.send("Success")
+  })
+})
+
+app.post('/reject_members', (req,res)=> {
+  
+  const status= req.body.status
+  const CNIC= req.body.cnic;
+  db.collection('Employee_Applications').updateOne(
+    { CNIC: CNIC },
+    { $set: { status: status} }
+    
+    )
+    res.send("Success")
+  })
+
+
+app.post('/forgotpass', (req,res)=> {
+
+  const email= req.body.email
+  const pass= req.body.password;
+  db.collection('Directors').updateOne(
+    { Email: email },
+    { $set: { Password: pass} }
+    
+    )
+    res.send("Success")
+  })
+
 
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
