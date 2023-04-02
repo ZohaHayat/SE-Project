@@ -69,7 +69,7 @@ function NavBar(props) {
             </div> }
             {!props.loggedIn && 
             <div className ="dropdown">
-                <button className ="dropbtn">Updates</button>
+                <button className ="dropbtn">Get Updates</button>
                     <div className ="dropdown-content">
                         <Link to ="/stories">Stories</Link>
                         <Link to ="/news">News</Link>
