@@ -165,7 +165,6 @@ app.post('/careers', async (req,res)=> {
   }
 })
 
-<<<<<<< HEAD
 app.delete('/events/delete/:id', (req, res) => {
   const eventId = parseFloat(req.params.id); // parse the ID as a float
   db.collection('Events')
@@ -181,9 +180,7 @@ app.delete('/events/delete/:id', (req, res) => {
 
 
 // app.get('/donors', (req,res)=> {
-=======
 app.get('/donors', (req,res)=> {
->>>>>>> 756bbad2ebf7f149b7fd54bce454b625c35d124e
 app.get('/directorPage/donors', (req,res)=> {
   let donorsArr = [] //name,date,text
   db.collection('Donors')
