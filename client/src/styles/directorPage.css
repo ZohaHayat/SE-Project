@@ -1,88 +1,122 @@
-.buttons {
-    align-self: center;
-    margin-bottom: 10px;
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+
+.gradient {
+  background: linear-gradient(to bottom right, #8ed3a5, #46c7d3);
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+}
+
+.gradient h1 {
+  color: white;
+  font-size: 90px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 5px;
+  font-weight: 500;
+  margin-left: 130px;
+  margin-top: 60px;
+  text-align: left;
+}
+
+.g-h2 {
+  color: white;
+  font-size: 25px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-left: 140px;
+  margin-top: -80px;
+  margin-bottom: 55px;
+  text-align: left;
+}
+
+.sub-container {
+
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  background-color: white;
+  height: 400px;
+  width: 350px;
+  margin: 0 50px; 
+  border-radius: 2px;
+}
+
+.sub-container:hover {
+  box-shadow: 0 0 10px rgba(106, 106, 106, 0.5);
+  transition: 0.2s ease-in;
+}
+
+.sub-container h2 {
+  color: #46d3c9;
+  font-size: 30px;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-top: 45px;
 }
 
 .b {
-    margin-top: 10px;
-    background-color: #92D4D2;
-    border-radius: 30px;
-    height: 50px;
-    width:200px;
-    border: none;
-    font-family:Arial, Helvetica, sans-serif;
-    margin-bottom: 5px;
-    font-size:small; 
-    /* padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px; 
-    padding-bottom: 10px; */
-    text-align: center;
-
-}
-
-.b2 {
-    margin-top: 10px;
-    background-color: #92D4D2;
-    border-radius: 30px;
-    height: 50px;
-    width:200px;
-    border: none;
-    font-family:Arial, Helvetica, sans-serif;
-    margin-bottom: 5px;
-    font-size: small;
-    /* padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 30px;
-    padding-right: 30px; */
-    text-align: center;
-
-
-
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid #f55366;
+  width: 250px;
+  height: 45px;
+  color: #f55366;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing:1px;
 }
 
 .b:hover {
-    background-color: #a9e7e4;
-    cursor: pointer;
-    transition: 0.2s ease-in;
-  }
-
-  .b2:hover {
-    background-color: #a9e7e4;
-    cursor: pointer;
-    transition: 0.1s ease-in;
-  }
-
-.dir-bg {
-    width: 100%;
-    height: 90vh;
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
+  background-color: #f55366;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in;
 }
 
-.headContainer {
-    /* width: auto;
-    margin-left: 50px;
-    background-color: white;
-    color: white; */
-    text-align: center;
-    /* margin-left: 0px; */
-    /* border-radius: 10px; */
-    padding: 10px;
-    /* padding-left: 30px;
-    padding-right: 30px; */
-    width: 220px;
-    height: 650px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: whitesmoke;
-    color: white;
-  }
+.b-container-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+  margin-top: 40px;
+}
+
+.b-container-1 > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+}
+
+.b-container-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 250px;
+  margin-top: -10px;
+}
+
+.b-container-2 > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+}
+
+.b-container-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90px;
+  margin-top: 80px;
+}
+
+.b-container-3 > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+}
+

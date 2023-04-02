@@ -3,7 +3,7 @@ import Axios from "axios"
 import { useEffect, useState } from 'react'
 import {EventList} from '../helpers/EventList'
 // import EventItem from '../components/eventItem'
-import "../styles/event.css"
+import "../styles/directorEvents.css"
 import Plantation from "../assets/plantation.webp";
 import Clothes from "../assets/clothes.webp";
 import Food from "../assets/food.jpg";
@@ -24,6 +24,18 @@ function DEvents() {
     })
   })
 
+  const handleRemove = (event) => {
+    Axios.delete(`http://localhost:3000/events/delete/${event.EventID}`)
+    .then(res => {
+      console.log(res.data.message);
+      const updatedEvents = eve.filter(e => e.EventID !== event.EventID);
+      seteve(updatedEvents);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  }
+
   
   const [popupcontent,setpopupcontent] = useState([]);
   const [popuptoggle, setpopuptoggle] = useState(false);
@@ -40,45 +52,47 @@ function DEvents() {
   };
   return (
     <div clasName = "Events">
-        <h1 className = "EventTitle">Events</h1>
-          <div className="EventList">
-            {
-              eve.map((val) => {
-                return (
-                  <div className="EventItem">
-                    <img src={Clothes} alt=""/>
-                    <h1>{val.EventName}</h1>
-                    <p>{val.Date}</p>
-                    <p>{val.Description}</p>
-                    <button className="button_events" onClick={()=> {changecontent(val)}}>View More</button>
-                  </div>
-                )
-              })
-            }
+      <h1 className = "EventTitle">Events</h1>
 
-          </div>
-          {popuptoggle && (<div className="pop_up_container" onClick={changecontent}>
-          <div className="pop_up_body" onClick = {(e)=> e.stopPropagation()}>
-            <div className="pop_up_header">
-              <button className="button_events_2" onClick={changecontent}>x</button>
-            </div>
-            <div className="pop_up_content">
-              {popupcontent.map((val)=>{
-                return (
-                  <div className="pop_up_card">
-                   <h2>{val.EventName}</h2>
-                    <p>{val.Description}</p>
-                  </div>
-                )
+      <div className="EventList">
+        {
+          eve.map((val) => {
+            return (
+              <div className="EventItem">
+                <img src={Clothes} alt=""/>
+                <h1>{val.EventName}</h1>
+                <p>{val.Date}</p>
+                <p>{val.Description}</p>
+                <button className="d-button_events" onClick={()=> {changecontent(val)}}>View More</button>
+                <button className="button_events_remove" onClick={()=> {handleRemove(val)}}>Remove</button>
+              </div>
+            )
+          })
+        }
+      </div>
 
-              })}
-            </div>
-            </div>
-          </div>)}
-
-
-        
+      {popuptoggle && (<div className="pop_up_container" onClick={changecontent}>
+      <div className="pop_up_body" onClick = {(e)=> e.stopPropagation()}>
+        <div className="pop_up_header">
+          <button className="button_events_2" onClick={changecontent}>x</button>
         </div>
+        <div className="pop_up_content">
+          {popupcontent.map((val)=>{
+            return (
+              <div className="pop_up_card">
+                <h2>{val.EventName}</h2>
+                <p>{val.Description}</p>
+              </div>
+            )
+
+          })}
+        </div>
+        </div>
+      </div>)}
+
+
+      
+    </div>
   )
 }
 

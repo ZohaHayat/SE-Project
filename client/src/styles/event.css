@@ -94,9 +94,10 @@
     background-color: #92D4D2;
     border: none;
     outline: none;
-    border-radius: 30px;
+    border-radius: 5px;
     margin: 10px;
     margin-left: 150px;
+    margin-top: -8px;
 
   }
   .button_events_2{
@@ -121,3 +122,4 @@
       grid-template-columns: 1fr;
     }
   }
+

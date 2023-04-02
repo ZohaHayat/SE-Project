@@ -29,7 +29,7 @@ const ViewVolunteers=()=> {
                 return (
                     <div className="flex-container">
                         <div class="flex-child-magenta">
-                            <img src={Logo}/>
+                            <img className="volunteer-img" src={Logo}/>
                         </div>
                         <div class="flex-child-green">
                             <h3>{val.Name}</h3>

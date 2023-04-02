@@ -23,7 +23,7 @@ const ViewSponsors=()=> {
                 return (
                     <div className="sponsorcontainer">
                         <div class="sponsorpic">
-                            <img src={Logo}/>
+                            <img className="sponsor-img" src={Logo}/>
                         </div>
                         <div class="sponsordetail">
                             <h3>{val.Name}</h3>

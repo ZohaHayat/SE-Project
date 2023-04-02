@@ -56,6 +56,7 @@ app.get('/events/get', (req,res) => {
     res.status(500).json({msg:"error",list:[]});
   })
 })
+
 app.get('/directorPage/getambassadors', (req,res) => {
   let ambassArr = []
   db.collection('Ambassador')
@@ -95,7 +96,6 @@ app.get('/stories', (req,res)=> {
     });
 })
 
-<<<<<<< HEAD
 // Ayesha Masood
 app.get('/ambassadorApplications', (req,res)=> {
   let appsArr = [] 
@@ -111,7 +111,7 @@ app.get('/ambassadorApplications', (req,res)=> {
 })
 
 app.put('/ambassadorApplications/:id', (req, res) => {
-  const appId = req.params.id;
+  const appId = parseFloat(req.params.id);
   const updatedStatus = req.body.Status;
   db.collection('Ambassador_Applications')
     .updateOne({Application_ID: appId}, {$set: {Status: updatedStatus}})
@@ -136,31 +136,6 @@ app.post('/addAmbassador', async (req,res)=> {
   ]);
   res.status(200).json({result : insertResult});
 })
-
-// app.post('/careers', async (req,res)=> {
-//   // query the database table 'Ambassador_Applications' to retrieve the max application IDs
-//   const maxIdResult = await db.collection('Ambassador_Applications')
-//     .find({}, { "Application ID": 1 })
-//     .sort({ "Application ID": -1 })
-//     .limit(1)
-//     .toArray();
-//   // unique Application_ID generation
-//   const newId = maxIdResult.length === 0 ? 1 : maxIdResult[0]["Application ID"] + 1;
-//   // insert into 'Ambassador_Applications' the new entry
-//   const insertResult = db.collection('Ambassador_Applications').insertMany([
-//     {
-//       "Application ID": newId,
-//       "Email": req.body.email,
-//       "Name": req.body.name,
-//       "Contact no": req.body.contact,
-//       "DOB": req.body.age,
-//       "Reason": req.body.why,
-//       "Institution": req.body.inst,
-//       "Status": req.body.status
-//     }
-//   ]);
-//   res.status(200).json({result : insertResult});
-// })
 
 app.post('/careers', async (req,res)=> {
   try {
@@ -190,10 +165,22 @@ app.post('/careers', async (req,res)=> {
   }
 })
 
-app.get('/donors', (req,res)=> {
-=======
+app.delete('/events/delete/:id', (req, res) => {
+  const eventId = parseFloat(req.params.id); // parse the ID as a float
+  db.collection('Events')
+    .deleteOne({ EventID: eventId })
+    .then(() => {
+      res.status(200).json({ message: 'success' });
+    })
+    .catch(() => {
+      res.status(500).json({ message: 'error' });
+    });
+});
+
+
+
+// app.get('/donors', (req,res)=> {
 app.get('/directorPage/donors', (req,res)=> {
->>>>>>> b87425e991c55699471510ae339d0199ef019513
   let donorsArr = [] //name,date,text
   db.collection('Donors')
     .find() 

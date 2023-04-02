@@ -1,0 +1,33 @@
+.d-button_events{
+    padding: 5px 5px;
+    background-color: #92D4D2;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin: 10px;
+    margin-left: 120px;
+    margin-top: -8px;
+
+}
+
+.d-button_events:hover {
+    background-color: #a9e7e4;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+  }
+
+.button_events_remove {
+    background-color: #F96B7C;
+    color: white;
+
+    padding: 5px 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.button_events_remove:hover {
+    background-color: #f55366;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
