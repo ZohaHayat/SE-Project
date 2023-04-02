@@ -13,9 +13,11 @@
     place-items: center;
     animation: fadeIn 2s;
 
+
   }
   
   .EventList {
+
     width: 70vw;
     height: auto;
     display: grid;

@@ -880,14 +880,25 @@ app.post('/forgotpass', (req,res)=> {
 
   const email= req.body.email
   const pass= req.body.password;
-  db.collection('Directors').updateOne(
-    { Email: email },
-    { $set: { Password: pass} }
-    
-    )
-    res.send("Success")
-  })
+  db.collection('Directors').findOne({"Email": email }).then((result) => {
+    console.log(result)
+    if (result===null){
+      console.log("This Account does not exist")
+      res.send("Failed")
+    }
 
+    else {
+
+      db.collection('Directors').updateOne(
+        { Email: email },
+        { $set: { Password: pass} }
+        
+        )
+        res.send("Success")
+    }
+
+  })
+})
 
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
