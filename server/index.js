@@ -668,12 +668,13 @@ app.post('/directorPage/addbeneficiary', (req,res)=> {
 
 app.post('/directorPage/removebeneficiary', (req,res)=> {
   const cnic = req.body.cnic;
+  console.log(cnic)
 
   db.collection('Beneficiaries').findOne({CNIC: cnic}).then((resul) => {
     // console.log(resul)
     if (resul != null)
     {
-      if (resul.Status == "In progress")
+      if (resul.Status == "Active")
       {
         db.collection('Beneficiaries').updateOne(
           { CNIC: cnic },

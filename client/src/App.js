@@ -134,6 +134,7 @@ function App() {
         <Route path = '/directorPage'>
           <Route index element ={<DirectorPage />}/>
           <Route path = 'viewVolunteers' element = {<ViewVolunteers/>}/>
+          <Route path = 'viewVolunteers' element = {<ViewVolunteers/>}/>
           <Route path = 'viewTeamDirector' element ={<ViewTeamDirector />}/>
           <Route path = 'donors' element = {<Donors/>}/>
           <Route path = 'changepass' element = {<Change/>}/>

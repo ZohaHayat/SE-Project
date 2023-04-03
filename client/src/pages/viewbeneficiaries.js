@@ -26,7 +26,6 @@ const ViewBeneficiaries=()=> {
     })
 
     const removing = (cnic) => {
-        console.log(cnic)
         Axios.post("http://localhost:3000/directorPage/removebeneficiary", 
         {
             cnic: cnic
@@ -38,7 +37,7 @@ const ViewBeneficiaries=()=> {
     }
 
     const navigateToAddbene = () => {
-      navigate('/directorPage/addstory')
+      navigate('/directorPage/addbeneficiary')
   }
 
     return (
