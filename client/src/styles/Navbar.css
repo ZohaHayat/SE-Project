@@ -1,38 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+
 .navbar {
-    width: 100%;
-    height: 100px;
-    background-color: whitesmoke;
-    display: flex;
-    flex-direction: row;
-  }
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+
+  padding: 0px 130px;
+  box-sizing: border-box;
+}
+
+.logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 16pt;
+}
   
-  .navbar .leftSide {
-    flex: 5%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 50px;
-  }
+.navbar .leftSide {
+  flex-grow: 3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding-left: 50px; */
+  justify-content: flex-end;
+}
   
-  .navbar .leftSide img {
-    width: 50px;
-  }
+.tree-logo {
+  width: 30px;
+  padding: 10px;
+}
+
+.profile-icon {
+  width: 35px;
+  padding: 0px;
+  clip: rect(0px, auto, -55px, 0px);
+}
+
+.profile-dropbtn {
+  background-color: transparent;
+  padding: 30px;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+}
   
-  .navbar .rightSide {
-    flex: 95%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    /* justify-content: center; */
-    padding-right: 500px;
-  }
+.navbar .rightSide {
+  flex-grow : 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  padding-right: 500px;
+}
   
-  .navbar a {
-    color: black;
-    text-decoration: none;
-    margin: 40px;
-  }
+.navbar a {
+  display: flex;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+  /* margin: 40px; */
+  margin-right:auto;
+}
+
   
   .navbar .rightSide button {
     background-color: transparent;
@@ -105,12 +137,18 @@
 
   .navbar .dropbtn {
     background-color: transparent;
-    padding: 50px;
+    padding: 41px;
     /* position: relative; */
-    padding-left: 100px;
+    /* padding-left: 100px; */
     text-align: center;
     font-size: 16px;
     border: none;
+
+  }
+
+  .navbar .dropbtn:hover {
+    color: #f55366;
+    transition: 0.1s ease-in;
   }
   
   /* The container <div> - needed to position the dropdown content */
@@ -123,7 +161,7 @@
   .navbar .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: white;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -143,22 +181,21 @@
     display: inline-block;
   }
   .navbar .loginbutton {
-    border: none;
+    border: 1px solid black;
     text-align: center;
     width: 100px; 
     height: 30px;
-    /* margin-top: 15px; */
-    margin-left: 500%;
     align-items: right;
     border-radius: 5px;
     font-size: 16px;
     display: block;
-    background-color: #92D4D2;
+    background-color: transparent;
   }
   .navbar .loginbutton:hover {
-    background-color: #76c6c3;
+    background-color: black;
+    color: white;
     cursor: pointer;
-    transition: 0.3s ease-in;
+    transition: 0.2s ease-in;
   }
   
   /* Change color of dropdown links on hover */
@@ -175,20 +212,21 @@
     display: inline-block;
   }
   .navbar .logoutbutton {
-    border: none;
+    border: 1px solid black;
     text-align: center;
     width: 100px; 
     height: 30px;
-    /* margin-top: 15px; */
-    margin-left: 950%;
     align-items: right;
     border-radius: 5px;
     font-size: 16px;
     display: block;
-    background-color: #92D4D2;
+    background-color: transparent;
   }
   .navbar .logoutbutton:hover {
-    background-color: #a9e7e4;
+    background-color: black;
+    color: white;
     cursor: pointer;
-    transition: 0.3s ease-in;
+    transition: 0.2s ease-in;
   }
+
+  

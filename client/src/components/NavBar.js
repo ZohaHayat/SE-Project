@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Logo from '../assets/tree_logo.png' //.. to get out of the components folder and go into assets folder
+import Logo from '../assets/tree_logo.svg' //.. to get out of the components folder and go into assets folder
 import {Link} from 'react-router-dom'
-import Logo2 from '../assets/profile.png' //.. to get out of the components folder and go into assets folder
+import Logo2 from '../assets/profile.svg' //.. to get out of the components folder and go into assets folder
 import ReorderIcon from '@mui/icons-material/Reorder';
 import '../styles/Navbar.css'
 import { useNavigate } from 'react-router-dom';
@@ -20,23 +20,22 @@ function NavBar(props) {
     return (
     <div className = "navbar">
         <div className = "leftSide" id ={openLinks ? "open" : "close" }>
-            {/* <img src={Logo}/> */}
-            {props.loggedIn && <Link to ="/directorPage"><img src={Logo}/>PakTree</Link>}
+            
+            {props.loggedIn && <Link to ="/directorPage"><img className="tree-logo" src={Logo}/> <p className="logo-text">PakTree</p> </Link>}
             {props.loggedIn &&
             <div className ="dropdown">
-                <button className ="dropbtn"><img src={Logo2}/></button>
+                <button className ="profile-dropbtn"><img className="profile-icon" src={Logo2}/></button>
                     <div className ="dropdown-content">
                         <Link to ="/changepass">Change password</Link>
-                        {/* <Link to ="/delacc">Delete account</Link>
-                        <Link to ="/records">View Records</Link>
-                        <Link to ="/status">View status</Link> */}
                     </div>
             </div>}
+
             {props.loggedIn && 
             <div className="logout"><button className ="logoutbutton" onClick={handleLogoutClick}>Logout</button></div>}
 
             {!props.loggedIn && 
-            <Link to ="/"><img src={Logo}/>PakTree</Link>} 
+            <Link to ="/"><img className="tree-logo" src={Logo}/> <p className="logo-text">PakTree</p> </Link>} 
+
             {!props.loggedIn &&
             <div className = "hiddenLinks">
                 {/* <Link to ="/">Home</Link> */}
@@ -77,7 +76,8 @@ function NavBar(props) {
             </div> }
             {!props.loggedIn && <div className="login"><button className ="loginbutton" onClick={()=>navigate("/login")}>Login</button></div>}
         </div>
-        <div className = "rightSide">
+
+        {/* <div className = "rightSide">
             {!props.loggedIn && 
             <div className ="dropdown">
                 <button className ="dropbtn">About Us</button>
@@ -111,17 +111,9 @@ function NavBar(props) {
             <button onClick = {toggleNavbar}>
             <ReorderIcon/>
             </button>
-        </div>
+        </div> */}
     </div>
   )
 }
 
 export default NavBar
-
-{/* <Link to ="/">Home</Link>
-            <Link to ="/events">Events</Link>
-            <Link to ="/about">About Us</Link>
-            <Link to ="/about">Get Involved</Link>
-            <Link to ="/contact">Updates</Link> */}
-            {/* <Link to ="/">Home</Link> */}
-            {/* <Link to ="/events">Events</Link> */}

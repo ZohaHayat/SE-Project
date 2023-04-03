@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Logo from '../assets/tree_logo.png' //.. to get out of the components folder and go into assets folder
+import Logo from '../assets/tree_logo.svg' //.. to get out of the components folder and go into assets folder
 import Logo2 from '../assets/profile.png' //.. to get out of the components folder and go into assets folder
 import {Link} from 'react-router-dom'
 import ReorderIcon from '@mui/icons-material/Reorder';
