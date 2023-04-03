@@ -1,46 +1,45 @@
 // import React from 'react'
 // import React, { useState, useEffect } from "react";
 import React, { useState, useEffect } from "react";
+import Axios from "axios"
+
 import "../styles/news.css"
-// import axios from "axios";
-// import { useEffect } from "react"
-// import { useState } from "react"
 
-// const url = "https://www.reuters.com/news/archive/tsunami"
-
-// function News() {
-//     const [userData, setUserData] = useState({})
-
-//     useEffect(() => {
-//         getNewsWithFetch();
-//     },[]);
-
-//     const getNewsWithFetch = async () => {
-//         const response = await fetch(url);
-//         const jsonData = await response.json();
-//         setUserData(jsonData);
-//         }
-
-//     // const getGiHubUserWithAxios = async () => {
-//     //     const response = await axios.get(url);
-//     //     setUserData(response.data);
-//     //     };
-//   return (
-//     <div className='news'>
-//         <h2>News</h2>
-//         <div className='displayNews'>
-//         <h5 className="info-item">{userData.name}</h5>
-//         <h5 className="info-item">{userData.location}</h5>
-//         <h5 className="info-item">{userData.blog}</h5>
-//         <h5 className="info-item">{userData.company}</h5>
-//         </div>
-//     </div>
-//   )
-// }
 
 function News(){
+    const [news,setNews] = useState([])
+    
+    useEffect(() => {
+    Axios.get("http://localhost:3000/dirnews")
+    .then(res => {
+        setNews(res.data.list); //stores the data from the backend
+    })
+    .catch(err => {console.log(err)})
+    })
+    
     return (
-        <div className="news">
+        <div className = "Stories_">
+            <h1 className = "Storyheading_">News</h1>
+            <div className='horizontal_line'></div>
+            {news.map((val, key) => { 
+                return (
+                    <div className="flex-container">
+                    <div className="flex-child-magenta">
+                        <h2>{val.Headline}</h2>
+                        <p>{val.Date_Published}</p>
+                        <p>{val.News_Text}</p>
+                    </div>
+                    </div>)
+            })}
+            
+        </div>
+    )
+}
+
+export default News
+
+
+{/* <div className="news">
             <h1 className="header">News</h1>
             <h2 className="sub-header">As Turkey's earthquake death toll grows, so does anger at the government
             <h3 className="what">04-03-2023
@@ -66,8 +65,4 @@ function News(){
             </h3>
             </h2>
 
-        </div>
-    )
-}
-
-export default News
+        </div> */}

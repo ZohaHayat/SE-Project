@@ -17,14 +17,17 @@ function Stories() {
     
 
     return (
-        <div className = "Stories">
-            <h1 className = "Storyheading">Stories</h1>
+        <div className = "Stories_">
+            <h1 className = "Storyheading_">Stories</h1>
+            <div className='horizontal_line'></div>
             {story.map((val, key) => { 
                 return (
-                    <div className="Stories">
+                    <div className="flex-container">
+                    <div className="flex-child-magenta">
                         <h2>{val.Name}</h2>
-                        <h4>{val.Date}</h4>
-                        <h3>{val.Text}</h3>
+                        <p>{val.Date}</p>
+                        <p>{val.Text}</p>
+                    </div>
                     </div>)
             })}
             

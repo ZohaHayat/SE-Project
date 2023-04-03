@@ -96,6 +96,19 @@ app.get('/stories', (req,res)=> {
     });
 })
 
+app.get('/usernews', (req,res)=> {
+  let newsArr = [] //name,date,text
+  db.collection('News')
+    .find() 
+    .forEach(elem => storiesArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:storiesArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
 // Ayesha Masood
 app.get('/ambassadorApplications', (req,res)=> {
   let appsArr = [] 
