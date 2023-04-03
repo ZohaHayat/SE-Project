@@ -78,7 +78,17 @@ function App() {
     {
       setLoggedIn(true)
     }
+    window.addEventListener("unload", clearLocalStorage);
+
+    return () => {
+      window.removeEventListener("unload", clearLocalStorage);
+    };
+
   },[])
+
+  const clearLocalStorage = () => {
+    localStorage.clear();
+  }
 
   return (
     // the rendering is done inside the class name App and the components need to be self-closed

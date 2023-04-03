@@ -8,11 +8,17 @@ import Plantation from "../assets/plantation.webp";
 import Clothes from "../assets/clothes.webp";
 import Food from "../assets/food.jpg";
 import Water from "../assets/water.jpg";
+import Button from "@mui/material/Button";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { IconButton } from '@mui/material';
+import { useNavigate, useParams } from "react-router-dom";
 // we are importing a variable so curly braces used; here export default not used
 
 function DEvents() {
 
   const [eve, seteve] = useState([]);
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     Axios.get("http://localhost:3000/events/get")
@@ -36,6 +42,10 @@ function DEvents() {
     });
   }
 
+  const navigateToAddEvent = () => {
+    navigate('/directorPage/addEvent')
+}
+
   
   const [popupcontent,setpopupcontent] = useState([]);
   const [popuptoggle, setpopuptoggle] = useState(false);
@@ -52,7 +62,17 @@ function DEvents() {
   };
   return (
     <div clasName = "Events">
-      <h1 className = "EventTitle">Events</h1>
+      {/* <h1 className = "EventTitle">Events</h1> */}
+      <div className='above_hor_line'>
+            <h1 className = "Storyheading_">Events</h1>
+            <div className='stor_button_new_text'>
+            <h2 className = "Storysubheading">Add New</h2>
+                <IconButton  sx={{display: "flex", justifyContent: "flex-end"}} onClick={navigateToAddEvent}>
+                    <AddCircleIcon style={{color: "#92D4D2", fontSize:60}}/>
+                </IconButton>
+                </div>
+                </div>
+            <div className='horizontal_line'></div>
 
       <div className="EventList">
         {
