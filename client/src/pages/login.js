@@ -34,6 +34,10 @@ const Login =(props)=>{
                     props.handleLogin();
                     navigate("/directorPage");
                 }
+                else
+                {
+                    alert("Incorrect Password")
+                }
             });
     };
 

@@ -3,7 +3,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const cors = require("cors");
 const e = require("express");
 const nodemailer = require("nodemailer");
-// const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");
 const saltRounds = 10;
 // var app = require('express')();
 var bodyParser = require('body-parser');
@@ -364,17 +364,36 @@ app.post('/login', (req,res)=> {
 
   console.log(email,pass)
 
-  db.collection('Users').findOne({Email: email, Password: pass}).then((result) => {
+  db.collection('Users').findOne({Email: email}).then((result) => {
     if (result != null)
     {
-      res.send("Found user")
+      bcrypt.compare(pass, result.Password, function(err, hes){
+        if(hes)
+        {
+          res.send("Found user")
+        }
+        else
+        {
+          res.send("Passwords Do Not Match")
+        }
+      });
     }
     else
     {
-      db.collection('Directors').findOne({Email: email, Password: pass}).then((result) => {
+      db.collection('Directors').findOne({Email: email}).then((result) => {
+        console.log(result)
         if (result != null)
         {
-          res.send("Found director")
+          bcrypt.compare(pass, result.Password, function(err, hes){
+            if(hes)
+            {
+              res.send("Found director")
+            }
+            else
+            {
+              res.send("Passwords Do Not Match")
+            }
+          });
         }
         else
         {
@@ -383,6 +402,26 @@ app.post('/login', (req,res)=> {
       })
     }
   })
+
+  // db.collection('Users').findOne({Email: email, Password: pass}).then((result) => {
+  //   if (result != null)
+  //   {
+  //     res.send("Found user")
+  //   }
+  //   else
+  //   {
+  //     db.collection('Directors').findOne({Email: email, Password: pass}).then((result) => {
+  //       if (result != null)
+  //       {
+  //         res.send("Found director")
+  //       }
+  //       else
+  //       {
+  //         res.send("User not found")
+  //       }
+  //     })
+  //   }
+  // })
 })
 
 app.post('/okay', (req,res)=> {
@@ -608,29 +647,65 @@ app.post('/storeSub', (req,res) =>{
 
 app.post('/change', (req,res)=> {
   const old = req.body.old;
-  const newp = req.body.newp;
+  let newp = req.body.newp;
   const email = req.body.email;
 
   console.log(newp,email)
+  newp = bcrypt.hashSync(newp, saltRounds);
+
+  db.collection('Directors').findOne({Email: email}).then((result) => {
+    console.log(result)
+    if (result != null)
+    {
+      bcrypt.compare(old, result.Password, function(err, hes){
+        if(hes)
+        {
+          db.collection('Directors').updateOne(
+            { Email: email }, // specify the user to update by their username
+            { $set: { Password: newp } } // set the new password
+          ).then((response) => {
+            if (response.acknowledged)
+            {
+              res.send("Success")
+            }
+            else
+            {
+              res.send("Failure")
+            }
+          });
+        }
+        else
+        {
+          res.send("Passwords Do Not Match")
+        }
+      });
+    }
+    else
+    {
+      res.send("User not found")
+    }
+  })
 
   // db.collection('Users').updateOne(
   //   { Email: email }, // specify the user to update by their username
   //   { $set: { Password: newp } } // set the new password
   // );
 
-  db.collection('Directors').updateOne(
-    { Email: email, Password: old }, // specify the user to update by their username
-    { $set: { Password: newp } } // set the new password
-  ).then((response) => {
-    if (response.acknowledged)
-    {
-      res.send("Success")
-    }
-    else
-    {
-      res.send("Failure")
-    }
-  });
+
+
+  // db.collection('Directors').updateOne(
+  //   { Email: email, Password: old }, // specify the user to update by their username
+  //   { $set: { Password: newp } } // set the new password
+  // ).then((response) => {
+  //   if (response.acknowledged)
+  //   {
+  //     res.send("Success")
+  //   }
+  //   else
+  //   {
+  //     res.send("Failure")
+  //   }
+  // });
 
   res.send("Success")
 })
@@ -893,7 +968,9 @@ app.post('/reject_members', (req,res)=> {
 app.post('/forgotpass', (req,res)=> {
 
   const email= req.body.email
-  const pass= req.body.password;
+  let pass= req.body.password;
+  pass = bcrypt.hashSync(pass, saltRounds);
+
   db.collection('Directors').findOne({"Email": email }).then((result) => {
     console.log(result)
     if (result===null){
