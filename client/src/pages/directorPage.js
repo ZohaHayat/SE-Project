@@ -14,17 +14,23 @@ const DirectorPage=()=>{
 
             <div className="b-container-1">
                 <div>
-                    <Link to='/directorEevents'>
+                    <Link to='directorEvents'>
                         <button className="b">Events</button>
                     </Link>
                 </div>
 
                 <div>
-                    <button className="b">News</button>
+                    <Link to='directorNews'>
+                        <button className="b">News</button>
+
+                    </Link>
+                    
                 </div>
 
                 <div>
+                    <Link to="/directorPage/directorStories">
                     <button className="b">Stories</button>
+                    </Link>
                 </div>
             </div>
         </div>

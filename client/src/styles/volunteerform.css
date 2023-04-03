@@ -1,5 +1,7 @@
 .vol_container {
     text-align: center;
+    animation: fadeIn 2s;
+
   }
   
   .v_title {

@@ -34,15 +34,25 @@ const ForgotPassword=()=>{
                         password: code
                     
                     }).then((response) => {
-                        emailjs.send('gmail', 'template_4943j5l', templateParams, 'qwZ-gJBy-s1_fkz9V')
-                        .then((result) => {
+                        console.log(response.data)
+                        if(response.data==="Success"){
+                            
+                            emailjs.send('gmail', 'template_4943j5l', templateParams, 'qwZ-gJBy-s1_fkz9V')
+                            .then((result) => {
+                                
                             console.log(result.text);
                             navigate("/passcode")})
+                        }
 
+                       
 
                             // e.target.reset()
                         }, (error) => {
+                            alert("Account does not exist")
+                            navigate("/login")
+
                             console.log(error.text);
+                            
                         });
                         
         

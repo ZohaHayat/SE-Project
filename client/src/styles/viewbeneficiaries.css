@@ -5,6 +5,8 @@
   text-align: left;
   align-items: center;
   margin-left: 15%;
+  animation: fadeIn 2s;
+
   /* place-items: center; */
 }
 .horizontal_line{
@@ -23,6 +25,8 @@
   place-items: center;
   margin-left: 15%;
   padding: 10px;
+  animation: fadeIn 2s;
+
   
 }
 
@@ -63,6 +67,19 @@
   height: 40px;
   width: 170px;
   font-size: 18px;
+}
+
+.button_benefit:hover{
+  transition: 0.2s ease-in;
+  background-color: #f78391;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(106, 106, 106, 0.5);
+}
+
+img {
+  border-radius: 50%;
+  width: 100px;
+  height: auto;
 }
 
 /* .Benefit {

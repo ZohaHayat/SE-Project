@@ -5,6 +5,8 @@
   height: 100vh;
   width: 100%;
   text-align: center;
+  animation: fadeIn 2s;
+
 }
 
 .gradient h1 {
@@ -45,6 +47,9 @@
 .sub-container:hover {
   box-shadow: 0 0 10px rgba(106, 106, 106, 0.5);
   transition: 0.2s ease-in;
+  height: 420px;
+  width:360px ;
+
 }
 
 .sub-container h2 {

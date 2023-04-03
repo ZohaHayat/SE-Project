@@ -7,11 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Success = () =>{
-
-    // const [amt, setAmt] = useState("");
-    // const [bank, setBank] = useState("");
-    // const [name, setName] = useState("");
-    // const [email, setEmail] = useState("");
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -21,7 +16,6 @@ const Success = () =>{
         let name = urlParams.get('name');
         let email = urlParams.get('email');
         let bank = urlParams.get('bank');
-        // console.log(sessionId, name, email);
 
     Axios.post("http://localhost:3000/okay", {
             email: email,
@@ -32,10 +26,6 @@ const Success = () =>{
                 console.log(response.data)
                 if(response.data)
                 {
-                    // console.log(response.data.url)
-                    // console.log(stripe)
-                    // window.location.href = `${response.data.url}`;
-                    // navigate("/")
                     alert("Donation Made");
                 }
             });
@@ -45,8 +35,8 @@ const Success = () =>{
         <div className="donate-donate">
 
            <div className="succcontainer">
-             <h3>You have successfully made your payment. Please click on the below button to navigate to the home page:</h3>
-             <button className="okay-button" onClick={(event) => {navigate("/")}}>Home</button>
+             <h3 className="success-h3">Your donation has been successfully processed.</h3>
+             <button className="okay-button" onClick={(event) => {navigate("/")}}>Back to Home</button>
            </div>
         </div>
     )

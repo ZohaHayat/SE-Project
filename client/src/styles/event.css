@@ -11,15 +11,21 @@
     text-align: center;
     align-items: center;
     place-items: center;
+    animation: fadeIn 2s;
+
+
   }
   
   .EventList {
+
     width: 70vw;
     height: auto;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     place-items: center;
     margin-left: 15%;
+    animation: fadeIn 2s;
+
     
   }
   

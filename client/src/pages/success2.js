@@ -17,7 +17,6 @@ const Success2 = () =>{
         let email = urlParams.get('email');
         let bank = urlParams.get('bank');
         let event = urlParams.get('event');
-        // console.log(sessionId, name, email);
 
     Axios.post("http://localhost:3000/okay2", {
             email: email,
@@ -38,8 +37,8 @@ const Success2 = () =>{
         <div className="donate-donate">
 
            <div className="succcontainer">
-             <h3>You have successfully made your sponsorship donation. Please click on the below button to navigate to the home page:</h3>
-             <button className="okay-button" onClick={(event) => {navigate("/")}}>Home</button>
+             <h3 className="success-h3">Your sponsorship donation has been successfully processed.</h3>
+             <button className="okay-button" onClick={(event) => {navigate("/")}}>Back to Home</button>
            </div>
         </div>
     )

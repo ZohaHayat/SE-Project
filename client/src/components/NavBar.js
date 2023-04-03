@@ -51,7 +51,7 @@ function NavBar(props) {
                         <Link to ="/about">About Us</Link>
                         <Link to ="/team">View Team</Link>
                         <Link to ="/contact">Contact Us</Link>
-                        <Link to ="/follow">Follow us!</Link>
+                        {/* <Link to ="/follow">Follow us!</Link> */}
                     </div>
             </div> }
             {!props.loggedIn &&
@@ -68,7 +68,7 @@ function NavBar(props) {
             </div> }
             {!props.loggedIn && 
             <div className ="dropdown">
-                <button className ="dropbtn">Updates</button>
+                <button className ="dropbtn">Get Updates</button>
                     <div className ="dropdown-content">
                         <Link to ="/stories">Stories</Link>
                         <Link to ="/news">News</Link>
@@ -78,16 +78,16 @@ function NavBar(props) {
         </div>
 
         {/* <div className = "rightSide">
-            {!props.loggedIn && 
+            !props.loggedIn && 
             <div className ="dropdown">
                 <button className ="dropbtn">About Us</button>
                     <div className ="dropdown-content">
                         <Link to ="/about">About Us</Link>
                         <Link to ="/team">View Team</Link>
                         <Link to ="/contact">Contact Us</Link>
-                        <Link to ="/follow">Follow us!</Link>
+                        <Link to ="/follow">Follow us!</Link> 
                     </div>
-            </div> }
+            </div> 
             {props.loggedIn &&
             <div className ="dropdown">
                 <button className ="dropbtn">Get Involved</button>
@@ -111,7 +111,7 @@ function NavBar(props) {
             <button onClick = {toggleNavbar}>
             <ReorderIcon/>
             </button>
-        </div> */}
+        </div>  */}
     </div>
   )
 }

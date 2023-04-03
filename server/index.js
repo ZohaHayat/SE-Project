@@ -790,6 +790,42 @@ app.post('/addnews', (req,res)=> {
   .catch((err)=>{res.send("Fail")})
 })
 
+app.post('/addEvent', (req,res)=> {
+  console.log("add event called");
+  db.collection('Events').findOne({ "EventName": req.body.name,"Date":req.body.date,"Description":req.body.text,"EventType":req.body.type}).then((result) => {
+    console.log(result)
+    if (result!==null){
+      console.log("This event already exists")
+      res.send("Duplicate")
+    }
+    else{
+      let events = []
+      db.collection('Events')
+      .find() 
+      .sort({EventID:-1})
+      .limit(1)
+      .forEach(event => events.push(event))
+      .then(() => {
+        let latestEvent = events.pop()
+        const newID = latestEvent.EventID + 1
+        console.log(newID)
+        db.collection('Events').insertOne({ "EventName": req.body.name,"Date":req.body.date,"Description":req.body.text,"EventType":req.body.type,"EventID":newID}).then((result) => {
+          console.log("Event added successfully");
+          res.send("Success")
+        })
+        .catch((err)=>{res.send("Fail")})
+      })
+      .catch(() => {
+        res.send("Fail")
+      });
+      
+      
+    }
+    
+  })
+  .catch((err)=>{res.send("Fail")})
+})
+
 
 
 
@@ -844,14 +880,25 @@ app.post('/forgotpass', (req,res)=> {
 
   const email= req.body.email
   const pass= req.body.password;
-  db.collection('Directors').updateOne(
-    { Email: email },
-    { $set: { Password: pass} }
-    
-    )
-    res.send("Success")
-  })
+  db.collection('Directors').findOne({"Email": email }).then((result) => {
+    console.log(result)
+    if (result===null){
+      console.log("This Account does not exist")
+      res.send("Failed")
+    }
 
+    else {
+
+      db.collection('Directors').updateOne(
+        { Email: email },
+        { $set: { Password: pass} }
+        
+        )
+        res.send("Success")
+    }
+
+  })
+})
 
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
