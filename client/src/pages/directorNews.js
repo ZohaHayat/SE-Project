@@ -26,7 +26,7 @@ function SingleNews({...props}){
     <div className="flex-child-green">
         <button className = "dir-story-button" onClick={()=> {
             console.log(props._id+" button clicked")
-            deleteNews(props.Name,props.Date,props.Text)
+            deleteNews(props.Headline,props.Date_Published,props.News_Text)
             }} >Remove</button>
         
     </div>

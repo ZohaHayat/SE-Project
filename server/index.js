@@ -853,7 +853,7 @@ app.post('/deleteNews', (req,res)=> {
 
   
   db.collection('News').deleteOne({ "Headline": req.body.name,"Date_Published":req.body.date,"News_Text":req.body.text}).then((result) => {
-    console.log("News deleted successfully");
+    console.log("News deleted successfully", req.body.name);
       res.send("Success")
   })
   .catch((err)=>{res.send("Fail")})
