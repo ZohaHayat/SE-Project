@@ -48,7 +48,6 @@ import Failure2 from './pages/failure2';
 import MemberApp from './pages/memberApp';
 import ForgotPassword from './pages/forgotpassword';
 import PassCode from './pages/passcode';
-// import Success2 from './pages/success2';
 import DirectorStories from './pages/directorStories'
 import AddStory from './pages/AddStory'
 import DirectorNews from './pages/directorNews'
@@ -65,40 +64,40 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const handleLogin = () => {
     setLoggedIn(true)
-    localStorage.setItem("loggedIn",true)
+    sessionStorage.setItem("loggedIn",true)
   }
 
   const handleLogout = () => {
     setLoggedIn(false);
-    localStorage.setItem("loggedIn",true)
+    sessionStorage.setItem("loggedIn",false)
   };
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem("loggedIn")
+    const isLoggedIn = sessionStorage.getItem("loggedIn")
     if (isLoggedIn == "true")
     {
       setLoggedIn(true)
     }
-    window.addEventListener("unload", clearLocalStorage);
 
-    return () => {
-      window.removeEventListener("unload", clearLocalStorage);
-    };
+    // const clearLocalStorage = (event) => {
+    //   if (event.currentTarget.performance.navigation.type !== PerformanceNavigation.TYPE_RELOAD) {
+    //     localStorage.clear();
+    //   }
+    // }
+  
+    // window.addEventListener("beforeunload", clearLocalStorage);
+
+    // return () => {
+    //   window.removeEventListener("beforeunload", clearLocalStorage);
+    // };
 
   },[])
-
-  const clearLocalStorage = () => {
-    localStorage.clear();
-  }
-
   return (
     // the rendering is done inside the class name App and the components need to be self-closed
     //the NavBar is put outside of the Routes tag so that it appears on every page
     <div className="App"> 
     <Router>
       <NavBar loggedIn={loggedIn} handleLogout={handleLogout}/> 
-      {/* <NavBarlogin/> */}
-    
       <Routes>
         <Route exact path = '/' element = {<Home/>}/>
         <Route exact path = '/events' element = {<Events/>}/>
@@ -121,7 +120,6 @@ function App() {
         
         <Route exact path = '/directorViewDirectors' element ={<DDirectors />}/>
         <Route exact path = '/AmbassadorApplications' element ={<AmbassadorApplications />}/>
-        {/* the / simply means that homepage is with a / */}
         <Route exact path = '/success' element = {<Success/>}/>
         <Route exact path = '/failure' element = {<Failure/>}/>
         <Route exact path = '/success2' element = {<Success2/>}/>
@@ -129,7 +127,6 @@ function App() {
         <Route exact path = '/sponsor' element = {<Sponsor/>}/>
         <Route path = 'member' element = {<MemberAdd/>}/>
 
-        {/* <Route exact path = '/success2' element = {<Success2/>}/> */}
 
         {loggedIn &&
         <Route path = '/directorPage'>
@@ -153,7 +150,6 @@ function App() {
           <Route path = 'directorNews' element = {<DirectorNews/>}/>
           <Route path = 'addnews' element = {<AddNews/>}/>
           <Route path = 'addEvent' element = {<AddEvent/>}/>
-          {/* <Route path = 'memberapp' element = {<MemberApp/>}/> */}
 
           <Route path = 'memberapp'>
             <Route index element = {<MemberApp/>}/>
