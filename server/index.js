@@ -192,8 +192,6 @@ app.delete('/events/delete/:id', (req, res) => {
 
 
 
-// app.get('/donors', (req,res)=> {
-app.get('/donors', (req,res)=> {
 app.get('/directorPage/donors', (req,res)=> {
   let donorsArr = [] //name,date,text
   db.collection('Donors')
@@ -205,7 +203,6 @@ app.get('/directorPage/donors', (req,res)=> {
     .catch(() => {
       res.status(500).json({msg:"error",list:[]});
     });
-})
 })
 
 app.post('/directorPage/addMember', async (req,res)=> {
