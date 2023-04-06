@@ -3,6 +3,7 @@ import '../styles/volunteerform.css'
 import {useState} from "react"
 import {useNavigate} from "react-router-dom"
 import Axios from 'axios'
+import PhoneInput from 'react-phone-number-input';
 
 function Volunteerform() {
 
@@ -66,7 +67,7 @@ function Volunteerform() {
           <input type="text" id="cnic" name="cnic" placeholder='CNIC' required onChange={ (e) => {setcnic(e.target.value)}  }/>
         </div>
         <div className="form-group">
-          <input type="text" id="contact-number" name="contact_number" placeholder='Contact Number' required onChange={ (e) => {setContactNum(e.target.value)}  }/>
+          <input pattern="\d{4}-\d{7}|\+92\d{10}" type="text" id="contact-number" name="contact_number" placeholder='Contact Number' required onChange={ (e) => {setContactNum(e.target.value)}  }/>
         </div>
         </div>
         <button type="submit" className="vol-submit-button" onClick={(e) => [volun()]}>

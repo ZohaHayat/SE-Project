@@ -57,7 +57,7 @@
 }  
 
 
-.submit-button {
+.contact-submit-button {
     margin-top: 20px;
     background-color: #92D4D2;
     border-radius: 30px;
@@ -73,7 +73,7 @@
 
 }
 
-.submit-button:hover{
+.contact-submit-button:hover{
     transition: 0.2s ease-in;
     background-color: #99dcda;
     cursor: pointer;

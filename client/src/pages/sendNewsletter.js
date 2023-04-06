@@ -66,7 +66,7 @@ const Newsletter=()=>{
         <div>
             <form className="formNewsletter" onSubmit={newsletterSubmit}>
             <h2 className="newsletter-heading">Newsletter</h2>
-            <div class="container" >
+            <div>
                 <textarea id="message" onChange={onContentChange} class="query-message" name="user_message" type="text" placeholder="Enter the content for the newsletter" required></textarea>
             </div>
                 <button className="submit-button">Send</button>

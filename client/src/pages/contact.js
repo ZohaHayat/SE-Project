@@ -19,6 +19,7 @@ const Contact =()=>{
             setStatus("Submitted!")
             alert("Submitted!")
         }, (error) => {
+            alert("failure")
             console.log(error.text);
         });
 
@@ -36,11 +37,11 @@ const Contact =()=>{
                         <div >
                             <input id="email" class="email" type="text" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" name="user_email" placeholder="Email" required></input>
                         </div>
-                        <div class="container" >
+                        <div >
                             <textarea id="message" class="query-message" name="user_message" type="text" placeholder="Write your query" required></textarea>
                         </div>
                         <div >
-                            <button class="submit-button" >{status}</button>
+                            <button class="contact-submit-button" >{status}</button>
                         </div>
                 </div>
             </form>

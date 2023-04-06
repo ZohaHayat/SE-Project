@@ -4,7 +4,7 @@ import "../styles/viewTeamDirector.css"
 const ViewTeamDirector= ()=>{
     return (
         <div className="container">
-            <h1>View Team</h1>
+            <h1 className="VT-dir">View Team</h1>
             <div className="buttons">
                 <div>
                     <Link to= "/directorPage/viewSponsors">

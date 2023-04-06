@@ -43,7 +43,7 @@ const Change =()=>{
                 <input id="email" className="email" type="email" placeholder="Enter your Email" required onChange={(event) => {setEmail(event.target.value)}}></input>
             </div>
             <div >
-                <input id="password" className="password" type="text" placeholder="Old Password" required onChange={(event) => {setOld(event.target.value)}}></input>
+                <input id="password" className="password" type="password" placeholder="Old Password" required onChange={(event) => {setOld(event.target.value)}}></input>
             </div>
             <div>
                 <input id="password" className="password" type="password" placeholder="New Password" required onChange={(event) => {setNewp(event.target.value)}}></input>
