@@ -48,7 +48,7 @@ const AmbassadorApplications = () => {
         message: 'Congratulations! Your ambassador application has been accepted. You are now a member of the PakTree team.'
       };
     
-      emailjs.send('gmail', 'template_4943j5l', templateParams, 'qwZ-gJBy-s1_fkz9V')
+      emailjs.send('gmail', 'template_ho0sdji', templateParams, 'qwZ-gJBy-s1_fkz9V')
         .then((response) => {
           // alert("email sent")
           console.log('SUCCESS!', response.status, response.text);

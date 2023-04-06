@@ -1,5 +1,5 @@
 .formNewsletter{
-    
+    height: 530px;
     margin-left: 550px;
 }
 
@@ -7,6 +7,14 @@
     justify-self: center;
     align-self: center;
     margin-left: 140px;
+
+    background-color: #92D4D2;
+    border-radius: 30px;
+    height: 40px;
+    width:140px;
+    border: none;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top: 30px;
 }
 
 .query-message {
@@ -14,6 +22,7 @@
 }
 
 .newsletter-heading{
+    margin-top:50px;
     font-family:Arial, Helvetica, sans-serif;
     color: #205567;
     font-size:30px;
