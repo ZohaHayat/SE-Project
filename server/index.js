@@ -653,7 +653,11 @@ app.post('/change', (req,res)=> {
 
   db.collection('Directors').findOne({Email: email}).then((result) => {
     console.log(result)
-    if (result != null)
+    if (result === null)
+    {
+      res.send("User not found")
+    }
+    else
     {
       bcrypt.compare(old, result.Password, function(err, hes){
         if(hes)
@@ -661,16 +665,8 @@ app.post('/change', (req,res)=> {
           db.collection('Directors').updateOne(
             { Email: email }, // specify the user to update by their username
             { $set: { Password: newp } } // set the new password
-          ).then((response) => {
-            if (response.acknowledged)
-            {
-              res.send("Success")
-            }
-            else
-            {
-              res.send("Failure")
-            }
-          });
+          )
+          res.send("Success")
         }
         else
         {
@@ -678,34 +674,7 @@ app.post('/change', (req,res)=> {
         }
       });
     }
-    else
-    {
-      res.send("User not found")
-    }
   })
-
-  // db.collection('Users').updateOne(
-  //   { Email: email }, // specify the user to update by their username
-  //   { $set: { Password: newp } } // set the new password
-  // );
-
-
-
-  // db.collection('Directors').updateOne(
-  //   { Email: email, Password: old }, // specify the user to update by their username
-  //   { $set: { Password: newp } } // set the new password
-  // ).then((response) => {
-  //   if (response.acknowledged)
-  //   {
-  //     res.send("Success")
-  //   }
-  //   else
-  //   {
-  //     res.send("Failure")
-  //   }
-  // });
-
-  res.send("Success")
 })
 
 app.post('/del', (req,res)=> {
@@ -969,7 +938,7 @@ app.post('/forgotpass', (req,res)=> {
   let pass= req.body.password;
   pass = bcrypt.hashSync(pass, saltRounds);
 
-  db.collection('Directors').findOne({"Email": email }).then((result) => {
+  db.collection('Directors').findOne({Email: email }).then((result) => {
     console.log(result)
     if (result===null){
       console.log("This Account does not exist")
