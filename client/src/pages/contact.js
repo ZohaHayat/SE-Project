@@ -12,7 +12,7 @@ const Contact =()=>{
     const sendEmail = (e) => {
         
         e.preventDefault();
-        emailjs.sendForm('gmail', 'template_4943j5l', form.current, 'qwZ-gJBy-s1_fkz9V')
+        emailjs.sendForm('gmail', 'template_ho0sdji', form.current, 'qwZ-gJBy-s1_fkz9V')
         .then((result) => {
             console.log(result.text);
             e.target.reset()
@@ -35,7 +35,7 @@ const Contact =()=>{
                 <div className="contactForm">
                     <h2 class="heading">Contact Us</h2>
                         <div >
-                            <input id="email" class="email" type="text" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" name="user_email" placeholder="Email" required></input>
+                            <input id="user_email" class="email" type="text" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" name="user_email" placeholder="Email" required></input>
                         </div>
                         <div >
                             <textarea id="message" class="query-message" name="user_message" type="text" placeholder="Write your query" required></textarea>
