@@ -17,6 +17,7 @@ const Contact =()=>{
             console.log(result.text);
             e.target.reset()
             setStatus("Submitted!")
+            alert("Submitted!")
         }, (error) => {
             console.log(error.text);
         });
