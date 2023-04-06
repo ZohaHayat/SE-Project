@@ -12,7 +12,7 @@
     font-family:Arial, Helvetica, sans-serif;
     color: #205567;
     font-size:30px;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
 
 
 }
@@ -25,7 +25,7 @@
     border-radius: 7px;
     padding-left: 5px;
     background-color: #f0f4f2;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
 
 
 
@@ -46,7 +46,7 @@
     border-radius: 7px;
     text-align: justify;
     background-color: #f0f4f2;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
 
   }
 
@@ -66,7 +66,7 @@
     border: none;
     font-family:Arial, Helvetica, sans-serif;
     margin-bottom: 110px;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
 
     
     

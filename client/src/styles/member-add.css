@@ -24,7 +24,7 @@
     border-style: solid;
     border-radius: 7px;
     padding-left: 5px;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
 
 }
 
@@ -41,7 +41,7 @@
     border: none;
     font-family:Arial, Helvetica, sans-serif;
     margin-bottom: 0px;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
 
 }
 
@@ -61,6 +61,6 @@
     border-style: solid;
     border-radius: 7px;
     padding-left: 5px;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
 
 }

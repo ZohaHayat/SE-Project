@@ -10,7 +10,7 @@
     margin: 20px;
     /* font-size: medium; */
     text-align: left;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
     background-image:url("../assets/contact_bg.jpg");
     background-position: 60%;
     text-align: center;

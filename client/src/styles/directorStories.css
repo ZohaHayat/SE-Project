@@ -1,7 +1,7 @@
 .flex-child-green{
     padding-top: 30px;
     flex: 3;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
 
 }
 
@@ -62,7 +62,7 @@
     margin-right: 400px;
     margin-left: 15%;
     justify-content: space-between;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
 
 
 }

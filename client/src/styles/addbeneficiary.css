@@ -8,14 +8,14 @@
     font-family:Arial, Helvetica, sans-serif;
     color: #205567;
     font-size:30px;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
 
   }
   
   .form {
     display: flex;
     flex-direction: column;
-    animation: fadeIn 2s;
+    animation: fadeIn 0.2s;
 
   }
   
