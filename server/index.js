@@ -862,14 +862,14 @@ app.post('/deleteNews', (req,res)=> {
 
 app.post('/addnews', (req,res)=> {
   console.log("add news called");
-  db.collection('News').findOne({ "Headline": req.body.headline,"Date":req.body.date,"News_Text":req.body.text}).then((result) => {
+  db.collection('News').findOne({ "Headline": req.body.headline,"Date_Published":req.body.date,"News_Text":req.body.text}).then((result) => {
     console.log(result)
     if (result!==null){
       console.log("This news already exists")
       res.send("Duplicate")
     }
     else{
-      db.collection('News').insertOne({ "Headline": req.body.headline,"Date":req.body.date,"News_Text":req.body.text}).then((result) => {
+      db.collection('News').insertOne({ "Headline": req.body.headline,"Date_Published":req.body.date,"News_Text":req.body.text}).then((result) => {
         console.log("News added successfully");
         res.send("Success")
       })
