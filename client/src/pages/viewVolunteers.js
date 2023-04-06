@@ -1,6 +1,6 @@
 import React from 'react'
 import Axios from "axios"
-import Logo from '../assets/nodp.png'
+import Icon from '../assets/nodp.png'
 // import Logo1 from '../assets/team2.jpeg'
 // import Logo2 from '../assets/team3.jpeg'
 // import Logo3 from '../assets/team4.jpeg'
