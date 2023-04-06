@@ -430,7 +430,7 @@ app.post('/okay', (req,res)=> {
   const bank = req.body.bank;
   const amt = req.body.amt;
 
-  console.log(email,name,bank,amt)
+  console.log("hekkO",email,name,bank,amt)
 
   db.collection('Donations').insertOne({Email: email, Bank: bank, Name: name, Amount: amt }).then((result) => {
     if (result.acknowledged == true)
@@ -438,7 +438,7 @@ app.post('/okay', (req,res)=> {
       db.collection('Donors').findOne({Email: email}).then((result) => {
         if (result != null)
         {
-          let vari = String(parseInt(result.DonationAmount) + amt)
+          let vari = String(parseInt(result.DonationAmount) + parseInt(amt))
           db.collection('Donors').updateOne(
             { Email: email },
             { $set: { "DonationAmount": vari } }
@@ -537,6 +537,7 @@ app.post('/okay2', (req,res)=> {
   console.log(email,name,bank,amt,event)
 
   db.collection('Sponsorships').insertOne({Email: email, Bank: bank, Name: name, Amount: amt, Event: event })
+  res.send(email)
 })
 
 // app.post('/donate2', async (req,res)=> {

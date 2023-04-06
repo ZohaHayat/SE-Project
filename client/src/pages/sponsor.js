@@ -19,6 +19,7 @@ const Sponsor = () =>{
         {
             alert('The amount entered is less than the minimum amount donated. Please donate a value greater than 200 Rs.')
         }
+        else{
 
         var stripe = new Stripe('sk_test_51Mp7mTFJDc8oaStDTeaSLVZxTszm4hGy6lGCkCn14e9vcgGDiaEdrYV4dux1S422XalmLpKytqJPpBPC7ekqTaW500zcIyztTu');
 
@@ -40,6 +41,7 @@ const Sponsor = () =>{
                 }
             });
         }
+    }
         
     return (
         <div className="sponsor">

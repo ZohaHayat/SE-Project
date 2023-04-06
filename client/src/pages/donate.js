@@ -12,31 +12,34 @@ const Donate = () =>{
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
 
-    const donating = async () => {
+    const donating = (e) => {
+        e.preventDefault()
 
         if (amt < 200)
         {
             alert('The amount entered is less than the minimum amount donated. Please donate a value greater than 200 Rs.')
         }
+        else{
 
-        var stripe = new Stripe('sk_test_51Mp7mTFJDc8oaStDTeaSLVZxTszm4hGy6lGCkCn14e9vcgGDiaEdrYV4dux1S422XalmLpKytqJPpBPC7ekqTaW500zcIyztTu');
+            var stripe = new Stripe('sk_test_51Mp7mTFJDc8oaStDTeaSLVZxTszm4hGy6lGCkCn14e9vcgGDiaEdrYV4dux1S422XalmLpKytqJPpBPC7ekqTaW500zcIyztTu');
 
-        console.log(amt,email,name,bank)
+            // console.log(amt,email,name,bank)
 
-    Axios.post("http://localhost:3000/donate", {
-            email: email,
-            amt: amt,
-            name: name,
-            bank: bank
-            }).then((response) => {
-                console.log(response.data)
-                if(response.data)
-                {
-                    console.log(response.data.url)
-                    console.log(stripe)
-                    window.location.href = `${response.data.url}`;
-                }
-            });
+        Axios.post("http://localhost:3000/donate", {
+                email: email,
+                amt: amt,
+                name: name,
+                bank: bank
+                }).then((response) => {
+                    // console.log(response.data)
+                    if(response.data)
+                    {
+                        // console.log(response.data.url)
+                        console.log("hello")
+                        window.location.href = `${response.data.url}`;
+                    }
+                });
+            }
         }
         
     return (
@@ -55,7 +58,7 @@ const Donate = () =>{
             <div >
                 <input className="amount" type="email" placeholder="Enter your email" required onChange={(event) => {setEmail(event.target.value)}}></input>
             </div>
-            <button className="donate-button" onClick={ (event) => {donating()}}>Donate</button>
+            <button className="donate-button" onClick={ donating}>Donate</button>
             <div>
                 <h5>If you want to donate items such as clothes, toys, books etc, please drop them at the address below: </h5>
                 <h6>PO Box 45 Lahore Cantt </h6>
