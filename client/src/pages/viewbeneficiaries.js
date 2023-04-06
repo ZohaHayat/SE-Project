@@ -31,7 +31,7 @@ const ViewBeneficiaries=()=> {
             cnic: cnic
         }
         ).then((res) => {
-            navigate("/directorPage/addbeneficiary");
+            navigate("/directorPage/viewbeneficiaries");
         }).catch(err => {console.log(err)})
 
     }
