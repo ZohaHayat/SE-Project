@@ -6,6 +6,7 @@
     "@emotion/styled": "^11.10.6",
     "bcrypt": "^5.1.0",
     "framer-motion": "^10.8.5",
+    "jspdf": "^2.5.1",
     "stripe": "^11.17.0"
   },
   "devDependencies": {

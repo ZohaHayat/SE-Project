@@ -1,0 +1,22 @@
+.formNewsletter{
+    
+    margin-left: 550px;
+}
+
+.submit-button{
+    justify-self: center;
+    align-self: center;
+    margin-left: 140px;
+}
+
+.query-message {
+    padding: 10px;
+}
+
+.newsletter-heading{
+    font-family:Arial, Helvetica, sans-serif;
+    color: #205567;
+    font-size:30px;
+    animation: fadeIn 2s;
+    margin-left: 130px;
+}

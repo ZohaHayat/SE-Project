@@ -56,6 +56,7 @@ import AddNews from './pages/addnews'
 import AddEvent from './pages/addEvent'
 import DirectorEvent from './pages/directorEvents'
 import MemberAppDecision from './pages/accept_dec_member'
+import Newsletter from './pages/sendNewsletter';
 
 
 
@@ -69,7 +70,7 @@ function App() {
 
   const handleLogout = () => {
     setLoggedIn(false);
-    localStorage.setItem("loggedIn",false)
+    localStorage.setItem("loggedIn",true)
   };
 
   useEffect(() => {
@@ -145,6 +146,8 @@ function App() {
           <Route path = 'addbeneficiary' element = {<AddBeneficiary/>}/>
           <Route path = 'members' element = {<RemoveMembers/>}/>
           <Route path = 'directorStories' element = {<DirectorStories/>}/>
+          <Route path = 'sendNewsletter' element = {<Newsletter/>}/>
+
           <Route exact path = 'directorEvents' element ={<DEvents />}/>
           <Route path = 'addstory' element = {<AddStory/>}/>
           <Route path = 'directorNews' element = {<DirectorNews/>}/>

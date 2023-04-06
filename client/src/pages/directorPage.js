@@ -32,6 +32,12 @@ const DirectorPage=()=>{
                     <button className="b">Stories</button>
                     </Link>
                 </div>
+
+                <div>
+                    <Link to="/directorPage/sendNewsletter">
+                    <button className="b">Newsletter</button>
+                    </Link>
+                </div>
             </div>
         </div>
 

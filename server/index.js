@@ -362,7 +362,7 @@ app.post('/login', (req,res)=> {
   const email = req.body.email;
   const pass = req.body.password;
 
-  console.log(email,pass)
+  // console.log(email,pass)
 
   db.collection('Users').findOne({Email: email}).then((result) => {
     if (result != null)
@@ -381,7 +381,7 @@ app.post('/login', (req,res)=> {
     else
     {
       db.collection('Directors').findOne({Email: email}).then((result) => {
-        console.log(result)
+        // console.log(result)
         if (result != null)
         {
           bcrypt.compare(pass, result.Password, function(err, hes){
@@ -991,6 +991,21 @@ app.post('/forgotpass', (req,res)=> {
 
   })
 })
+
+app.get('/newsletter', (req,res)=> {
+  let newsletterArr = [] //name,date,text
+  // console.log("this is news")
+  db.collection('Newsletter')
+    .find() 
+    .forEach(elem => newsletterArr.push(elem))
+    .then((result) => {
+      res.status(200).json({msg:"success",list:newsletterArr});
+    })
+    .catch(() => {
+      res.status(500).json({msg:"error",list:[]});
+    });
+})
+
 
 // app.get('/aboutus', (req,res)=> {
 //   let temp = []
