@@ -34,7 +34,7 @@
   .EventItem {
     border-radius: 15px;
     width: 400px;
-    height: 450px;
+    height: 410px;
     margin: 30px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   }
@@ -79,8 +79,8 @@
   }
 
   .pop_up_body{
-    width: 70%;
-    height: 70%;
+    width: 60%;
+    height: 50%;
     background-color : white;
     padding: 20px;
     border-radius: 10px;

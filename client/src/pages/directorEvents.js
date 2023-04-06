@@ -81,8 +81,8 @@ function DEvents() {
               <div className="EventItem">
                 <img src={Clothes} alt=""/>
                 <h1>{val.EventName}</h1>
-                <p>{val.Date}</p>
-                <p>{val.Description}</p>
+                <p>Event Date: {val.Date}</p>
+                {/* <p>{val.Description}</p> */}
                 <button className="d-button_events" onClick={()=> {changecontent(val)}}>View More</button>
                 <button className="button_events_remove" onClick={()=> {handleRemove(val)}}>Remove</button>
               </div>
@@ -101,6 +101,7 @@ function DEvents() {
             return (
               <div className="pop_up_card">
                 <h2>{val.EventName}</h2>
+                <p>Event Date: {val.Date}</p>
                 <p>{val.Description}</p>
               </div>
             )

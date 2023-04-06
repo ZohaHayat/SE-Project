@@ -48,8 +48,8 @@ function Events() {
                   <div className="EventItem">
                     <img src={Clothes} alt=""/>
                     <h1>{val.EventName}</h1>
-                    <p>{val.Date}</p>
-                    <p>{val.Description}</p>
+                    <p>Event Date: {val.Date}</p>
+                    {/* <p>{val.Description}</p> */}
                     <button className="button_events" onClick={()=> {changecontent(val)}}>View More</button>
                   </div>
                 )
@@ -67,6 +67,7 @@ function Events() {
                 return (
                   <div className="pop_up_card">
                    <h2>{val.EventName}</h2>
+                   <p>{val.Date}</p>
                     <p>{val.Description}</p>
                   </div>
                 )

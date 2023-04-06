@@ -46,6 +46,11 @@ function Home() {
         <Link to="/volunteerform">
           <button>Volunteer</button>
         </Link>
+        {/* <h1>Help Our Cause</h1>
+        <p>Join us in our journey of serving humanity and the environment through targeted awareness campaigns, plantations, and donation drives for those in need.</p>
+        <Link to="/donate">
+        <button>Donate Now</button>
+        </Link> */}
       </div>
       <ChatIcon/>
       
