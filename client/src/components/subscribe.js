@@ -65,29 +65,26 @@ function ChatIcon() {
         <img src={Sub} alt="Chat Icon" />
       </button>
       {popuptoggle && (<div className="chat_pop_up_container" onClick={changecontent}>
-<div className="chat_pop_up_body" onClick = {(e)=> e.stopPropagation()}>
-  <div className="chat_pop_up_header">
-    <button className="chat_button" onClick={changecontent}>x</button>
-  </div>
-  <div className="chat_pop_up_content">
-    <div className='The_headers'>
-    <h3 className='hh'>Add impact to your inbox</h3>
-    <p className='pp'>Get our emails to stay in the know</p>
-    </div>
-    <form ref={sub_form} onSubmit={sendSub} className="this_form">
-    <div className='email_form'>
-      <input className='sub_email' type="email" name = "subscribe_email" placeholder='Email' required onChange={ (e) => {setSubscriber(e.target.value)}  }/>
-    </div>
-    <div className='sub_pop_button'>
-      <button className='butt_sub' onClick={(e) => [storeSub()]}>Subscribe</button>
-    </div>
-    </form>
-  </div>
-  </div>
-</div>)}
-      
-     
-     
+        <div className="chat_pop_up_body" onClick = {(e)=> e.stopPropagation()}>
+          <div className="chat_pop_up_header">
+            <button className="chat_button" onClick={changecontent}>x</button>
+          </div>
+          <div className="chat_pop_up_content">
+            <div className='The_headers'>
+              <h3 className='hh'>Add impact to your inbox</h3>
+              <p className='pp'>Get our emails to stay in the know</p>
+            </div>
+              <form ref={sub_form} onSubmit={sendSub} className="this_form">
+                <div className='email_form'>
+                  <input className='sub_email' type="email" name = "subscribe_email" placeholder='Email' required onChange={ (e) => {setSubscriber(e.target.value)}  }/>
+                </div>
+                <div className='sub_pop_button'>
+                  <button className='butt_sub' onClick={(e) => [storeSub()]}>Subscribe</button>
+                </div>
+              </form>
+          </div>
+        </div>
+      </div>)}
     </div>
   );
 }

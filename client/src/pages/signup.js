@@ -26,9 +26,7 @@ const Signup =()=>{
                 console.log(response)
                 if(response.data === "User already exists")
                 {
-                    // alert("Failed! Account not recognised. Please sign up or check log in details.");
                     navigate("/singup")
-                    // alert("User account already exists");
                 }
                 else if (response.data === "Success")
                 {

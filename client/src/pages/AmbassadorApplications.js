@@ -2,6 +2,8 @@ import React from 'react'
 import Axios from "axios"
 import "../styles/AmbassadorApplications.css"
 import { useState, useEffect } from "react";
+import emailjs from '@emailjs/browser';
+
 
 const ApplicationDetails = ({ application, onAccept, onClose, onDecline }) => {
     return (
@@ -37,6 +39,42 @@ const AmbassadorApplications = () => {
           console.log(err);
         });
     }, []);
+
+    const acceptsendEmail = (application) => {
+      const templateParams = {
+        subject: "Application accepted",
+        name: application.Name,
+        email: application.Email,
+        message: 'Congratulations! Your ambassador application has been accepted. You are now a member of the PakTree team.'
+      };
+    
+      emailjs.send('gmail', 'template_4943j5l', templateParams, 'qwZ-gJBy-s1_fkz9V')
+        .then((response) => {
+          // alert("email sent")
+          console.log('SUCCESS!', response.status, response.text);
+        }, (err) => {
+          // alert("email failed")
+          console.log('FAILED...', err);
+        });
+    };
+
+    const declinesendEmail = (application) => {
+      const templateParams = {
+        subject: "Application Declined",
+        name: application.Name,
+        email: application.Email,
+        message: 'We are sorry to inform you that we will not be going forward with your ambassador application.'
+      };
+    
+      emailjs.send('gmail', 'template_4943j5l', templateParams, 'qwZ-gJBy-s1_fkz9V')
+        .then((response) => {
+          // alert("email sent")
+          console.log('SUCCESS!', response.status, response.text);
+        }, (err) => {
+          // alert("email failed")
+          console.log('FAILED...', err);
+        });
+    };
   
     const handleViewMore = (application) => {
       setSelectedApplication(application);
@@ -46,6 +84,7 @@ const AmbassadorApplications = () => {
         Axios.put(`http://localhost:3000/ambassadorApplications/${application.Application_ID}`, {
             Status: 'declined'
         }).then(() => {
+            declinesendEmail(application);
             setApplications(applications.map((a) => {
             if (a.Application_ID === application.Application_ID) {
                 return { ...a, Status: 'declined' };
@@ -64,6 +103,7 @@ const AmbassadorApplications = () => {
           contactNo: application.Contact_no,
           dob: application.DOB,
         }).then( () => {
+            acceptsendEmail(application);
             Axios.put(`http://localhost:3000/ambassadorApplications/${application.Application_ID}`, {
                 Status: 'accepted'
             }).then(() => {
@@ -80,6 +120,8 @@ const AmbassadorApplications = () => {
           console.log(err);
         });
     };
+
+
   
     return (
       <div className="page-amb-applications">
