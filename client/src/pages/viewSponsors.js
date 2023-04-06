@@ -1,6 +1,6 @@
 import React from 'react'
 import Axios from "axios"
-import Logo from '../assets/nodp.png'
+import Icon from '../assets/nodp.png'
 import "../styles/viewSponsors.css"
 import { useState,useEffect } from 'react'
 
@@ -17,25 +17,51 @@ const ViewSponsors=()=> {
     })
 
     return (
-        <div  className='Sponsors'>
-            <h1 className = "Sponsorheading">Sponsors</h1>
-            {sponsors.map((val) => { 
+        <div className='Members_'>
+        <h1 className = "memHeading">Sponsors</h1>
+        <div className='horizontal_line'></div>
+        <div className="memList">
+            {/* <div className='horizontal_line'></div> */}
+
+            {
+              sponsors.map((val) => {
                 return (
-                    <div className="sponsorcontainer">
-                        <div class="sponsorpic">
-                            <img className="sponsor-img" src={Logo}/>
-                        </div>
-                        <div class="sponsordetail">
-                            <h3>{val.Name}</h3>
-                            <h4>{val.Event}</h4>
-                         </div>
+                    <div className='memItem'>
+                  <div className="memImg">
+                    <img src={Icon} alt=""/>
+                    </div>
+                    <div className="memText">
+                    <h2>{val.Name}</h2>
+                    <p>{val.Event}</p>
+                    </div>
+                  </div>
+                )
+              })
+            }
+
+          </div>
+
+
+    </div>
+        // <div  className='Sponsors'>
+        //     <h1 className = "Sponsorheading">Sponsors</h1>
+        //     {sponsors.map((val) => { 
+        //         return (
+        //             <div className="sponsorcontainer">
+        //                 <div class="sponsorpic">
+        //                     <img className="sponsor-img" src={Logo}/>
+        //                 </div>
+        //                 <div class="sponsordetail">
+        //                     <h3>{val.Name}</h3>
+        //                     <h4>{val.Event}</h4>
+        //                  </div>
                     
-                    </div>)
-            })}
+        //             </div>)
+        //     })}
           
 
            
-        </div>
+        // </div>
       )
 }
 
