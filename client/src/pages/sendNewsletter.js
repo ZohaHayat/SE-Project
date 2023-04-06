@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import "../styles/sendNewsletter.css"
-import jsPDF from "jspdf";
+// import jsPDF from "jspdf";
 import emailjs from '@emailjs/browser';
 import Axios from "axios";
 import { useNavigate } from "react-router-dom"
