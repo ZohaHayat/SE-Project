@@ -8,17 +8,17 @@ const ViewTeamDirector= ()=>{
             <div className="buttons">
                 <div>
                     <Link to= "/directorPage/viewSponsors">
-                    <button className="but">Sponsors</button>
+                        <button className="but">Sponsors</button>
                     </Link>
                 </div>
 
                 <div>
-                <button className="but">Donors</button>
+                    <button className="but">Donors</button>
                 </div>
 
                 <div>
                     <Link to="/directorPage/viewVolunteers">
-                    <button className="but">Volunteers</button>
+                        <button className="but">Volunteers</button>
                     </Link>
                 </div>
 
