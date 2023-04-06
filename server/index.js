@@ -852,7 +852,7 @@ app.post('/deleteNews', (req,res)=> {
   // console.log(req);
 
   
-  db.collection('News').deleteOne({ "Heading": req.body.name,"Date_Published":req.body.date,"News_Text":req.body.text}).then((result) => {
+  db.collection('News').deleteOne({ "Headline": req.body.name,"Date_Published":req.body.date,"News_Text":req.body.text}).then((result) => {
     console.log("News deleted successfully");
       res.send("Success")
   })
