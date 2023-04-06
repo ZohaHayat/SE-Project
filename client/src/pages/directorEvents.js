@@ -5,7 +5,7 @@ import {EventList} from '../helpers/EventList'
 // import EventItem from '../components/eventItem'
 import "../styles/directorEvents.css"
 import Plantation from "../assets/plantation.webp";
-import Clothes from "../assets/clothes.webp";
+import Clothes from "../assets/common.jpg";
 import Food from "../assets/food.jpg";
 import Water from "../assets/water.jpg";
 import Button from "@mui/material/Button";
