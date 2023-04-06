@@ -13,7 +13,9 @@ const ViewTeamDirector= ()=>{
                 </div>
 
                 <div>
-                    <button className="but">Donors</button>
+                    <Link to= "/directorPage/donors">
+                        <button className="but">Donors</button>
+                    </Link>
                 </div>
 
                 <div>
