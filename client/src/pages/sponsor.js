@@ -52,7 +52,7 @@ const Sponsor = () =>{
                 <p className='vol_text'>Don't know the name? View events<a className='vol_a' href="/events">here</a> </p>
             </div>
             <div >
-                <input className="amount" type="text" placeholder="Enter Amount to donate" required onChange={(event) => {setAmt(event.target.value)}}></input>
+                <input className="amount" type="number" placeholder="Enter Amount to donate" required onChange={(event) => {setAmt(event.target.value)}}></input>
             </div>
             <div >
                 <input className="amount" type="text" placeholder="Enter Bank Name" required onChange={(event) => {setBank(event.target.value)}}></input>

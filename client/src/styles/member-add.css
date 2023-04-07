@@ -45,6 +45,12 @@
 
 }
 
+.apply-button:hover {
+    background-color: #a9e7e4;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+  }
+
 .form-div{
     display: flex;
     flex-direction: column;
