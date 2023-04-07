@@ -21,7 +21,7 @@ function DEvents() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    Axios.get("http://paktree-backend.herokuapp.com/events/get")
+    Axios.get("https://paktree-backend.herokuapp.com/events/get")
     .then (res => {
       seteve(res.data.list);
     })
@@ -31,7 +31,7 @@ function DEvents() {
   })
 
   const handleRemove = (event) => {
-    Axios.delete(`http://paktree-backend.herokuapp.com/events/delete/${event.EventID}`)
+    Axios.delete(`https://paktree-backend.herokuapp.com/events/delete/${event.EventID}`)
     .then(res => {
       console.log(res.data.message);
       const updatedEvents = eve.filter(e => e.EventID !== event.EventID);

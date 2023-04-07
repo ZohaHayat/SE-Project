@@ -36,7 +36,7 @@ function SingleStory({...props}){
 }
 
 function deleteStory(delete_name,delete_date,delete_text) {
-    Axios.post("http://paktree-backend.herokuapp.com/deleteStory",{name:delete_name,date:delete_date,text:delete_text}).then((msg)=>{console.log(msg)})
+    Axios.post("https://paktree-backend.herokuapp.com/deleteStory",{name:delete_name,date:delete_date,text:delete_text}).then((msg)=>{console.log(msg)})
 }
 
 
@@ -50,7 +50,7 @@ function DirectorStories() {
     }
     
     useEffect(() => {
-    Axios.get("http://paktree-backend.herokuapp.com/stories")
+    Axios.get("https://paktree-backend.herokuapp.com/stories")
     .then(res => {
         setStory(res.data.list); //stores the data from the backend
     })
@@ -58,7 +58,7 @@ function DirectorStories() {
     },[story])
 
     const deleteStory = (passed_name,passed_date,passed_text) => {
-        Axios.post("http://paktree-backend.herokuapp.com/deleteStory", {
+        Axios.post("https://paktree-backend.herokuapp.com/deleteStory", {
         name:passed_name,
         date:passed_date,
         text:passed_text

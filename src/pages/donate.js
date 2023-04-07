@@ -25,7 +25,7 @@ const Donate = () =>{
 
             // console.log(amt,email,name,bank)
 
-        Axios.post("http://paktree-backend.herokuapp.com/donate", {
+        Axios.post("https://paktree-backend.herokuapp.com/donate", {
                 email: email,
                 amt: amt,
                 name: name,
@@ -86,7 +86,7 @@ export default Donate
 
 //         console.log(amt,email,name,bank)
 
-//     Axios.post("http://paktree-backend.herokuapp.com/donate", {
+//     Axios.post("https://paktree-backend.herokuapp.com/donate", {
 //             email: email,
 //             amt: amt,
 //             name: name,
@@ -180,7 +180,7 @@ export default Donate
 
 //         console.log(amt,email,name,bank)
 
-//     Axios.post("http://paktree-backend.herokuapp.com/donate", {
+//     Axios.post("https://paktree-backend.herokuapp.com/donate", {
 //             email: email,
 //             amt: amt,
 //             name: name,
@@ -208,7 +208,7 @@ export default Donate
     
 //             console.log(amt,email,name,bank)
     
-//         Axios.post("http://paktree-backend.herokuapp.com/donate2", {
+//         Axios.post("https://paktree-backend.herokuapp.com/donate2", {
 //                 email: email,
 //                 amt: amt,
 //                 name: name,

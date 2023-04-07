@@ -9,7 +9,7 @@ function Donors() {
     const [donors, setDonors] = useState([])
     
     useEffect(() => {
-    Axios.get("http://paktree-backend.herokuapp.com/directorPage/donors")
+    Axios.get("https://paktree-backend.herokuapp.com/directorPage/donors")
     .then(res => {
         setDonors(res.data.list);
     })

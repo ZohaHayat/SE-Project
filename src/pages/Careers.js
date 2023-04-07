@@ -15,7 +15,7 @@ function Careers() {
     const form = useRef();
 
     const sendApplication = () => {
-        Axios.post("http://paktree-backend.herokuapp.com/careers", {
+        Axios.post("https://paktree-backend.herokuapp.com/careers", {
             name: name,
             dob : dob,
             email : email,

@@ -10,7 +10,7 @@ function News(){
     const [news,setNews] = useState([])
     
     useEffect(() => {
-    Axios.get("http://paktree-backend.herokuapp.com/dirnews")
+    Axios.get("https://paktree-backend.herokuapp.com/dirnews")
     .then(res => {
         setNews(res.data.list); //stores the data from the backend
     })

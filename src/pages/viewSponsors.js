@@ -9,7 +9,7 @@ const ViewSponsors=()=> {
     const [sponsors,setSponsors] = useState([])
     
     useEffect(() => {
-    Axios.get("http://paktree-backend.herokuapp.com/directorPage/viewSponsors")
+    Axios.get("https://paktree-backend.herokuapp.com/directorPage/viewSponsors")
     .then(res => {
         setSponsors(res.data.list); //stores the data from the backend
     })

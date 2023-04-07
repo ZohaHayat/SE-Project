@@ -14,7 +14,7 @@ function AddNews() {
 
         console.log(date,headline,textBody)
 
-        Axios.post("http://paktree-backend.herokuapp.com/addnews", {
+        Axios.post("https://paktree-backend.herokuapp.com/addnews", {
                 date: date,
                 headline: headline,
                 text: textBody

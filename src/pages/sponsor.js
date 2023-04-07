@@ -25,7 +25,7 @@ const Sponsor = () =>{
 
         console.log(amt,email,name,bank)
 
-    Axios.post("http://paktree-backend.herokuapp.com/sponsor", {
+    Axios.post("https://paktree-backend.herokuapp.com/sponsor", {
             email: email,
             amt: amt,
             name: name,

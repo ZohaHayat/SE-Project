@@ -15,7 +15,7 @@ const ViewVolunteers=()=> {
     const [volunteers,setVolunteer] = useState([])
     
     useEffect(() => {
-    Axios.get("http://paktree-backend.herokuapp.com/directorPage/viewVolunteers")
+    Axios.get("https://paktree-backend.herokuapp.com/directorPage/viewVolunteers")
     .then(res => {
         setVolunteer(res.data.list); //stores the data from the backend
     })

@@ -14,7 +14,7 @@ function AddEvent() {
 
         console.log(date,name,textBody)
 
-        Axios.post("http://paktree-backend.herokuapp.com/addevent", {
+        Axios.post("https://paktree-backend.herokuapp.com/addevent", {
                 date: date,
                 name: name,
                 text: textBody,

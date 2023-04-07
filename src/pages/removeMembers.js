@@ -14,7 +14,7 @@ const RemoveMembers=()=> {
     const memberArray=[]
 
     useEffect(() => {
-    Axios.get("http://paktree-backend.herokuapp.com/directorPage/members")
+    Axios.get("https://paktree-backend.herokuapp.com/directorPage/members")
     .then(res => {
         setMembers(res.data.list); //stores the data from the backend
     })
@@ -39,7 +39,7 @@ const RemoveMembers=()=> {
         // setButtonText("Removed")
         // setButtonColor('Green')
 
-        Axios.post("http://paktree-backend.herokuapp.com/directorPage/members", {
+        Axios.post("https://paktree-backend.herokuapp.com/directorPage/members", {
 
             id:id,
             memstatus:"removed"

@@ -20,7 +20,7 @@ const MemberAdd = () => {
 
     const addMember = () => {
 
-        Axios.post("http://paktree-backend.herokuapp.com/directorPage/addMember", {
+        Axios.post("https://paktree-backend.herokuapp.com/directorPage/addMember", {
             name: name,
             dob : dob,
             email : email,

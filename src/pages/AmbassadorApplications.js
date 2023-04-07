@@ -31,7 +31,7 @@ const AmbassadorApplications = () => {
     const [selectedApplication, setSelectedApplication] = useState(null);
   
     useEffect(() => {
-      Axios.get('http://paktree-backend.herokuapp.com/ambassadorApplications')
+      Axios.get('https://paktree-backend.herokuapp.com/ambassadorApplications')
         .then((res) => {
           setApplications(res.data.list);
         })
@@ -81,7 +81,7 @@ const AmbassadorApplications = () => {
     };
 
     const handleDecline = (application) => {
-        Axios.put(`http://paktree-backend.herokuapp.com/ambassadorApplications/${application.Application_ID}`, {
+        Axios.put(`https://paktree-backend.herokuapp.com/ambassadorApplications/${application.Application_ID}`, {
             Status: 'declined'
         }).then(() => {
             declinesendEmail(application);
@@ -97,14 +97,14 @@ const AmbassadorApplications = () => {
     };
 
     const handleAccept = (application) => {
-        Axios.post(`http://paktree-backend.herokuapp.com/addAmbassador`, {
+        Axios.post(`https://paktree-backend.herokuapp.com/addAmbassador`, {
           Name: application.Name,
           Email: application.Email,
           contactNo: application.Contact_no,
           dob: application.DOB,
         }).then( () => {
             acceptsendEmail(application);
-            Axios.put(`http://paktree-backend.herokuapp.com/ambassadorApplications/${application.Application_ID}`, {
+            Axios.put(`https://paktree-backend.herokuapp.com/ambassadorApplications/${application.Application_ID}`, {
                 Status: 'accepted'
             }).then(() => {
                 setApplications(applications.map((a) => {

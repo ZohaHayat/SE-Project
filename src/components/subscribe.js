@@ -34,7 +34,7 @@ function ChatIcon() {
 
   const storeSub = () => {
     if (subscriberEmail)
-    {Axios.post("http://paktree-backend.herokuapp.com/storeSub",
+    {Axios.post("https://paktree-backend.herokuapp.com/storeSub",
     {
       subscriberEmail: subscriberEmail
     }

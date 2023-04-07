@@ -8,7 +8,7 @@ function About() {
     const [abt,setAbt] = useState([])
     
     useEffect(() => {
-    Axios.get("http://paktree-backend.herokuapp.com/aboutus")
+    Axios.get("https://paktree-backend.herokuapp.com/aboutus")
     .then(res => {
         setAbt(res.data.list); //stores the data from the backend
     })

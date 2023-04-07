@@ -18,7 +18,7 @@ const ViewBeneficiaries=()=> {
     const navigate = useNavigate();
     
     useEffect(() => {
-    Axios.get("http://paktree-backend.herokuapp.com/directorPage/viewbeneficiaries")
+    Axios.get("https://paktree-backend.herokuapp.com/directorPage/viewbeneficiaries")
     .then(res => {
         setBenefit(res.data.list); //stores the data from the backend
     })
@@ -26,7 +26,7 @@ const ViewBeneficiaries=()=> {
     })
 
     const removing = (cnic) => {
-        Axios.post("http://paktree-backend.herokuapp.com/directorPage/removebeneficiary", 
+        Axios.post("https://paktree-backend.herokuapp.com/directorPage/removebeneficiary", 
         {
             cnic: cnic
         }

@@ -8,7 +8,7 @@ function Stories() {
     const [story,setStory] = useState([])
     
     useEffect(() => {
-    Axios.get("http://paktree-backend.herokuapp.com/stories")
+    Axios.get("https://paktree-backend.herokuapp.com/stories")
     .then(res => {
         setStory(res.data.list); //stores the data from the backend
     })

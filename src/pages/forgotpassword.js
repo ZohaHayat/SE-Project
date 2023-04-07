@@ -29,7 +29,7 @@ const ForgotPassword=()=>{
             message:message,
             subject: "New password"
         };
-        Axios.post("http://paktree-backend.herokuapp.com/forgotpass", {
+        Axios.post("https://paktree-backend.herokuapp.com/forgotpass", {
                         email:email,
                         password: code
                     

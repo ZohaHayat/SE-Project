@@ -23,7 +23,7 @@ const Success2 = () =>{
         bank = urlParams.get('bank');
         event = urlParams.get('event');
 
-    Axios.post("http://paktree-backend.herokuapp.com/okay2", {
+    Axios.post("https://paktree-backend.herokuapp.com/okay2", {
             email: email,
             amt: amt*12,
             name: name,

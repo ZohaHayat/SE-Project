@@ -16,7 +16,7 @@ const Newsletter=()=>{
 
 
     useEffect(() => {
-        Axios.get("http://paktree-backend.herokuapp.com/newsletter")
+        Axios.get("https://paktree-backend.herokuapp.com/newsletter")
         .then (res => {
             setSubList(res.data.list);
         })

@@ -17,7 +17,7 @@ const Signup =()=>{
 
     const signingup = () => {
         
-        Axios.post("http://paktree-backend.herokuapp.com/signup", {
+        Axios.post("https://paktree-backend.herokuapp.com/signup", {
             email: email,
             password: password,
             fname: fname,

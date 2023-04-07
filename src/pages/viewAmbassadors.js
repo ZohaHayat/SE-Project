@@ -12,7 +12,7 @@ function ViewAmbassadors() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        Axios.get("http://paktree-backend.herokuapp.com/directorPage/getambassadors")
+        Axios.get("https://paktree-backend.herokuapp.com/directorPage/getambassadors")
         .then (res => {
             console.log("hello")
             setambass(res.data.list);
@@ -25,7 +25,7 @@ function ViewAmbassadors() {
     const RemoveAmbass = (name, email) => {
       console.log(`The name and email to be removed ${name} and ${email}`)
 
-      Axios.post("http://paktree-backend.herokuapp.com/directorPage/ambassremove",{
+      Axios.post("https://paktree-backend.herokuapp.com/directorPage/ambassremove",{
         name:name,
         email:email
       }).then((res) =>{

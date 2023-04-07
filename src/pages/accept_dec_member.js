@@ -21,7 +21,7 @@ const MemberAppDecision = (props)=>{
             message:message,
             subject: "PakTree Member Application Decision"
         };
-        Axios.post("http://paktree-backend.herokuapp.com/accept_members", {
+        Axios.post("https://paktree-backend.herokuapp.com/accept_members", {
            
             Name:name,
             DOB: location.state.dob,
@@ -55,7 +55,7 @@ const MemberAppDecision = (props)=>{
             message:message,
             subject: "PakTree Member Application Decision"
         };
-        Axios.post("http://paktree-backend.herokuapp.com/reject_members", {
+        Axios.post("https://paktree-backend.herokuapp.com/reject_members", {
             cnic: location.state.cnic,
             status:"rejected"
         }).then((response) => {

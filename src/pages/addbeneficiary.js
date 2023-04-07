@@ -17,7 +17,7 @@ function AddBeneficiary() {
   const adding = () => {
     // const {event_name, name, age,vol_email, cnic, contact_num} = vol
     console.log(name)
-      Axios.post("http://paktree-backend.herokuapp.com/directorPage/addbeneficiary", 
+      Axios.post("https://paktree-backend.herokuapp.com/directorPage/addbeneficiary", 
       {
         name: name,
         contact: contact,

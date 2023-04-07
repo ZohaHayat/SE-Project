@@ -15,7 +15,7 @@ const Change =()=>{
 
     const changing = () => {
         
-        Axios.post("http://paktree-backend.herokuapp.com/change", {
+        Axios.post("https://paktree-backend.herokuapp.com/change", {
             email: email,
             old: old,
             newp: newp

@@ -16,7 +16,7 @@ const DeleteAcc =()=>{
 
     const deleting = () => {
         
-        Axios.post("http://paktree-backend.herokuapp.com/del", {
+        Axios.post("https://paktree-backend.herokuapp.com/del", {
             email: email,
             password: password
             }).then((response) => {

@@ -15,7 +15,7 @@ function Events() {
   const [eve, seteve] = useState([]);
 
   useEffect(() => {
-    Axios.get("http://paktree-backend.herokuapp.com/events/get")
+    Axios.get("https://paktree-backend.herokuapp.com/events/get")
     .then (res => {
       seteve(res.data.list);
     })

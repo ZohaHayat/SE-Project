@@ -12,7 +12,7 @@ function MemberApp() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        Axios.get("http://paktree-backend.herokuapp.com/getmemberapps")
+        Axios.get("https://paktree-backend.herokuapp.com/getmemberapps")
         .then (res => {
             console.log("hello")
             setmem(res.data.list);

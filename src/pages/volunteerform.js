@@ -20,7 +20,7 @@ function Volunteerform() {
     // const {event_name, name, age,vol_email, cnic, contact_num} = vol
     if (event_name && name && age && vol_email && cnic && contact_num){
       console.log("before axios")
-      Axios.post("http://paktree-backend.herokuapp.com/volunteersubmit", 
+      Axios.post("https://paktree-backend.herokuapp.com/volunteersubmit", 
       {
         event_name: event_name,
         name: name,

@@ -14,7 +14,7 @@ function AddStory() {
 
         console.log(date,name,textBody)
 
-        Axios.post("http://paktree-backend.herokuapp.com/addstory", {
+        Axios.post("https://paktree-backend.herokuapp.com/addstory", {
                 date: date,
                 name: name,
                 text: textBody
