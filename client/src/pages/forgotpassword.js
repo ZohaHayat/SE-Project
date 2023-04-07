@@ -37,7 +37,7 @@ const ForgotPassword=()=>{
                         console.log(response.data)
                         if(response.data==="Success"){
                             
-                            emailjs.send('gmail', 'template_4943j5l', templateParams, 'qwZ-gJBy-s1_fkz9V')
+                            emailjs.send('service_su8frdt','template_resgpox',templateParams, "-ZL5kuj6IL5iYqLqM")
                             .then((result) => {
                                 
                             console.log(result.text);

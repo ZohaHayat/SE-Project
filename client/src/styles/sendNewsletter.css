@@ -17,6 +17,12 @@
     margin-top: 30px;
 }
 
+.submit-button:hover {
+    background-color: #a9e7e4;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+  }
+
 .query-message {
     padding: 10px;
 }

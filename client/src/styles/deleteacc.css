@@ -44,3 +44,9 @@
     font-family:Arial, Helvetica, sans-serif;
     margin-bottom: 285px;
 }
+
+.del-button:hover {
+    background-color: #a9e7e4;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+  }

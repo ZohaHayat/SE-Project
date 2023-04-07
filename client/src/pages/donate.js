@@ -47,7 +47,7 @@ const Donate = () =>{
 
             <h2 className="heading">Make a Donation</h2>
             <div >
-                <input className="amount" type="text" placeholder="Enter Amount to donate" required onChange={(event) => {setAmt(event.target.value)}}></input>
+                <input className="amount" type="number" placeholder="Enter Amount to donate" required onChange={(event) => {setAmt(event.target.value)}}></input>
             </div>
             <div >
                 <input className="amount" type="text" placeholder="Enter Bank Name" required onChange={(event) => {setBank(event.target.value)}}></input>
