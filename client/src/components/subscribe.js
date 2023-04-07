@@ -11,12 +11,18 @@ import { useState } from 'react';
 function ChatIcon() {
   const [st,setSt] = useState("Submit")
   const [subscriberEmail, setSubscriber] = useState(null)
+  var templateParams = {
+    name:"User",
+    email: subscriberEmail,
+    message:'Thank you for subscribing to our Newsletter. This will help us in keeping you updated about our upcoming events and drives as well as inform you about donation and sponsorship opportunities.',
+    subject: "Thank you for subscribing to our Newsletter"
+};
 
   const sub_form = useRef();
   const sendSub = (s) => {
     s.preventDefault();
     
-    emailjs.sendForm('service_su8frdt','template_resgpox', sub_form.current, "-ZL5kuj6IL5iYqLqM")
+    emailjs.send('service_su8frdt','template_resgpox',templateParams, "-ZL5kuj6IL5iYqLqM")
     .then((result) => {
       console.log(result.text);
       s.target.reset()
